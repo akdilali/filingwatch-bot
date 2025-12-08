@@ -1,0 +1,676 @@
+"""
+FilingWatch v2.1 - USPTO Trademark Filing Bot
+============================================
+- TSDR Scraping ile gerçek zamanlı veri (1-2 gün gecikme)
+- Günlük cache - aynı gün tekrar indirmez
+- Akıllı filtreleme - sıkıcıları çıkarır, ilginçleri önceliklendirir
+- Günde 3-4 tweet için optimize edilmiş
+"""
+
+import os
+import tweepy
+from dotenv import load_dotenv
+from datetime import datetime, date
+import json
+import time
+import logging
+import random
+import re
+from typing import Optional, List, Dict
+
+from tsdr_scraper import TSDRScraper
+
+# ============== LOGGING ==============
+logging.basicConfig(
+    filename='filingwatch.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+console.setFormatter(logging.Formatter('%(levelname)s - %(message)s'))
+logging.getLogger().addHandler(console)
+
+load_dotenv()
+
+# ============== CONFIG ==============
+X_API_KEY = os.getenv("X_API_KEY")
+X_API_SECRET = os.getenv("X_API_SECRET")
+X_ACCESS_TOKEN = os.getenv("X_ACCESS_TOKEN")
+X_ACCESS_TOKEN_SECRET = os.getenv("X_ACCESS_TOKEN_SECRET")
+X_BEARER_TOKEN = os.getenv("X_BEARER_TOKEN")
+
+# Dosyalar
+DAILY_CACHE_FILE = "daily_cache.json"  # Günlük cache
+POSTED_FILE = "posted_tweets.json"     # Atılan tweetler
+STATE_FILE = "bot_state.json"          # Bot durumu
+
+# Rate limit - Daha hızlı çekmek için düşürdük (USPTO'yu zorlamayalım ama)
+RATE_LIMIT_DELAY = 0.15  # 0.15 saniye = ~7 istek/saniye
+
+
+# ============== GÜNLÜK CACHE ==============
+
+def get_today_str() -> str:
+    """Bugünün tarihini YYYY-MM-DD formatında döndür"""
+    return date.today().isoformat()
+
+
+def load_daily_cache() -> Dict:
+    """Günlük cache'i yükle - last_serial'ı her zaman koru!"""
+    try:
+        if os.path.exists(DAILY_CACHE_FILE):
+            with open(DAILY_CACHE_FILE, 'r', encoding='utf-8') as f:
+                cache = json.load(f)
+                # Bugünün cache'i mi kontrol et
+                if cache.get('date') == get_today_str():
+                    logging.info(f"📦 Cache yüklendi: {len(cache.get('trademarks', []))} trademark")
+                    return cache
+                else:
+                    # Yeni gün ama last_serial'ı koru!
+                    old_serial = cache.get('last_serial')
+                    logging.info(f"📅 Cache eski, yeni gün - son serial {old_serial}'den devam edilecek")
+                    return {'date': None, 'trademarks': [], 'last_serial': old_serial}
+    except Exception as e:
+        logging.error(f"Cache yükleme hatası: {e}")
+    
+    return {'date': None, 'trademarks': [], 'last_serial': None}
+
+
+def save_daily_cache(trademarks: List[Dict], last_serial: int):
+    """Günlük cache'i kaydet"""
+    try:
+        cache = {
+            'date': get_today_str(),
+            'trademarks': trademarks,
+            'last_serial': last_serial,
+            'saved_at': datetime.now().isoformat()
+        }
+        with open(DAILY_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, ensure_ascii=False)
+        logging.info(f"💾 Cache kaydedildi: {len(trademarks)} trademark")
+    except Exception as e:
+        logging.error(f"Cache kaydetme hatası: {e}")
+
+
+def get_trademarks_for_today() -> List[Dict]:
+    """
+    Bugünkü trademark'ları al - AKILLI TARAMA (Incremental)
+    
+    1. Cache'i yükle (varsa)
+    2. USPTO'dan en son serial'i kontrol et
+    3. Cache'deki son serial ile USPTO arasındaki farkı kapat
+    4. Sadece YENİ olanları listeye ve cache'e ekle
+    """
+    cache = load_daily_cache()
+    cached_trademarks = []
+    last_known_serial = None
+
+    # Cache varsa yükle
+    if cache.get('date') == get_today_str():
+        cached_trademarks = cache.get('trademarks', [])
+        last_known_serial = cache.get('last_serial')
+        print(f"📦 Cache'de {len(cached_trademarks)} kayıt var (Son serial: {last_known_serial})")
+    else:
+        # Cache yoksa veya tarih eskiyse last_serial'ı koru (dünden kalan) ama listeyi sıfırla
+        last_known_serial = cache.get('last_serial')
+        print(f"🔄 Günlük liste sıfır (Dünden kalan serial: {last_known_serial})")
+
+    # TSDR Scraper Başlat
+    scraper = TSDRScraper(rate_limit_delay=RATE_LIMIT_DELAY)
+    
+    # Şu anki en son serial kaç?
+    latest_serial = scraper.find_latest_serial()
+    
+    # Eğer hiç last_known yoksa (ilk kurulum), simülasyon için son 200'ü al
+    if not last_known_serial:
+        # İLK ÇALIŞMA: Son 200 serial'ı tara (~3 saatlik güncel veri)
+        INITIAL_SERIAL_RANGE = 200
+        start_serial = latest_serial - INITIAL_SERIAL_RANGE
+        print(f"\n📡 İlk tarama (Sıfırdan): {start_serial} → {latest_serial}")
+        print(f"   {INITIAL_SERIAL_RANGE} serial taranacak (~3 saatlik güncel veri)")
+        new_trademarks = scraper.scan_range(start_serial, latest_serial)
+        
+        # Hepsini ekle
+        cached_trademarks.extend(new_trademarks)
+        
+    else:
+        # INCREMENTAL TARAMA: Aradaki farkı bul
+        diff = latest_serial - last_known_serial
+        
+        if diff > 0:
+            print(f"\n📡 Incremental tarama: {last_known_serial} → {latest_serial}")
+            print(f"🆕 {diff} yeni başvuru var, taranıyor...")
+            
+            # Güvenlik: Çok fazlaysa sınır koy (örn: 2000 - yaklaşık 1 günlük veri)
+            MAX_CATCHUP = 2000
+            if diff > MAX_CATCHUP:
+                 print(f"⚠️ Çok fazla fark ({diff}), güvenlik için son {MAX_CATCHUP} başvuru taranacak (Max 1 Gün)")
+                 last_known_serial = latest_serial - MAX_CATCHUP
+            
+            new_trademarks = scraper.scan_range(last_known_serial + 1, latest_serial)
+            
+            # Yenileri ekle
+            if new_trademarks:
+                cached_trademarks.extend(new_trademarks)
+                print(f"✅ {len(new_trademarks)} yeni trademark eklendi.")
+        else:
+            print("😴 Yeni başvuru yok, her şey güncel.")
+    
+    # Cache'i güncelle
+    if cached_trademarks:
+        # En büyük serial'ı bul (garanti olsun)
+        all_serials = [int(tm.get('serial_number', 0)) for tm in cached_trademarks]
+        final_last_serial = max(all_serials) if all_serials else latest_serial
+        save_daily_cache(cached_trademarks, final_last_serial)
+    else:
+        # Hiçbir şey yoksa bile latest_serial'ı kaydet ki bir dahakine baştan başlamasın
+        save_daily_cache([], latest_serial)
+        
+    return cached_trademarks
+
+
+# ============== FİLTRELEME ==============
+
+# 🔴 SIKICI - Bunları çıkar
+BORING_PATTERNS = [
+    # Eğitim
+    'elementary school', 'high school', 'middle school', 'university', 'college', 'academy',
+    # Din
+    'church', 'ministry', 'chapel', 'cathedral', 'baptist', 'methodist', 'lutheran',
+    # Kurumsal sıkıcı
+    'foundation', 'association', 'society', 'federation', 'council', 'committee',
+    # Hukuk
+    'law office', 'law firm', 'attorney', 'legal services', 'lawyers', 'law group',
+    # Emlak
+    'realty', 'real estate', 'properties', 'mortgage', 'title company', 'homes',
+    # Finans sıkıcı
+    'insurance', 'accounting', 'tax service', 'bookkeeping', 'cpa',
+    # Danışmanlık
+    'consulting group', 'advisory', 'management consulting', 'solutions group',
+    # Yatırım
+    'holdings', 'investments', 'capital group', 'asset management', 'equity',
+    # Cenaze
+    'funeral', 'cemetery', 'memorial', 'mortuary',
+    # Ev hizmetleri
+    'plumbing', 'hvac', 'roofing', 'landscaping', 'lawn care', 'pest control',
+    # Sağlık sıkıcı
+    'dental', 'dentistry', 'orthodontic', 'chiropractic', 'physical therapy',
+]
+
+# 🟢 İLGİNÇ - Bunlara öncelik ver
+INTERESTING_PATTERNS = [
+    # Tech/AI - En önemli
+    ' ai', 'ai ', '-ai', 'a.i.', 'gpt', 'llm', 'neural', 'quantum',
+    'cyber', 'crypto', 'bitcoin', 'ethereum', 'nft', 'web3', 'defi',
+    'blockchain', 'metaverse', 'virtual reality', 'vr', 'augmented',
+    'machine learning', 'deep learning', 'artificial intelligence',
+    'robot', 'automation', 'autonomous', 'self-driving', 'drone',
+    'cloud', 'saas', 'fintech', 'biotech', 'cleantech', 'healthtech',
+    'chatbot', 'copilot', 'assistant', 'smart',
+    
+    # Gaming/Entertainment
+    'game', 'gaming', 'esport', 'streamer', 'twitch', 'discord',
+    'anime', 'manga', 'cosplay', 'comic', 'superhero',
+    
+    # Lifestyle/Trendy
+    'vibe', 'zen', 'mindful', 'wellness', 'organic', 'sustainable',
+    'plant-based', 'vegan', 'eco-', 'green',
+    
+    # Fun/Creative
+    'ninja', 'wizard', 'dragon', 'phoenix', 'cosmic', 'stellar', 'galaxy',
+    'pixel', 'neon', 'retro', 'vintage', 'artisan', 'craft',
+    'hustle', 'grind', 'boss', 'empire', 'kingdom', 'squad',
+    
+    # Trendy Food
+    'brew', 'coffee', 'boba', 'matcha', 'acai', 'kombucha', 'sushi',
+]
+
+# 🏢 BİLİNEN ŞİRKETLER - Kesinlikle paylaş
+KNOWN_COMPANIES = [
+    'apple', 'google', 'alphabet', 'microsoft', 'amazon', 'meta', 'facebook',
+    'tesla', 'nvidia', 'netflix', 'spotify', 'uber', 'lyft', 'airbnb',
+    'openai', 'anthropic', 'adobe', 'salesforce', 'oracle', 'ibm',
+    'samsung', 'sony', 'nintendo', 'disney', 'warner', 'paramount', 'universal',
+    'coca-cola', 'pepsi', 'nike', 'adidas', 'puma', 'under armour',
+    'mcdonald', 'starbucks', 'chipotle', 'dunkin',
+    'visa', 'mastercard', 'paypal', 'stripe', 'square', 'coinbase', 'binance',
+    'tiktok', 'bytedance', 'snapchat', 'snap inc', 'twitter', 'x corp', 'linkedin',
+    'palantir', 'snowflake', 'databricks', 'figma', 'notion', 'canva', 'slack',
+    'spacex', 'blue origin', 'rivian', 'lucid', 'ford', 'gm', 'toyota', 'honda',
+    'intel', 'amd', 'qualcomm', 'arm', 'broadcom',
+]
+
+
+# 🟢 SCORE WEIGHTS
+SCORE_RULES = {
+    'known_company': 50,    # Apple, Google vs
+    'ai_keyword': 25,       # AI, GPT, Neural
+    'tech_keyword': 15,     # Crypto, Cloud, Cyber
+    'cool_keyword': 10,     # Game, Vibe, Zen
+    'tech_class': 10,       # Software, Electronics classes
+    'boring_match': -100,   # Furniture, Law firm
+    'short_name': 5         # < 6 chars
+}
+
+# 🏷️ INTERESTING CLASSES (International Class)
+TECH_CLASSES = ['009', '035', '036', '038', '041', '042']
+
+def calculate_importance_score(tm: Dict) -> tuple[int, List[str]]:
+    """
+    Trademark'a puan ver
+    Returns: (score, reasons)
+    """
+    score = 0
+    reasons = []
+    
+    name = (tm.get('mark_name') or '').lower().strip()
+    owner = (tm.get('owner') or '').lower()
+    goods = (tm.get('goods_services') or '').lower()
+    int_class = str(tm.get('international_class', '')).zfill(3)
+    
+    # 0. Geçersiz isimler
+    if not name or name == 'none' or len(name) < 2:
+        return -999, ['❌ Geçersiz isim']
+    
+    # 1. Bilinen Şirketler (+50)
+    for company in KNOWN_COMPANIES:
+        if company in owner:
+            # False positive koruması (örn: "Hungerford" -> "Ford" eşleşmemeli)
+            # Kelime sınırlarına bakmak daha güvenli olurdu ama şimdilik basit check:
+            if len(owner) < len(company) + 5 or f" {company} " in f" {owner} ": 
+                score += SCORE_RULES['known_company']
+                reasons.append(f"🏢 {company.title()}")
+                break # Sadece bir kere puan ver
+    
+    # 2. Sıkıcı mı? (-100)
+    for pattern in BORING_PATTERNS:
+        if pattern in name or pattern in owner:
+            score += SCORE_RULES['boring_match']
+            reasons.append(f"❌ {pattern}")
+            return score, reasons # Direkt dön, boşa işlem yapma
+    
+    # 3. AI Keywords (+25)
+    # Regex ile tam kelime kontrolü (Cleaner AIR vs AI karışmaması için)
+    ai_keywords = ['ai', 'gpt', 'llm', 'neural', 'machine learning', 'deep learning']
+    for kw in ai_keywords:
+        pattern = r'\b' + re.escape(kw) + r'\b'
+        if re.search(pattern, name):
+            score += SCORE_RULES['ai_keyword']
+            reasons.append(f"🤖 {kw.upper()}")
+            break
+            
+    # 4. Tech Keywords (+15)
+    tech_keywords = ['crypto', 'metaverse', 'quantum', 'cyber', 'web3', 'blockchain', 'robot', 'drone', 'autonomous']
+    for kw in tech_keywords:
+        if kw in name or kw in goods:
+            score += SCORE_RULES['tech_keyword']
+            reasons.append(f"💡 {kw.title()}")
+            break
+
+    # 5. Cool/Trendy Keywords (+10)
+    cool_keywords = ['game', 'gaming', 'studio', 'lab', 'labs', 'future', 'space', 'star', 'hyper', 'super']
+    for kw in cool_keywords:
+        if kw in name:
+            score += SCORE_RULES['cool_keyword']
+            reasons.append(f"✨ {kw.title()}")
+            break
+            
+    # 6. Tech Classes (+10)
+    if int_class in TECH_CLASSES:
+        score += SCORE_RULES['tech_class']
+        reasons.append(f"🏷️ Tech Class ({int_class})")
+        
+    # 7. Kısa İsim (+5)
+    if len(name) <= 5 and name.isalpha():
+        score += SCORE_RULES['short_name']
+        reasons.append("📝 Short Name")
+        
+    return score, reasons
+
+
+def filter_and_select(trademarks: List[Dict], max_tweets: int = 4) -> List[Dict]:
+    """
+    Puanlama sistemine göre en iyileri seç
+    """
+    # Daha önce paylaşılanları yükle
+    posted = load_posted()
+    posted_serials = set(posted.get('serial_numbers', []))
+    
+    scored_items = []
+    
+    for tm in trademarks:
+        serial = tm.get('serial_number', '')
+        
+        if serial in posted_serials:
+            continue
+            
+        score, reasons = calculate_importance_score(tm)
+        
+        # Sadece pozitif puanlıları değerlendir
+        if score > 0:
+            tm['score'] = score
+            tm['reasons'] = reasons
+            tm['category'] = 'must_post' if score >= 50 else 'interesting'
+            tm['interest_reason'] = ', '.join(reasons[:2])
+            scored_items.append(tm)
+            
+    # Puana göre sırala (Büyükten küçüğe)
+    scored_items.sort(key=lambda x: x['score'], reverse=True)
+    
+    logging.info(f"📊 Puanlama sonucu: {len(scored_items)} aday tweet")
+    
+    # En yüksek puanlıları seç
+    return scored_items[:max_tweets]
+
+
+# ============== TWEET ==============
+
+def load_posted() -> Dict:
+    try:
+        if os.path.exists(POSTED_FILE):
+            with open(POSTED_FILE, 'r') as f:
+                return json.load(f)
+    except:
+        pass
+    return {"serial_numbers": [], "tweets": []}
+
+
+def save_posted(serial: str, text: str, tweet_id: str):
+    data = load_posted()
+    data["serial_numbers"].append(serial)
+    data["tweets"].append({
+        "serial": serial,
+        "tweet_id": tweet_id,
+        "text": text[:80],
+        "time": datetime.now().isoformat()
+    })
+    # Max 500 kayıt tut
+    data["serial_numbers"] = data["serial_numbers"][-500:]
+    data["tweets"] = data["tweets"][-500:]
+    with open(POSTED_FILE, 'w') as f:
+        json.dump(data, f, indent=2)
+
+
+def get_x_client():
+    return tweepy.Client(
+        bearer_token=X_BEARER_TOKEN,
+        consumer_key=X_API_KEY,
+        consumer_secret=X_API_SECRET,
+        access_token=X_ACCESS_TOKEN,
+        access_token_secret=X_ACCESS_TOKEN_SECRET
+    )
+
+
+def format_tweet(tm: Dict) -> str:
+    """Tweet formatla - 280 karakter limiti"""
+    mark = (tm.get('mark_name') or 'Unknown')[:40]
+    serial = tm.get('serial_number', '')
+    date_str = tm.get('filing_date_raw', '')
+    owner = (tm.get('owner') or '')[:40]
+    
+    # Description (Goods/Services) - max 60 karakter
+    desc = (tm.get('goods_services') or '').strip()
+    # Gereksiz boşlukları ve satır sonlarını temizle
+    desc = ' '.join(desc.split())
+    if len(desc) > 60:
+        desc = desc[:57] + "..."
+    
+    url = f"https://tsdr.uspto.gov/caseviewer/SNUM/{serial}"
+    
+    # Emoji
+    cat = tm.get('category', '')
+    if cat == 'must_post':
+        emoji = '🏢'
+    elif 'ai' in mark.lower() or 'gpt' in mark.lower():
+        emoji = '🤖'
+    elif 'crypto' in mark.lower() or 'nft' in mark.lower():
+        emoji = '🔗'
+    elif 'game' in mark.lower():
+        emoji = '🎮'
+    elif 'food' in mark.lower() or 'drink' in mark.lower():
+        emoji = '☕'
+    else:
+        emoji = '📝'
+    
+    # Tweet oluştur
+    tweet = f"{emoji} NEW TRADEMARK FILED\n\n📌 {mark}"
+    
+    if desc:
+        tweet += f"\n📝 {desc}"
+        
+    if owner:
+        tweet += f"\n🏢 {owner}"
+        
+    tweet += f"\n📅 {date_str}"
+    
+    # Dynamic Hashtags
+    hashtags = ["#Trademark", "#USPTO"]
+    
+    # Add category-specific hashtags
+    text_lower = (mark + " " + desc).lower()
+    if 'ai' in text_lower or 'gpt' in text_lower or 'intelligence' in text_lower:
+        hashtags.append("#AI")
+        hashtags.append("#ArtificialIntelligence")
+    elif 'crypto' in text_lower or 'blockchain' in text_lower or 'nft' in text_lower:
+        hashtags.append("#Crypto")
+        hashtags.append("#Web3")
+    elif 'game' in text_lower or 'gaming' in text_lower:
+        hashtags.append("#Gaming")
+    elif 'metaverse' in text_lower:
+        hashtags.append("#Metaverse")
+    elif 'tech' in text_lower or 'software' in text_lower:
+        hashtags.append("#Tech")
+        
+    tags_str = " ".join(hashtags)
+    tweet += f"\n\n🔗 {url}\n\n{tags_str}"
+    
+    return tweet[:280]
+
+
+def post_tweet(text: str) -> Optional[str]:
+    try:
+        client = get_x_client()
+        response = client.create_tweet(text=text)
+        tweet_id = str(response.data['id'])
+        print(f"✅ https://twitter.com/i/status/{tweet_id}")
+        return tweet_id
+    except Exception as e:
+        logging.error(f"Tweet hatası: {e}")
+        print(f"❌ Tweet hatası: {e}")
+def tweet_candidates(candidates: List[Dict], dry_run: bool = False):
+    """
+    Seçilen adayları tweet at (veya preview yap)
+    """
+    print(f"\n📢 Tweet atılıyor{'(DRY RUN)' if dry_run else ''}...")
+    
+    for i, tm in enumerate(candidates, 1):
+        print(f"\n[{i}/{len(candidates)}] {tm.get('mark_name')} (Score: {tm.get('score', 0)})")
+        print(f"   Reasons: {', '.join(tm.get('reasons', []))}")
+        
+        tweet_text = format_tweet(tm)
+        
+        if dry_run:
+            print(f"\n--- PREVIEW ---\n{tweet_text}\n---------------")
+        else:
+            tweet_id = post_tweet(tweet_text)
+            if tweet_id:
+                save_posted(tm.get('serial_number'), tweet_text, tweet_id)
+            time.sleep(5)  # Twitter rate limit (biraz artırdık)
+    
+    print(f"\n✅ Tamamlandı!")
+
+
+# ============== ANA FONKSİYONLAR ==============
+
+def run_bot(max_tweets: int = 4, dry_run: bool = False):
+    """
+    Bot'u çalıştır (Eski Yöntem - Geriye dönük uyumluluk için)
+    """
+    # Bu fonksiyon artık ana akışın bir parçası değil,
+    # ancak kodun diğer yerlerinde çağrılıyor olabilir diye tutuyoruz.
+    # Asıl akış main() içindedir.
+    trademarks = get_trademarks_for_today()
+    if not trademarks:
+        print("❌ Trademark bulunamadı!")
+        return
+    
+    # DÜZELTME: Doğru fonksiyon ismi filter_and_select
+    candidates = filter_and_select(trademarks, max_tweets)
+    # filter_and_select zaten max_tweets kadar döndürüyor ama yine de slicing yapalım ne olur ne olmaz
+    selected = candidates[:max_tweets]
+
+    tweet_candidates(selected, dry_run)
+
+
+def parse_arguments():
+    if len(sys.argv) < 2:
+        return 'run', False, False # default
+    
+    command = sys.argv[1] # run, preview, clear
+    
+    # Flags
+    dry_run = '--dry-run' in sys.argv
+    no_scan = '--no-scan' in sys.argv  # New flag
+    
+    return command, dry_run, no_scan
+
+def print_banner():
+    print("""
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    """)
+
+def main():
+    print_banner()
+    command, dry_run, no_scan = parse_arguments()
+    
+    if command == 'clear':
+        clear_cache()
+        return
+    
+    if command == 'stats':
+        # Stats logic here or reuse existing function if defined elsewhere
+        # For simplicity, we can load cache and print basic info
+        cache = load_daily_cache()
+        print(f"📦 Cache: {len(cache.get('trademarks', []))} trademarks")
+        return
+
+    # 1. Scrape / Load Data
+    if no_scan:
+        # Load ONLY from cache, no update
+        cache = load_daily_cache()
+        trademarks = cache.get('trademarks', [])
+        print(f"⏩ Taramayı atla (--no-scan). Cache'den {len(trademarks)} kayıt kullanılıyor.")
+    else:
+        # Normal flow (Load cache + Scan new)
+        trademarks = get_trademarks_for_today()
+    
+    print(f"\n📦 Toplam: {len(trademarks)} trademark\n")
+    
+    if not trademarks:
+        print("❌ İşlenecek trademark bulunamadı.")
+        return
+
+    # 2. Filter & Score
+    print("🔍 Filtreleniyor...")
+    candidates = filter_and_sort_trademarks(trademarks)
+    print(f"INFO - 📊 Puanlama sonucu: {len(candidates)} aday tweet")
+    
+    # Top N selection
+    selected = candidates[:MAX_TWEETS_PER_RUN]
+    print(f"🎯 Seçilen: {len(selected)} trademark")
+    
+    if not selected:
+        print("📭 Paylaşılacak kriterde trademark yok.")
+        return
+
+    # 3. Tweet / Preview
+    if command == 'preview':
+        print("\n📢 Tweet atılıyor(DRY RUN)...\n")
+        tweet_candidates(selected, dry_run=True) # Preview is essentially a dry run
+        print("\n✅ Tamamlandı!")
+    
+    elif command == 'run':
+        # Production mode
+        logging.info(f"Yayın modu: {len(selected)} tweet atılacak.")
+        tweet_candidates(selected, dry_run=False)
+        logging.info("Run finished.")
+
+
+def preview():
+    """Preview modu - tweet atmadan göster"""
+    run_bot(max_tweets=6, dry_run=True)
+
+
+def stats():
+    """İstatistikleri göster"""
+    print("\n📊 FilingWatch İstatistikleri")
+    print("="*40)
+    
+    # Cache
+    cache = load_daily_cache()
+    print(f"\n📦 Cache:")
+    print(f"   Tarih: {cache.get('date', 'Yok')}")
+    print(f"   Trademark: {len(cache.get('trademarks', []))}")
+    
+    # Posted
+    posted = load_posted()
+    print(f"\n📢 Paylaşılan:")
+    print(f"   Toplam: {len(posted.get('tweets', []))}")
+    
+    if posted.get('tweets'):
+        print(f"\n   Son 5 tweet:")
+        for tw in posted['tweets'][-5:]:
+            print(f"   - {tw.get('serial')}: {tw.get('text', '')[:40]}...")
+
+
+def clear_cache():
+    """Cache'i temizle"""
+    if os.path.exists(DAILY_CACHE_FILE):
+        os.remove(DAILY_CACHE_FILE)
+        print("🗑️ Cache temizlendi")
+    else:
+        print("Cache zaten boş")
+
+
+def main():
+    import sys
+    
+    print("""
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    """)
+    
+    if len(sys.argv) < 2:
+        print("""
+Kullanım:
+  python main_v2.py preview     # Önizle (tweet atmaz)
+  python main_v2.py run         # Çalıştır (4 tweet)
+  python main_v2.py run 3       # 3 tweet at
+  python main_v2.py stats       # İstatistikler
+  python main_v2.py clear       # Cache temizle
+        """)
+        return
+    
+    cmd = sys.argv[1].lower()
+    
+    if cmd == 'preview':
+        preview()
+    elif cmd == 'run':
+        max_tw = int(sys.argv[2]) if len(sys.argv) > 2 else 4
+        run_bot(max_tweets=max_tw, dry_run=False)
+    elif cmd == 'stats':
+        stats()
+    elif cmd == 'clear':
+        clear_cache()
+    else:
+        print(f"❌ Bilinmeyen komut: {cmd}")
+
+
+if __name__ == "__main__":
+    main()

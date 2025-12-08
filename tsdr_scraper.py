@@ -158,6 +158,9 @@ class TSDRScraper:
         
         # Drawing Type
         drawing_type = self._extract_value(soup, "Mark Drawing Type:")
+
+        # Image URL
+        image_url = self._extract_image_url(soup)
         
         return {
             "serial_number": str(serial),
@@ -171,6 +174,7 @@ class TSDRScraper:
             "goods_services": goods_services,
             "international_class": int_class.strip() if int_class else None,
             "drawing_type": drawing_type.strip() if drawing_type else None,
+            "image_url": image_url,
             "tsdr_url": f"https://tsdr.uspto.gov/caseviewer/SNUM/{serial}",
             "scraped_at": datetime.now().isoformat()
         }
@@ -237,14 +241,41 @@ class TSDRScraper:
         except ValueError:
             pass
         
-        # Format: "December 5, 2025"
+        # Format: "December 05, 2025"
         try:
             dt = datetime.strptime(date_str, "%B %d, %Y")
             return dt.strftime("%Y-%m-%d")
         except ValueError:
             pass
+
+        return None
+
+    def _extract_image_url(self, soup: BeautifulSoup) -> Optional[str]:
+        """Marka görselinin URL'sini bul"""
+        img = soup.find('img', id='markImage')
+        if img and img.get('src'):
+            src = img['src']
+            if src.startswith('http'):
+                return src
+            # Relative path ise full URL yap (Gerekirse)
+            return src
+        return None
+
+    def download_image(self, url: str, serial: str) -> Optional[str]:
+        """Görseli indir ve kaydet"""
+        if not url: return None
         
-        return date_str
+        try:
+            response = self.session.get(url, timeout=10)
+            if response.status_code == 200:
+                filename = f"temp_{serial}.jpg"
+                with open(filename, 'wb') as f:
+                    f.write(response.content)
+                return filename
+        except Exception as e:
+            logger.error(f"Image download error {serial}: {e}")
+            
+        return None
     
     def find_latest_serial(self) -> int:
         """En son geçerli serial numarasını bul (binary search)"""

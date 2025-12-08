@@ -19,6 +19,7 @@ import re
 from typing import Optional, List, Dict
 
 from tsdr_scraper import TSDRScraper
+from visuals import generate_trademark_card
 
 # ============== LOGGING ==============
 logging.basicConfig(
@@ -39,6 +40,30 @@ X_API_SECRET = os.getenv("X_API_SECRET")
 X_ACCESS_TOKEN = os.getenv("X_ACCESS_TOKEN")
 X_ACCESS_TOKEN_SECRET = os.getenv("X_ACCESS_TOKEN_SECRET")
 X_BEARER_TOKEN = os.getenv("X_BEARER_TOKEN")
+
+X_BEARER_TOKEN = os.getenv("X_BEARER_TOKEN")
+
+# Company Handles Tracking
+KNOWN_COMPANIES = {
+    "APPLE": "@Apple",
+    "GOOGLE": "@Google",
+    "AMAZON": "@amazon",
+    "MICROSOFT": "@Microsoft",
+    "META PLATFORMS": "@Meta",
+    "FACEBOOK": "@Meta",
+    "TESLA": "@Tesla",
+    "SPACEX": "@SpaceX",
+    "NETFLIX": "@netflix",
+    "DISNEY": "@Disney",
+    "NIKE": "@Nike",
+    "ADIDAS": "@adidas",
+    "SONY": "@Sony",
+    "SAMSUNG": "@Samsung",
+    "INTEL": "@intel",
+    "NVIDIA": "@nvidia",
+    "IBM": "@IBM",
+    "OPENAI": "@OpenAI",
+}
 
 # Dosyalar
 DAILY_CACHE_FILE = "daily_cache.json"  # Günlük cache
@@ -226,20 +251,7 @@ INTERESTING_PATTERNS = [
     'brew', 'coffee', 'boba', 'matcha', 'acai', 'kombucha', 'sushi',
 ]
 
-# 🏢 BİLİNEN ŞİRKETLER - Kesinlikle paylaş
-KNOWN_COMPANIES = [
-    'apple', 'google', 'alphabet', 'microsoft', 'amazon', 'meta', 'facebook',
-    'tesla', 'nvidia', 'netflix', 'spotify', 'uber', 'lyft', 'airbnb',
-    'openai', 'anthropic', 'adobe', 'salesforce', 'oracle', 'ibm',
-    'samsung', 'sony', 'nintendo', 'disney', 'warner', 'paramount', 'universal',
-    'coca-cola', 'pepsi', 'nike', 'adidas', 'puma', 'under armour',
-    'mcdonald', 'starbucks', 'chipotle', 'dunkin',
-    'visa', 'mastercard', 'paypal', 'stripe', 'square', 'coinbase', 'binance',
-    'tiktok', 'bytedance', 'snapchat', 'snap inc', 'twitter', 'x corp', 'linkedin',
-    'palantir', 'snowflake', 'databricks', 'figma', 'notion', 'canva', 'slack',
-    'spacex', 'blue origin', 'rivian', 'lucid', 'ford', 'gm', 'toyota', 'honda',
-    'intel', 'amd', 'qualcomm', 'arm', 'broadcom',
-]
+
 
 
 # 🟢 SCORE WEIGHTS
@@ -275,14 +287,13 @@ def calculate_importance_score(tm: Dict) -> tuple[int, List[str]]:
     
     # 1. Bilinen Şirketler (+50)
     for company in KNOWN_COMPANIES:
-        if company in owner:
-            # False positive koruması (örn: "Hungerford" -> "Ford" eşleşmemeli)
-            # Kelime sınırlarına bakmak daha güvenli olurdu ama şimdilik basit check:
-            if len(owner) < len(company) + 5 or f" {company} " in f" {owner} ": 
-                score += SCORE_RULES['known_company']
-                reasons.append(f"🏢 {company.title()}")
-                break # Sadece bir kere puan ver
-    
+        # Regex ile tam kelime eşleşmesi (örn: "Intel" -> "Intelligent" eşleşmesin)
+        pattern = r'\b' + re.escape(company.lower()) + r'\b'
+        if re.search(pattern, owner):
+            score += SCORE_RULES['known_company']
+            reasons.append(f"🏢 {company.title()}")
+            break
+            
     # 2. Sıkıcı mı? (-100)
     for pattern in BORING_PATTERNS:
         if pattern in name or pattern in owner:
@@ -433,13 +444,37 @@ def format_tweet(tm: Dict) -> str:
     else:
         emoji = '📝'
     
+    # Replace Owner with Twitter Handle if known
+    # Regex ile güvenli değişim
+    owner_lower = owner.lower()
+    for company, handle in KNOWN_COMPANIES.items():
+        pattern = r'\b' + re.escape(company.lower()) + r'\b'
+        if re.search(pattern, owner_lower):
+             owner = f"{handle} ({owner})"
+             break
+             
+    # Insider Text / Intro
+    intro = ""
+    score = tm.get('score', 0)
+    if cat == 'must_post' or score >= 50:
+         intros = [
+             "🚨 It hasn't hit the press yet...",
+             "👀 Just In from USPTO...",
+             "⚡ Breaking: New filing detected...",
+             "💎 Hidden Gem Discovered..."
+         ]
+         intro = random.choice(intros) + "\n\n"
+             
     # Tweet oluştur
-    tweet = f"{emoji} NEW TRADEMARK FILED\n\n📌 {mark}"
+    tweet = f"{intro}{emoji} NEW TRADEMARK FILED\n\n📌 {mark}"
     
     if desc:
         tweet += f"\n📝 {desc}"
         
     if owner:
+         # Şirket ismi çok uzunsa ve handle yoksa kısalt
+        if len(owner) > 40 and '@' not in owner:
+            owner = owner[:37] + "..."
         tweet += f"\n🏢 {owner}"
         
     tweet += f"\n📅 {date_str}"
@@ -468,21 +503,51 @@ def format_tweet(tm: Dict) -> str:
     return tweet[:280]
 
 
-def post_tweet(text: str) -> Optional[str]:
+def get_x_api_v1():
+    """Media upload için v1.1 API client"""
+    auth = tweepy.OAuthHandler(X_API_KEY, X_API_SECRET)
+    auth.set_access_token(X_ACCESS_TOKEN, X_ACCESS_TOKEN_SECRET)
+    return tweepy.API(auth)
+
+
+def post_tweet(text: str, media_path: Optional[str] = None) -> Optional[str]:
+    """Tweet at (Opsiyonel görsel ile)"""
     try:
-        client = get_x_client()
-        response = client.create_tweet(text=text)
+        client = get_x_client() # v2.0
+        media_id = None
+        
+        # 1. Görsel yükle (varsa)
+        if media_path and os.path.exists(media_path):
+            try:
+                api_v1 = get_x_api_v1()
+                media = api_v1.media_upload(media_path)
+                media_id = media.media_id
+                print(f"🖼️ Görsel yüklendi: {media_path} (ID: {media_id})")
+            except Exception as e:
+                logging.error(f"Görsel yükleme hatası: {e}")
+                print(f"⚠️ Görsel yüklenemedi, twistsiz devam ediliyor...")
+        
+        # 2. Tweet at
+        if media_id:
+            response = client.create_tweet(text=text, media_ids=[media_id])
+        else:
+            response = client.create_tweet(text=text)
+            
         tweet_id = str(response.data['id'])
         print(f"✅ https://twitter.com/i/status/{tweet_id}")
         return tweet_id
     except Exception as e:
         logging.error(f"Tweet hatası: {e}")
         print(f"❌ Tweet hatası: {e}")
+
 def tweet_candidates(candidates: List[Dict], dry_run: bool = False):
     """
     Seçilen adayları tweet at (veya preview yap)
     """
     print(f"\n📢 Tweet atılıyor{'(DRY RUN)' if dry_run else ''}...")
+    
+    # Görsel indirmek için scraper (sadece download methodu için)
+    scraper = TSDRScraper()
     
     for i, tm in enumerate(candidates, 1):
         print(f"\n[{i}/{len(candidates)}] {tm.get('mark_name')} (Score: {tm.get('score', 0)})")
@@ -490,13 +555,44 @@ def tweet_candidates(candidates: List[Dict], dry_run: bool = False):
         
         tweet_text = format_tweet(tm)
         
+        # --- GÖRSEL HAZIRLIĞI ---
+        media_path = None
+        try:
+            # 1. Önce resmi var mı bak (Drawing)
+            if tm.get('image_url'):
+                print(f"   📥 Görsel indiriliyor: {tm['image_url']}")
+                media_path = scraper.download_image(tm['image_url'], tm.get('serial_number'))
+            
+            # 2. Yoksa Kart Oluştur (Card Gen)
+            if not media_path:
+                print(f"   🎨 Kartvizit oluşturuluyor...")
+                media_path = generate_trademark_card(
+                    mark_name=tm.get('mark_name', 'UNKNOWN'),
+                    owner=tm.get('owner', 'Unknown'),
+                    date_str=tm.get('filing_date_raw', '2025'),
+                    serial=tm.get('serial_number')
+                )
+        except Exception as e:
+            logging.error(f"Görsel hazırlama hatası: {e}")
+            print(f"⚠️ Görsel hatası: {e}")
+            
+        
         if dry_run:
-            print(f"\n--- PREVIEW ---\n{tweet_text}\n---------------")
+            print(f"\n--- PREVIEW ---\n{tweet_text}")
+            if media_path:
+                print(f"[Görsel Eklendi: {media_path}]")
+            print("---------------")
+            
         else:
-            tweet_id = post_tweet(tweet_text)
+            tweet_id = post_tweet(tweet_text, media_path)
             if tweet_id:
                 save_posted(tm.get('serial_number'), tweet_text, tweet_id)
-            time.sleep(5)  # Twitter rate limit (biraz artırdık)
+            
+            # Temizlik
+            if media_path and os.path.exists(media_path):
+                os.remove(media_path)
+                
+            time.sleep(5)  # Twitter rate limit
     
     print(f"\n✅ Tamamlandı!")
 

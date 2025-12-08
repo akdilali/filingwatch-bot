@@ -8,6 +8,7 @@ FilingWatch v2.1 - USPTO Trademark Filing Bot
 """
 
 import os
+import sys
 import tweepy
 from dotenv import load_dotenv
 from datetime import datetime, date
@@ -72,6 +73,7 @@ STATE_FILE = "bot_state.json"          # Bot durumu
 
 # Rate limit - Daha hızlı çekmek için düşürdük (USPTO'yu zorlamayalım ama)
 RATE_LIMIT_DELAY = 0.15  # 0.15 saniye = ~7 istek/saniye
+MAX_TWEETS_PER_RUN = 2   # Her çalışmada max 2 tweet (User isteği)
 
 
 # ============== GÜNLÜK CACHE ==============
@@ -592,7 +594,7 @@ def tweet_candidates(candidates: List[Dict], dry_run: bool = False):
             if media_path and os.path.exists(media_path):
                 os.remove(media_path)
                 
-            time.sleep(5)  # Twitter rate limit
+            time.sleep(60)  # Twitter rate limit (User isteği: 1 dakika)
     
     print(f"\n✅ Tamamlandı!")
 
@@ -672,11 +674,12 @@ def main():
 
     # 2. Filter & Score
     print("🔍 Filtreleniyor...")
-    candidates = filter_and_sort_trademarks(trademarks)
-    print(f"INFO - 📊 Puanlama sonucu: {len(candidates)} aday tweet")
+    # filter_and_select hem puanlar hem de en iyileri seçer
+    selected = filter_and_select(trademarks, MAX_TWEETS_PER_RUN)
+    print(f"INFO - 📊 Puanlama sonucu ve seçim: {len(selected)} aday tweet")
     
-    # Top N selection
-    selected = candidates[:MAX_TWEETS_PER_RUN]
+    # Top N selection (filter_and_select zaten yaptı ama değişken adı uyumu için)
+    # selected = candidates[:MAX_TWEETS_PER_RUN]
     print(f"🎯 Seçilen: {len(selected)} trademark")
     
     if not selected:
@@ -696,76 +699,7 @@ def main():
         logging.info("Run finished.")
 
 
-def preview():
-    """Preview modu - tweet atmadan göster"""
-    run_bot(max_tweets=6, dry_run=True)
 
-
-def stats():
-    """İstatistikleri göster"""
-    print("\n📊 FilingWatch İstatistikleri")
-    print("="*40)
-    
-    # Cache
-    cache = load_daily_cache()
-    print(f"\n📦 Cache:")
-    print(f"   Tarih: {cache.get('date', 'Yok')}")
-    print(f"   Trademark: {len(cache.get('trademarks', []))}")
-    
-    # Posted
-    posted = load_posted()
-    print(f"\n📢 Paylaşılan:")
-    print(f"   Toplam: {len(posted.get('tweets', []))}")
-    
-    if posted.get('tweets'):
-        print(f"\n   Son 5 tweet:")
-        for tw in posted['tweets'][-5:]:
-            print(f"   - {tw.get('serial')}: {tw.get('text', '')[:40]}...")
-
-
-def clear_cache():
-    """Cache'i temizle"""
-    if os.path.exists(DAILY_CACHE_FILE):
-        os.remove(DAILY_CACHE_FILE)
-        print("🗑️ Cache temizlendi")
-    else:
-        print("Cache zaten boş")
-
-
-def main():
-    import sys
-    
-    print("""
-    ╔═══════════════════════════════════════════╗
-    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
-    ║   Günlük Cache + Akıllı Filtreleme        ║
-    ╚═══════════════════════════════════════════╝
-    """)
-    
-    if len(sys.argv) < 2:
-        print("""
-Kullanım:
-  python main_v2.py preview     # Önizle (tweet atmaz)
-  python main_v2.py run         # Çalıştır (4 tweet)
-  python main_v2.py run 3       # 3 tweet at
-  python main_v2.py stats       # İstatistikler
-  python main_v2.py clear       # Cache temizle
-        """)
-        return
-    
-    cmd = sys.argv[1].lower()
-    
-    if cmd == 'preview':
-        preview()
-    elif cmd == 'run':
-        max_tw = int(sys.argv[2]) if len(sys.argv) > 2 else 4
-        run_bot(max_tweets=max_tw, dry_run=False)
-    elif cmd == 'stats':
-        stats()
-    elif cmd == 'clear':
-        clear_cache()
-    else:
-        print(f"❌ Bilinmeyen komut: {cmd}")
 
 
 if __name__ == "__main__":

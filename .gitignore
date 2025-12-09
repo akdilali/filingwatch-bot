@@ -70,3 +70,4 @@ posted_tweets.json
 scraper_state.json
 bot_scheduler.log
 *.png
+history.json

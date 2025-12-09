@@ -15,12 +15,15 @@ from datetime import datetime, date
 import json
 import time
 import logging
+import logging
 import random
 import re
 from typing import Optional, List, Dict
 
 from tsdr_scraper import TSDRScraper
 from visuals import generate_trademark_card
+from history_manager import HistoryManager
+from analyzer import Analyzer
 
 # ============== LOGGING ==============
 logging.basicConfig(
@@ -149,6 +152,9 @@ def get_trademarks_for_today() -> List[Dict]:
     # Şu anki en son serial kaç?
     latest_serial = scraper.find_latest_serial()
     
+    # Initialize History Manager
+    history_manager = HistoryManager()
+
     # Eğer hiç last_known yoksa (ilk kurulum), simülasyon için son 200'ü al
     if not last_known_serial:
         # İLK ÇALIŞMA: Son 200 serial'ı tara (~3 saatlik güncel veri)
@@ -157,6 +163,10 @@ def get_trademarks_for_today() -> List[Dict]:
         print(f"\n📡 İlk tarama (Sıfırdan): {start_serial} → {latest_serial}")
         print(f"   {INITIAL_SERIAL_RANGE} serial taranacak (~3 saatlik güncel veri)")
         new_trademarks = scraper.scan_range(start_serial, latest_serial)
+        
+        # Save to History (PERSISTENCE)
+        if new_trademarks:
+            history_manager.append_to_history(new_trademarks)
         
         # Hepsini ekle
         cached_trademarks.extend(new_trademarks)
@@ -176,6 +186,10 @@ def get_trademarks_for_today() -> List[Dict]:
                  last_known_serial = latest_serial - MAX_CATCHUP
             
             new_trademarks = scraper.scan_range(last_known_serial + 1, latest_serial)
+            
+            # Save to History (PERSISTENCE)
+            if new_trademarks:
+                history_manager.append_to_history(new_trademarks)
             
             # Yenileri ekle
             if new_trademarks:
@@ -649,11 +663,20 @@ def main():
         clear_cache()
         return
     
-    if command == 'stats':
-        # Stats logic here or reuse existing function if defined elsewhere
+    elif command == 'stats-weekly':
+        analyzer = Analyzer()
+        report = analyzer.generate_weekly_report()
+        print(report)
+        return
+
+    elif command == 'stats':
+        # --- İYİLEŞTİRİLMİŞ STATS (JSON + GÖRSEL) ---
+        print("\n📊 --- BUGÜNÜN DETAYLI İSTATİSTİKLERİ ---")
         # For simplicity, we can load cache and print basic info
         cache = load_daily_cache()
         print(f"📦 Cache: {len(cache.get('trademarks', []))} trademarks")
+        # ... (Any additional stats logic could go here)
+        return
         return
 
     # 1. Scrape / Load Data

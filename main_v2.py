@@ -24,6 +24,7 @@ from tsdr_scraper import TSDRScraper
 from visuals import generate_trademark_card
 from history_manager import HistoryManager
 from analyzer import Analyzer
+from weird_filter import WeirdFilter
 
 # ============== LOGGING ==============
 logging.basicConfig(
@@ -358,7 +359,7 @@ def calculate_importance_score(tm: Dict) -> tuple[int, List[str]]:
 
 def filter_and_select(trademarks: List[Dict], max_tweets: int = 4) -> List[Dict]:
     """
-    Puanlama sistemine göre en iyileri seç
+    Puanlama sistemine göre en iyileri seç + 1 Tane Weird Candidate (Opsiyonel)
     """
     # Daha önce paylaşılanları yükle
     posted = load_posted()
@@ -366,6 +367,23 @@ def filter_and_select(trademarks: List[Dict], max_tweets: int = 4) -> List[Dict]
     
     scored_items = []
     
+    # --- PHASE 7: Weird Filter (with 24h Cooldown) ---
+    weird_filter = WeirdFilter()
+    weird_candidate = None
+    
+    # Son atılan weird tweet zamanını kontrol et
+    last_weird_time_str = posted.get('last_weird_time')
+    can_post_weird = True
+    
+    if last_weird_time_str:
+        try:
+            last_weird = datetime.fromisoformat(last_weird_time_str)
+            if datetime.now() - last_weird < timedelta(hours=24):
+                can_post_weird = False
+                logging.info(f"⏳ Weird Tweet Cooldown: Son atılandan beri 24 saat geçmedi.")
+        except:
+            pass # Tarih bozuksa yoksay, izin ver
+
     for tm in trademarks:
         serial = tm.get('serial_number', '')
         
@@ -374,7 +392,17 @@ def filter_and_select(trademarks: List[Dict], max_tweets: int = 4) -> List[Dict]
             
         score, reasons = calculate_importance_score(tm)
         
-        # Sadece pozitif puanlıları değerlendir
+        # WEIRD CHECK (Sadece izin varsa)
+        if can_post_weird:
+            w_res = weird_filter.check_weirdness(tm.get('mark_name', ''), tm.get('goods_services', ''))
+            if w_res['is_weird']:
+                tm['weird_score'] = w_res['score']
+                tm['weird_reason'] = w_res['reason']
+                # En komiğini sakla
+                if not weird_candidate or tm['weird_score'] > weird_candidate['weird_score']:
+                    weird_candidate = tm
+        
+        # Normal Puanlama
         if score > 0:
             tm['score'] = score
             tm['reasons'] = reasons
@@ -387,8 +415,22 @@ def filter_and_select(trademarks: List[Dict], max_tweets: int = 4) -> List[Dict]
     
     logging.info(f"📊 Puanlama sonucu: {len(scored_items)} aday tweet")
     
-    # En yüksek puanlıları seç
-    return scored_items[:max_tweets]
+    final_selection = []
+    
+    # 1. Weird Candidate Ekle (ALTIN VURUŞ - Max 1)
+    if weird_candidate:
+        logging.info(f"🤪 Weird USPTO Bulundu: {weird_candidate['mark_name']} (Puan: {weird_candidate['weird_score']})")
+        weird_candidate['category'] = 'weird'
+        # Listede varsa çıkar (tekrar etmesin)
+        scored_items = [item for item in scored_items if item['serial_number'] != weird_candidate['serial_number']]
+        final_selection.append(weird_candidate)
+    
+    # 2. Geriye kalan boşlukları normal iyilerle doldur
+    remaining = max_tweets - len(final_selection)
+    if remaining > 0:
+        final_selection.extend(scored_items[:remaining])
+        
+    return final_selection
 
 
 # ============== TWEET ==============
@@ -403,15 +445,21 @@ def load_posted() -> Dict:
     return {"serial_numbers": [], "tweets": []}
 
 
-def save_posted(serial: str, text: str, tweet_id: str):
+def save_posted(serial: str, text: str, tweet_id: str, category: str = ''):
     data = load_posted()
     data["serial_numbers"].append(serial)
     data["tweets"].append({
         "serial": serial,
         "tweet_id": tweet_id,
         "text": text[:80],
+        "category": category, # Kategori bilgisini de tut
         "time": datetime.now().isoformat()
     })
+    
+    # WEIRD TIMESTAMPS
+    if category == 'weird':
+        data['last_weird_time'] = datetime.now().isoformat()
+        
     # Max 500 kayıt tut
     data["serial_numbers"] = data["serial_numbers"][-500:]
     data["tweets"] = data["tweets"][-500:]
@@ -446,8 +494,14 @@ def format_tweet(tm: Dict) -> str:
     url = f"https://tsdr.uspto.gov/caseviewer/SNUM/{serial}"
     
     # Emoji
+    # Emoji & Header Logic
     cat = tm.get('category', '')
-    if cat == 'must_post':
+    header_text = "NEW TRADEMARK FILED"
+    
+    if cat == 'weird':
+        emoji = '🤪'
+        header_text = "WEIRD TRADEMARK ALERT"
+    elif cat == 'must_post':
         emoji = '🏢'
     elif 'ai' in mark.lower() or 'gpt' in mark.lower():
         emoji = '🤖'
@@ -472,7 +526,16 @@ def format_tweet(tm: Dict) -> str:
     # Insider Text / Intro
     intro = ""
     score = tm.get('score', 0)
-    if cat == 'must_post' or score >= 50:
+    
+    if cat == 'weird':
+        intros = [
+            "🤯 You can't make this up...",
+            "😵 Go Home USPTO, You're Drunk...",
+            "🤨 Seriously?",
+            "🤣 Best filing of the day:"
+        ]
+        intro = random.choice(intros) + "\n\n"
+    elif cat == 'must_post' or score >= 50:
          intros = [
              "🚨 It hasn't hit the press yet...",
              "👀 Just In from USPTO...",
@@ -482,7 +545,7 @@ def format_tweet(tm: Dict) -> str:
          intro = random.choice(intros) + "\n\n"
              
     # Tweet oluştur
-    tweet = f"{intro}{emoji} NEW TRADEMARK FILED\n\n📌 {mark}"
+    tweet = f"{intro}{emoji} {header_text}\n\n📌 {mark}"
     
     if desc:
         tweet += f"\n📝 {desc}"
@@ -500,7 +563,12 @@ def format_tweet(tm: Dict) -> str:
     
     # Add category-specific hashtags
     text_lower = (mark + " " + desc).lower()
-    if 'ai' in text_lower or 'gpt' in text_lower or 'intelligence' in text_lower:
+    
+    if cat == 'weird':
+        hashtags.append("#WeirdUSPTO")
+        hashtags.append("#Funny")
+        hashtags.append("#Marketing")
+    elif 'ai' in text_lower or 'gpt' in text_lower or 'intelligence' in text_lower:
         hashtags.append("#AI")
         hashtags.append("#ArtificialIntelligence")
     elif 'crypto' in text_lower or 'blockchain' in text_lower or 'nft' in text_lower:
@@ -602,7 +670,7 @@ def tweet_candidates(candidates: List[Dict], dry_run: bool = False):
         else:
             tweet_id = post_tweet(tweet_text, media_path)
             if tweet_id:
-                save_posted(tm.get('serial_number'), tweet_text, tweet_id)
+                save_posted(tm.get('serial_number'), tweet_text, tweet_id, category=tm.get('category', ''))
             
             # Temizlik
             if media_path and os.path.exists(media_path):

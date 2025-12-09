@@ -436,12 +436,12 @@ def format_tweet(tm: Dict) -> str:
     date_str = tm.get('filing_date_raw', '')
     owner = (tm.get('owner') or '')[:40]
     
-    # Description (Goods/Services) - max 60 karakter
+    # Description (Goods/Services) - max 110 karakter (Optimize edildi)
     desc = (tm.get('goods_services') or '').strip()
     # Gereksiz boşlukları ve satır sonlarını temizle
     desc = ' '.join(desc.split())
-    if len(desc) > 60:
-        desc = desc[:57] + "..."
+    if len(desc) > 110:
+        desc = desc[:107] + "..."
     
     url = f"https://tsdr.uspto.gov/caseviewer/SNUM/{serial}"
     

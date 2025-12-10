@@ -1,0 +1,57 @@
+name: FilingWatch Bot (Daily)
+
+on:
+  schedule:
+    # Run every 6 hours (06:00, 12:00, 18:00, 00:00 UTC)
+    # Note: GitHub Actions uses UTC.
+    - cron: '0 0,6,12,18 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Important for committing changes
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run FilingWatch Bot
+      env:
+        X_API_KEY: ${{ secrets.X_API_KEY }}
+        X_API_SECRET: ${{ secrets.X_API_SECRET }}
+        X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+        X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+      run: |
+        # Ensure script is executable
+        chmod +x run_bot.sh
+        # Run the bot
+        ./run_bot.sh
+
+    - name: Commit and Push changes (Persistence)
+      run: |
+        git config --global user.name 'FilingWatch Bot'
+        git config --global user.email 'bot@filingwatch.com'
+        
+        # Add state files
+        git add scraper_state.json posted_tweets.json daily_cache.json history.json bot_scheduler.log
+        
+        # Check if there are changes
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto: Update bot state & logs [skip ci]"
+          git push
+        fi

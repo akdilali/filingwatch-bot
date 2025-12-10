@@ -137,6 +137,74 @@ KNOWN_COMPANIES = {
     "OPENAI": "@OpenAI",
 }
 
+# Stock Tickers (Cashtags) - Public Companies Only
+KNOWN_TICKERS = {
+    "APPLE": "$AAPL",
+    "GOOGLE": "$GOOGL",
+    "AMAZON": "$AMZN",
+    "MICROSOFT": "$MSFT",
+    "META PLATFORMS": "$META",
+    "FACEBOOK": "$META",
+    "TESLA": "$TSLA",
+    "NETFLIX": "$NFLX",
+    "DISNEY": "$DIS",
+    "NVIDIA": "$NVDA",
+    "SAMSUNG": "$SSNLF",
+    "SONY": "$SONY",
+    "NIKE": "$NKE",
+    "ADIDAS": "$ADDYY",
+    "INTEL": "$INTC",
+    "AMD": "$AMD",
+    "IBM": "$IBM",
+    "ORACLE": "$ORCL",
+    "UBER": "$UBER",
+    "AIRBNB": "$ABNB",
+    "SPOTIFY": "$SPOT",
+    "PAYPAL": "$PYPL",
+    "SNAP INC": "$SNAP",
+    "REDDIT": "$RDDT",
+    "ZOOM VIDEO": "$ZM",
+    "SALESFORCE": "$CRM",
+    "ADOBE": "$ADBE",
+    "FORD": "$F",
+    "GENERAL MOTORS": "$GM",
+    "TOYOTA": "$TM",
+    "HONDA": "$HMC",
+    "BMW": "$BMWYY",
+    "MERCEDES": "$MBGYY",
+    "PORSCHE": "$DRPRY",
+    "FERRARI": "$RACE",
+    "RIVIAN": "$RIVN",
+    "LUCID": "$LCID",
+    "COCA-COLA": "$KO",
+    "PEPSICO": "$PEP",
+    "MCDONALD'S": "$MCD",
+    "STARBUCKS": "$SBUX",
+    "BURGER KING": "$QSR",
+    "KFC": "$YUM",
+    "TACO BELL": "$YUM",
+    "NESTLE": "$NSRGY",
+    "DANONE": "$DANOY",
+    "WALMART": "$WMT",
+    "TARGET": "$TGT",
+    "HOME DEPOT": "$HD",
+    "COSTCO": "$COST",
+    "LOUIS VUITTON": "$LVMUY",
+    "GUCCI": "$PPRUY",
+    "VISA": "$V",
+    "MASTERCARD": "$MA",
+    "AMERICAN EXPRESS": "$AXP",
+    "JPMORGAN": "$JPM",
+    "GOLDMAN SACHS": "$GS",
+    "COINBASE": "$COIN",
+    "BLOCK INC": "$SQ",
+    "WARNER BROS": "$WBD",
+    "UNIVERSAL": "$CMCSA",
+    "NINTENDO": "$NTDOY",
+    "ELECTRONIC ARTS": "$EA",
+    "ROBLOX": "$RBLX"
+}
+
 # Dosyalar
 DAILY_CACHE_FILE = "daily_cache.json"  # Günlük cache
 POSTED_FILE = "posted_tweets.json"     # Atılan tweetler
@@ -647,6 +715,15 @@ def format_tweet(tm: Dict) -> str:
         hashtags.append("#Metaverse")
     elif 'tech' in text_lower or 'software' in text_lower:
         hashtags.append("#Tech")
+
+    # Stock Ticker Logic ($CASHTAGS)
+    found_ticker = None
+    for company, ticker in KNOWN_TICKERS.items():
+        pattern = r'\b' + re.escape(company.lower()) + r'\b'
+        if re.search(pattern, owner_lower):
+             hashtags.append(ticker) # $AAPL vb ekle
+             found_ticker = ticker
+             break
         
     tags_str = " ".join(hashtags)
     tweet += f"\n\n🔗 {url}\n\n{tags_str}"

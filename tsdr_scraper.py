@@ -322,28 +322,43 @@ class TSDRScraper:
         
         return trademarks
     
-    def scan_range(self, start: int, end: int, workers: int = 1) -> List[Dict]:
-        """Belirli bir aralıktaki trademark'ları tara (Sıralı ve güvenli)"""
-        # Not: Parallel scanning WAF block yediği için sıralı yapıyoruz.
-        # workers parametresi şimdilik yoksayılıyor.
+    def scan_range(self, start: int, end: int, workers: int = 3) -> List[Dict]:
+        """Belirli bir aralıktaki trademark'ları tara (Parallel/Safe)"""
+        import concurrent.futures
         
-        logger.info(f"Taranıyor: {start} - {end} (Sıralı/Güvenli)")
+        logger.info(f"🚀 Taranıyor: {start} - {end} (Parallel Workers: {workers})")
         
         serials = list(range(start, end + 1))
         trademarks = []
+        found_count = 0
         start_time = time.time()
         
-        for i, serial in enumerate(serials):
-            tm = self.fetch_trademark(serial)
-            if tm:
-                trademarks.append(tm)
-                logger.info(f"✓ {serial}: {tm['mark_name'][:30]}")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+            # Future -> Serial haritalaması
+            future_to_serial = {executor.submit(self.fetch_trademark, serial): serial for serial in serials}
             
-            # Progress log
-            if (i + 1) % 10 == 0:
-                elapsed = time.time() - start_time
-                rate = (i + 1) / elapsed if elapsed > 0 else 0
-                logger.info(f"İlerleme: {i+1}/{len(serials)} ({len(trademarks)} bulundu) - {rate:.2f}/s")
+            for i, future in enumerate(concurrent.futures.as_completed(future_to_serial)):
+                serial = future_to_serial[future]
+                try:
+                    tm = future.result()
+                    if tm:
+                        trademarks.append(tm)
+                        found_count += 1
+                        logger.info(f"✓ {serial}: {tm['mark_name'][:30]}")
+                    else:
+                        # logger.debug(f"✗ {serial}: Not found or error")
+                        pass
+                except Exception as exc:
+                    logger.error(f"Generate exception for {serial}: {exc}")
+                
+                # Progress log (Her 10 işlemde bir)
+                if (i + 1) % 10 == 0:
+                    elapsed = time.time() - start_time
+                    rate = (i + 1) / elapsed if elapsed > 0 else 0
+                    logger.info(f"İlerleme: {i+1}/{len(serials)} ({found_count} bulundu) - {rate:.2f}/s")
+        
+        # Sonuçları sırala (Parallel olduğu için karışık gelebilir)
+        trademarks.sort(key=lambda x: int(x['serial_number']))
         
         elapsed = time.time() - start_time
         logger.info(f"✅ Tamamlandı: {len(trademarks)} trademark, {elapsed:.1f}s")

@@ -3,11 +3,12 @@ import textwrap
 import os
 import random
 
-# TEMA RENKLERİ
-THEME_BG = (20, 23, 26)       # Dark Slate / Twitter Dark
-THEME_TEXT = (255, 255, 255)  # White
-THEME_ACCENT = (29, 161, 242) # Twitter Blue
-THEME_SUBTEXT = (136, 153, 166) # Grey
+# TEMA RENKLERİ (LIGHT MODE - FRESH)
+THEME_BG = (255, 255, 255)      # Pure White
+THEME_TEXT = (15, 20, 25)       # Almost Black
+THEME_ACCENT = (29, 161, 242)   # Twitter Blue
+THEME_SUBTEXT = (83, 100, 113)  # Dark Grey
+THEME_PATTERN = (240, 242, 245) # Very Light Grey (for dots)
 
 def get_font(size, bold=False):
     """Sistem fontlarını bulmaya çalışır"""
@@ -30,6 +31,13 @@ def get_font(size, bold=False):
                     
     return ImageFont.load_default()
 
+def draw_pattern(d, w, h):
+    """Arka plana ince bir nokta deseni çizer"""
+    step = 40 # Nokta aralığı
+    for x in range(0, w, step):
+        for y in range(0, h, step):
+            d.ellipse([x, y, x+3, y+3], fill=THEME_PATTERN)
+
 def generate_trademark_card(
     mark_name: str, 
     owner: str, 
@@ -38,8 +46,15 @@ def generate_trademark_card(
     output_path: str = "temp_card.png"
 ) -> str:
     """
-    Şık bir trademark kartviziti oluşturur.
-    Returns: Kaydedilen dosyanın path'i
+    Şık bir trademark kartviziti oluşturur (Light Theme).
+    Using simple layout:
+    [ Blue Header Bar ]
+    [                 ]
+    [   TRADEMARK     ]
+    [     NAME        ]
+    [                 ]
+    [-----------------]
+    [ Owner    Date   ]
     """
     
     # 1. Canvas Oluştur (1200x675 - Twitter Card Size)
@@ -47,10 +62,13 @@ def generate_trademark_card(
     img = Image.new('RGB', (W, H), color=THEME_BG)
     d = ImageDraw.Draw(img)
     
-    # 2. Üst Bar (New Filing)
-    d.rectangle([0, 0, W, 20], fill=THEME_ACCENT)
+    # 2. Desen Ekle
+    draw_pattern(d, W, H)
     
-    # 3. Marka İsmi (Ortala ve Büyüt)
+    # 3. Üst Bar (Modern Touch)
+    d.rectangle([0, 0, W, 12], fill=THEME_ACCENT)
+    
+    # 4. Marka İsmi (Ortala ve Büyüt)
     # Font boyutu ismin uzunluğuna göre dinamik olsun
     font_size = 120
     if len(mark_name) > 10: font_size = 100
@@ -65,48 +83,48 @@ def generate_trademark_card(
     
     # Toplam metin yüksekliğini hesapla
     total_text_h = 0
-    line_spacing = 10
+    line_spacing = 15
     
-    # Bounding box calculation fix due to pillow version differences
     try:
-        # Modern Pillow
         ascent, descent = font_mark.getmetrics()
         line_height = ascent + descent + line_spacing
     except:
-        # Ancient Pillow fallback
         line_height = font_size * 1.2
         
     total_text_h = len(lines) * line_height
     
-    current_y = (H - total_text_h) / 2 - 40 # Biraz yukarı taşı
+    # Dikey ortalama
+    current_y = (H - total_text_h) / 2 - 20
     
     for line in lines:
-        # Metni ortala
         try:
             bbox = d.textbbox((0, 0), line, font=font_mark)
             w = bbox[2] - bbox[0]
         except:
-             w = d.textlength(line, font=font_mark) # Fallback
+             w = d.textlength(line, font=font_mark)
              
         d.text(((W - w) / 2, current_y), line, font=font_mark, fill=THEME_TEXT)
         current_y += line_height
 
-    # 4. Alt Bilgiler (Owner & Date)
-    font_sub = get_font(30, bold=False)
+    # 5. Alt Bilgiler (Footer)
+    # Divider Line
+    line_y = H - 140
+    d.line([(100, line_y), (W - 100, line_y)], fill=(230, 236, 240), width=3)
     
-    # Çizgi çek
-    d.line([(100, H - 150), (W - 100, H - 150)], fill=THEME_SUBTEXT, width=2)
+    # Fontlar
+    font_label = get_font(18, bold=True)
+    font_val = get_font(28, bold=False)
     
-    # Owner
-    d.text((100, H - 120), "APPLICANT", font=get_font(20, bold=True), fill=THEME_ACCENT)
-    d.text((100, H - 90), owner[:50], font=font_sub, fill=THEME_TEXT)
+    # Sol: Owner
+    d.text((100, line_y + 25), "APPLICANT", font=font_label, fill=THEME_ACCENT)
+    d.text((100, line_y + 55), owner[:45], font=font_val, fill=THEME_SUBTEXT)
     
-    # Date
-    d.text((W - 300, H - 120), "FILED DATE", font=get_font(20, bold=True), fill=THEME_ACCENT)
-    d.text((W - 300, H - 90), date_str, font=font_sub, fill=THEME_TEXT)
+    # Sağ: Date
+    d.text((W - 350, line_y + 25), "FILED DATE", font=font_label, fill=THEME_ACCENT)
+    d.text((W - 350, line_y + 55), date_str, font=font_val, fill=THEME_SUBTEXT)
     
-    # Branding - Sağ alt
-    d.text((W - 200, 40), "FilingWatch", font=get_font(20, bold=True), fill=THEME_SUBTEXT)
+    # Logo / Branding (Sağ Üst Köşe - Minimal)
+    d.text((W - 160, 40), "FilingWatch", font=get_font(18, bold=True), fill=THEME_SUBTEXT)
     
     # Save
     img.save(output_path)

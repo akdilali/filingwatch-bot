@@ -62,6 +62,17 @@ jobs:
       run: |
         python tech_news.py producthunt
 
+    - name: Run Tech News (GitHub Check - 12:00 UTC ~ 15:00 TRT)
+      if: github.event.schedule == '0 12 * * *' || github.event_name == 'workflow_dispatch'
+      env:
+        X_API_KEY: ${{ secrets.X_API_KEY }}
+        X_API_SECRET: ${{ secrets.X_API_SECRET }}
+        X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+        X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+      run: |
+        python tech_news.py github
+
     - name: Commit and Push changes (Persistence)
       run: |
         git config --global user.name 'FilingWatch Bot'

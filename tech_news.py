@@ -78,6 +78,58 @@ class TechNewsBot:
             logger.error(f"Product Hunt Scrape Hatası: {e}")
             return None
 
+    def scrape_github_trending(self):
+        """GitHub Trending #1 reposunu çeker"""
+        url = "https://github.com/trending"
+        try:
+            resp = requests.get(url, headers=self.headers, timeout=10)
+            soup = BeautifulSoup(resp.content, 'html.parser')
+            
+            # İlk Article (Box-row)
+            article = soup.find('article', class_='Box-row')
+            if not article:
+                logger.error("GitHub Trending yapısı değişmiş.")
+                return None
+                
+            # Repo Name (h2 > a) -> "user / repo"
+            h2 = article.find('h2')
+            if not h2: return None
+            
+            repo_link_tag = h2.find('a')
+            repo_name = repo_link_tag.get_text().strip().replace('\n', '').replace(' ', '')
+            repo_path = repo_link_tag['href']
+            link = f"https://github.com{repo_path}"
+            
+            # Description (p)
+            p = article.find('p')
+            desc = p.get_text().strip() if p else "No description."
+            
+            # Stars Today (En sondaki span)
+            # Yapı: <span class="d-inline-block float-sm-right"> <svg>...</svg> 123 stars today </span>
+            # Basitçe metin içinde "stars today" arayalım
+            all_text = article.get_text()
+            stars_today = "Unknown"
+            if "stars today" in all_text:
+                # Satırlara böl ve bul
+                for line in all_text.split('\n'):
+                     if "stars today" in line:
+                         stars_today = line.strip().replace(' stars today', '')
+                         break
+            
+            # Tweet
+            tweet = f"🔥 GITHUB TRENDING HASHTAG #1\n\n📦 {repo_name}\n⭐ {stars_today} stars today\n\n💡 {desc[:100]}...\n\n🔗 {link}\n\n#OpenSource #AI #GitHub #Dev"
+            
+            # Eğer AI ile ilgiliyse #AI ekle (zaten ekli ama olsun)
+            if 'llm' in desc.lower() or 'gpt' in desc.lower():
+                tweet += " #LLM"
+                
+            logger.info(f"GitHub Trending bulundu: {repo_name}")
+            return tweet
+            
+        except Exception as e:
+            logger.error(f"GitHub Scrape Hatası: {e}")
+            return None
+
     def run(self, source: str):
         logger.info(f"Bot çalışıyor... Kaynak: {source}")
         tweet_text = None
@@ -86,8 +138,10 @@ class TechNewsBot:
             tweet_text = self.scrape_techmeme()
         elif source == 'producthunt':
             tweet_text = self.scrape_producthunt()
+        elif source == 'github':
+            tweet_text = self.scrape_github_trending()
         else:
-            logger.error("Geçersiz kaynak. Seçenekler: techmeme, producthunt")
+            logger.error("Geçersiz kaynak. Seçenekler: techmeme, producthunt, github")
             return
 
         if tweet_text:
@@ -95,6 +149,10 @@ class TechNewsBot:
             try:
                 # post_tweet fonksiyonunu main_v2'den çağırıyoruz
                 # Not: post_tweet içinde 'print' var, loglama için yeterli.
+                # Safe check for length
+                if len(tweet_text) > 280:
+                    tweet_text = tweet_text[:277] + "..."
+                    
                 logger.info(f"Tweetleniyor:\n{tweet_text}")
                 post_tweet(tweet_text) # Gerçek tweet
             except Exception as e:

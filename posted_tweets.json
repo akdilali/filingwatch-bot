@@ -9,7 +9,8 @@
     "99535754",
     "99535701",
     "99536142",
-    "99536239"
+    "99536239",
+    "99538054"
   ],
   "tweets": [
     {
@@ -71,6 +72,13 @@
       "tweet_id": "1998402443055345811",
       "text": "\ud83e\udd16 NEW TRADEMARK FILED\n\n\ud83d\udccc IDEFIX AI\n\ud83d\udcdd Software as a service (SAAS) services featu",
       "time": "2025-12-09T17:40:45.814420"
+    },
+    {
+      "serial": "99538054",
+      "tweet_id": "1998825598349640182",
+      "text": "\u26a1 Breaking: New filing detected...\n\n\ud83c\udfe2 NEW TRADEMARK FILED\n\n\ud83d\udccc GM UMAN ROBOT ASSIS",
+      "category": "must_post",
+      "time": "2025-12-10T21:42:13.941778"
     }
   ]
 }

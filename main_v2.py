@@ -694,7 +694,7 @@ def format_tweet(tm: Dict) -> str:
     tweet += f"\n📅 {date_str}"
     
     # Dynamic Hashtags
-    hashtags = ["#Trademark", "#USPTO"]
+    hashtags = [] # Temiz görünüm için default hashtag yok
     
     # Add category-specific hashtags
     text_lower = (mark + " " + desc).lower()

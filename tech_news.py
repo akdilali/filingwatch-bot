@@ -117,11 +117,16 @@ class TechNewsBot:
                          break
             
             # Tweet
-            tweet = f"🔥 GITHUB TRENDING #1\n\n📦 {repo_name}\n⭐ {stars_today} stars today\n\n💡 {desc[:100]}...\n\n🔗 {link}\n\n#OpenSource #AI #GitHub #Dev"
+            tweet = f"🔥 GITHUB TRENDING #1\n\n📦 {repo_name}\n⭐ {stars_today} stars today\n\n💡 {desc[:100]}...\n\n🔗 {link}\n\n#OpenSource"
             
-            # Eğer AI ile ilgiliyse #AI ekle (zaten ekli ama olsun)
-            if 'llm' in desc.lower() or 'gpt' in desc.lower():
-                tweet += " #LLM"
+            # Dinamik Etiketler (İçeriğe göre)
+            desc_lower = desc.lower()
+            if any(x in desc_lower for x in ['llm', 'gpt', 'ai ', 'artificial intelligence', 'model', 'neural']):
+                tweet += " #AI"
+            if 'game' in desc_lower:
+                tweet += " #GameDev"
+            if 'web' in desc_lower or 'css' in desc_lower or 'react' in desc_lower:
+                 tweet += " #WebDev"
                 
             logger.info(f"GitHub Trending bulundu: {repo_name}")
             return tweet

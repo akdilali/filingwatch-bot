@@ -90,13 +90,23 @@ jobs:
       run: |
         python tech_news.py github
 
+    - name: Run SEC Bot (Funding Alerts - Every 6 Hours)
+      env:
+        X_API_KEY: ${{ secrets.X_API_KEY }}
+        X_API_SECRET: ${{ secrets.X_API_SECRET }}
+        X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+        X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+      run: |
+        python sec_bot.py
+
     - name: Commit and Push changes (Persistence)
       run: |
         git config --global user.name 'FilingWatch Bot'
         git config --global user.email 'bot@filingwatch.com'
         
         # Add state files
-        git add scraper_state.json posted_tweets.json daily_cache.json history.json bot_scheduler.log
+        git add scraper_state.json posted_tweets.json daily_cache.json history.json bot_scheduler.log sec_state.json sec_bot.log
         
         # Check if there are changes
         if git diff --staged --quiet; then

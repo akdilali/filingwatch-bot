@@ -117,7 +117,7 @@ class TechNewsBot:
                          break
             
             # Tweet
-            tweet = f"🔥 GITHUB TRENDING HASHTAG #1\n\n📦 {repo_name}\n⭐ {stars_today} stars today\n\n💡 {desc[:100]}...\n\n🔗 {link}\n\n#OpenSource #AI #GitHub #Dev"
+            tweet = f"🔥 GITHUB TRENDING #1\n\n📦 {repo_name}\n⭐ {stars_today} stars today\n\n💡 {desc[:100]}...\n\n🔗 {link}\n\n#OpenSource #AI #GitHub #Dev"
             
             # Eğer AI ile ilgiliyse #AI ekle (zaten ekli ama olsun)
             if 'llm' in desc.lower() or 'gpt' in desc.lower():

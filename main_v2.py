@@ -895,6 +895,17 @@ def main():
         analyzer = Analyzer()
         report = analyzer.generate_weekly_report()
         print(report)
+        
+        # Tweet at (Eğer --tweet argümanı varsa)
+        if '--tweet' in sys.argv:
+            print("📢 Rapor tweetleniyor...")
+            client = get_x_client() # Client init
+            # Rapor zaten kısa (280 char kontrolü analyzer içinde yapılmalı veya burada)
+            # Analyzer raporu biraz uzun olabilir, kontrol edelim
+            if len(report) > 280:
+                report = report[:277] + "..."
+            
+            post_tweet(report)
         return
 
     elif command == 'stats':

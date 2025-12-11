@@ -23,7 +23,7 @@ class Analyzer:
         keyword_counts = Counter()
         
         for tm in recent_data:
-            text = (tm.get('mark_name', '') + " " + tm.get('goods_services', '')).upper()
+            text = ((tm.get('mark_name') or '') + " " + (tm.get('goods_services') or '')).upper()
             for kw in keywords:
                 if kw.upper() in text:
                     keyword_counts[kw] += 1
@@ -38,7 +38,6 @@ class Analyzer:
         
         # 3. Rapor Oluştur
         report = f"📊 HAFTALIK PATENT RAPORU ({datetime.now().strftime('%d %b')})\n\n"
-        report += f"FilingWatch bu hafta USPTO'da {total_count} yeni başvuru taradı.\n\n"
         
         if top_keywords:
             report += "🔥 Yükselen Trendler:\n"
@@ -53,9 +52,7 @@ class Analyzer:
                 short_owner = owner[:25] + "..." if len(owner) > 25 else owner
                 report += f"• {short_owner}: {count}\n"
         
-        report += "\n#DataJournalism #USPTO #TechTrends"
-        
-        return report
+        return report.strip()
 
 if __name__ == "__main__":
     # Test

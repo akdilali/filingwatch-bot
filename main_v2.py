@@ -813,7 +813,8 @@ def tweet_candidates(candidates: List[Dict], dry_run: bool = False):
                     mark_name=tm.get('mark_name', 'UNKNOWN'),
                     owner=tm.get('owner', 'Unknown'),
                     date_str=tm.get('filing_date_raw', '2025'),
-                    serial=tm.get('serial_number')
+                    serial=tm.get('serial_number'),
+                    description=tm.get('goods_services', '') # Görselde açıklama göster
                 )
         except Exception as e:
             logging.error(f"Görsel hazırlama hatası: {e}")

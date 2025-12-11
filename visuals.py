@@ -43,6 +43,7 @@ def generate_trademark_card(
     owner: str, 
     date_str: str, 
     serial: str,
+    description: str = "",  # Yeni parametre
     output_path: str = "temp_card.png"
 ) -> str:
     """
@@ -93,9 +94,13 @@ def generate_trademark_card(
         
     total_text_h = len(lines) * line_height
     
-    # Dikey ortalama
-    current_y = (H - total_text_h) / 2 - 20
+    # Dikey ortalama (İsim + Açıklama için alan hesabı)
+    # İsim yukarı kaydırılsın (Marka ismi çok uzunsa font küçültülmüştü zaten)
     
+    # 4.1 İsim Çizimi
+    name_y_offset = (H / 2) - total_text_h - 40 # Biraz yukarı taşı
+    
+    current_y = name_y_offset
     for line in lines:
         try:
             bbox = d.textbbox((0, 0), line, font=font_mark)
@@ -105,6 +110,62 @@ def generate_trademark_card(
              
         d.text(((W - w) / 2, current_y), line, font=font_mark, fill=THEME_TEXT)
         current_y += line_height
+
+    # 4.2 Açıklama (Description) Çizimi - YENİ (Dynamic Sizing)
+    if description and len(description) > 5:
+        # Metni temizle
+        clean_desc = description.replace('\n', ' ').strip()
+        
+        # Dinamik Font Ayarı
+        char_count = len(clean_desc)
+        if char_count < 150:
+            desc_font_size = 40
+            wrap_width = 50
+            max_lines = 4
+        elif char_count < 300:
+            desc_font_size = 32
+            wrap_width = 65
+            max_lines = 6
+        else:
+            desc_font_size = 26
+            wrap_width = 80
+            max_lines = 10
+            
+        # Hard Limit & Smart Truncate (Cümle ortasında kesmemeye çalış)
+        max_limit = 800
+        if char_count > max_limit: 
+            # Limite kadar olan kısmı al
+            candidate = clean_desc[:max_limit]
+            # Son noktayı bul
+            last_dot = candidate.rfind('.')
+            
+            # Eğer son nokta makul bir yerdeyse (örneğin metnin %10'undan ilerideyse) oradan kes
+            if last_dot > (max_limit * 0.1): 
+                clean_desc = candidate[:last_dot+1]
+            else:
+                # Nokta bulamazsa veya çok baştaysa mecburen kesip ... koy
+                clean_desc = candidate[:max_limit-3] + "..."
+            
+        font_desc = get_font(desc_font_size, bold=False)
+        
+        wrapper_desc = textwrap.TextWrapper(width=wrap_width)
+        desc_lines = wrapper_desc.wrap(clean_desc)
+        
+        # Max satır sayısı kontrolü
+        desc_lines = desc_lines[:max_lines]
+        
+        desc_y = current_y + 30 
+        desc_line_height = desc_font_size * 1.3
+        
+        for line in desc_lines:
+            try:
+                bbox = d.textbbox((0, 0), line, font=font_desc)
+                w = bbox[2] - bbox[0]
+            except:
+                 w = d.textlength(line, font=font_desc)
+            
+            d.text(((W - w) / 2, desc_y), line, font=font_desc, fill=THEME_SUBTEXT)
+            desc_y += desc_line_height
 
     # 5. Alt Bilgiler (Footer)
     # Divider Line

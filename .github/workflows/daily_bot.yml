@@ -62,8 +62,8 @@ jobs:
       run: |
         python tech_news.py producthunt
 
-    - name: Run Weekly Stats (Monday Only - 06:00 UTC ~ 09:00 TRT)
-      if: github.event.schedule == '0 6 * * *' || github.event_name == 'workflow_dispatch'
+    - name: Run Weekly Stats (Monday Only - 12:00 UTC ~ 07:00 AM EST)
+      if: github.event.schedule == '0 12 * * *' || github.event_name == 'workflow_dispatch'
       env:
         X_API_KEY: ${{ secrets.X_API_KEY }}
         X_API_SECRET: ${{ secrets.X_API_SECRET }}

@@ -40,6 +40,28 @@ jobs:
         # Run the bot
         ./run_bot.sh
 
+    - name: Run Tech News (Techmeme - 18:00 UTC ~ 21:00 TRT)
+      if: github.event.schedule == '0 18 * * *' || github.event_name == 'workflow_dispatch'
+      env:
+        X_API_KEY: ${{ secrets.X_API_KEY }}
+        X_API_SECRET: ${{ secrets.X_API_SECRET }}
+        X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+        X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+      run: |
+        python tech_news.py techmeme
+
+    - name: Run Tech News (Product Hunt - 06:00 UTC ~ 09:00 TRT)
+      if: github.event.schedule == '0 6 * * *' || github.event_name == 'workflow_dispatch'
+      env:
+        X_API_KEY: ${{ secrets.X_API_KEY }}
+        X_API_SECRET: ${{ secrets.X_API_SECRET }}
+        X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+        X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+      run: |
+        python tech_news.py producthunt
+
     - name: Commit and Push changes (Persistence)
       run: |
         git config --global user.name 'FilingWatch Bot'

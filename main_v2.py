@@ -765,8 +765,23 @@ def post_tweet(text: str, media_path: Optional[str] = None) -> Optional[str]:
         print(f"✅ https://twitter.com/i/status/{tweet_id}")
         return tweet_id
     except Exception as e:
-        logging.error(f"Tweet hatası: {e}")
-        print(f"❌ Tweet hatası: {e}")
+        error_msg = f"Tweet hatası: {e}"
+        if hasattr(e, 'response') and e.response is not None:
+             # Headerları yazdır (Rate limit için)
+             headers = e.response.headers
+             if headers:
+                 limit = headers.get('x-rate-limit-remaining')
+                 reset = headers.get('x-rate-limit-reset')
+                 error_msg += f" | Limit: {limit} | Reset: {reset}"
+                 
+             # Gövdeyi yazdır (Detaylı hata mesajı için)
+             try:
+                error_msg += f" | Body: {e.response.text}"
+             except:
+                pass
+                
+        logging.error(error_msg)
+        print(f"❌ {error_msg}")
 
 def tweet_candidates(candidates: List[Dict], dry_run: bool = False):
     """

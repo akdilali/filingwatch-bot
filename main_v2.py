@@ -25,6 +25,7 @@ from visuals import generate_trademark_card
 from history_manager import HistoryManager
 from analyzer import Analyzer
 from weird_filter import WeirdFilter
+from openai import OpenAI
 
 # ============== LOGGING ==============
 logging.basicConfig(
@@ -612,15 +613,85 @@ def get_x_client():
     )
 
 
+# ============== TWEET FORMATTING (AI & CLASSIC) ==============
+
+def generate_ai_commentary(mark: str, goods: str, owner: str) -> str:
+    """OpenAI kullanarak tweeti gazeteci gibi yorumla"""
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        return None
+        
+    try:
+        client = OpenAI(api_key=api_key)
+        
+        prompt = f"""
+        Act as a snarky, cynical tech journalist (like TechCrunch or The Verge style).
+        Write a short tweet hook (max 180 chars) about this new trademark filing.
+        Don't be robotic. Be opinionated. Speculate (responsibly). Use 1 emoji.
+        
+        Trademark: "{mark}"
+        Owner: "{owner}"
+        Description: "{goods[:200]}..."
+        
+        Output only the tweet text. No quotes.
+        """
+        
+        resp = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=100,
+            temperature=0.8
+        )
+        
+        return resp.choices[0].message.content.strip()
+    except Exception as e:
+        logging.error(f"AI Generation Error: {e}")
+        return None
+
 def format_tweet(tm: Dict) -> str:
-    """Tweet formatla - 280 karakter limiti"""
+    """Tweet formatla - AI destekli hibrit yapı"""
     mark = (tm.get('mark_name') or 'Unknown')[:40]
     serial = tm.get('serial_number', '')
     date_str = tm.get('filing_date_raw', '')
     owner = (tm.get('owner') or '')[:40]
-    
-    # Description (Goods/Services) - max 110 karakter (Optimize edildi)
     desc = (tm.get('goods_services') or '').strip()
+    url = f"https://tsdr.uspto.gov/caseviewer/SNUM/{serial}"
+
+    # 1. AI YORUMU DENE (Graceful Fallback)
+    try:
+        # Sadece "önemli" veya "garip" olanlar için AI kullanalım mi? Hayır, şimdilik hepsini deneyelim.
+        # Ama weird için zaten özel intro var. Weird ise AI kullanmayalım, bizim intro iyi.
+        if tm.get('category') != 'weird':
+            ai_text = generate_ai_commentary(mark, desc, owner)
+            if ai_text:
+                # Başarılı! AI metnini kullan.
+                # Format: AI Metni \n\n🔗 Link #Hashtags
+                tweet = f"{ai_text}\n\n🔗 {url}"
+                
+                # Hashtag ekle (AI genelde eklemez)
+                hashtags = []
+                text_lower = (mark + " " + desc).lower()
+                if 'ai' in text_lower or 'gpt' in text_lower: hashtags.append("#AI")
+                if 'crypto' in text_lower: hashtags.append("#Crypto")
+                if 'game' in text_lower: hashtags.append("#Gaming")
+                
+                # Ticker check
+                owner_lower = owner.lower()
+                for company, ticker in KNOWN_TICKERS.items():
+                    if company.lower() in owner_lower:
+                        hashtags.append(ticker)
+                        break
+                        
+                if hashtags:
+                    tweet += "\n\n" + " ".join(hashtags)
+                    
+                return tweet[:280] # Garantile
+    except:
+        pass # Fallback to classic
+
+    # 2. KLASİK FORMAT (Yedek)
+    # Description (Goods/Services) - max 110 karakter (Optimize edildi)
+    # desc = (tm.get('goods_services') or '').strip() # Already defined above
     # Gereksiz boşlukları ve satır sonlarını temizle
     desc = ' '.join(desc.split())
     if len(desc) > 110:

@@ -106,8 +106,10 @@ jobs:
         git config --global user.name 'FilingWatch Bot'
         git config --global user.email 'bot@filingwatch.com'
         
-        # Add state files
-        git add scraper_state.json posted_tweets.json daily_cache.json history.json bot_scheduler.log sec_state.json sec_bot.log
+        # Add state files (silently ignore if missing)
+        git add scraper_state.json posted_tweets.json daily_cache.json history.json bot_scheduler.log sec_state.json || true
+        [ -f sec_bot.log ] && git add sec_bot.log
+        [ -f filingwatch.log ] && git add filingwatch.log
         
         # Check if there are changes
         if git diff --staged --quiet; then

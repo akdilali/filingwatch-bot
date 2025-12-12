@@ -4,7 +4,12 @@ import logging
 import sys
 import os
 # Import existing Twitter client
+# Import existing Twitter client
 from main_v2 import post_tweet, get_x_client
+from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Config
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -15,6 +20,54 @@ class TechNewsBot:
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         }
+
+    def _generate_ai_hook(self, prompt_template: str, content: str) -> str:
+        """Helper to call OpenAI"""
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key: return None
+        
+        try:
+            client = OpenAI(api_key=api_key)
+            resp = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": prompt_template.format(content=content)}],
+                max_tokens=100,
+                temperature=0.8
+            )
+            return resp.choices[0].message.content.strip()
+        except Exception as e:
+            logger.error(f"AI Generation Error: {e}")
+            return None
+
+    def generate_ai_news_hook(self, title: str, description: str) -> str:
+        """Techmeme için sivri dilli yorum"""
+        prompt = """
+        Act as a snarky tech gossip columnist (like a mix of TechCrunch and a Twitter influencer).
+        Write a very short, catchy tweet intro (max 150 chars) for this tech news.
+        Be opinionated. If it's big news, hype it. If it's boring, be sarcastic.
+        Use 1 fitting emoji.
+        
+        News: "{content}"
+        
+        Output only the tweet text. No quotes.
+        """
+        content = f"{title}. {description[:200]}"
+        return self._generate_ai_hook(prompt, content)
+
+    def generate_ai_product_hook(self, title: str, description: str) -> str:
+        """Product Hunt için analist yorumu"""
+        prompt = """
+        Act as a plugged-in product analyst.
+        Write a short tweet intro (max 150 chars) explaining WHY this product matters.
+        Focus on the "Use Case" or the problem it solves. Don't just repeat features.
+        Use 1 fitting emoji.
+        
+        Product: "{content}"
+        
+        Output only the tweet text. No quotes.
+        """
+        content = f"{title}: {description[:200]}"
+        return self._generate_ai_hook(prompt, content)
 
     def scrape_techmeme(self):
         """Techmeme ana manşeti çeker (RSS üzerinden)"""
@@ -39,7 +92,13 @@ class TechNewsBot:
             clean_desc = soup.get_text().strip()
             
             # Tweet Formatla
-            tweet = f"📰 TECHMEME MANŞET\n\n🚨 {title}\n\n{clean_desc[:100]}...\n\n🔗 {link}\n\n#TechNews #Breaking #Technology"
+            # AI Fallback Logic
+            ai_hook = self.generate_ai_news_hook(title, clean_desc)
+            if ai_hook:
+                tweet = f"{ai_hook}\n\n📰 {title}\n\n🔗 {link}\n\n#TechNews"
+            else:
+                tweet = f"📰 TECHMEME MANŞET\n\n🚨 {title}\n\n{clean_desc[:100]}...\n\n🔗 {link}\n\n#TechNews #Breaking #Technology"
+                
             logger.info(f"Techmeme bulundu: {title}")
             return tweet
             
@@ -70,7 +129,14 @@ class TechNewsBot:
             soup = BeautifulSoup(description, 'html.parser')
             clean_desc = soup.get_text().strip()
             
-            tweet = f"🚀 PRODUCT HUNT GÜNÜN ÜRÜNÜ\n\n✨ {title}\n\n💡 {clean_desc[:120]}...\n\n🔗 {link}\n\n#ProductHunt #NewTool #Startup"
+            
+            # AI Fallback Logic
+            ai_hook = self.generate_ai_product_hook(title, clean_desc)
+            if ai_hook:
+                tweet = f"{ai_hook}\n\n🚀 {title}\n\n🔗 {link}\n\n#ProductHunt #Startup"
+            else:
+                tweet = f"🚀 PRODUCT HUNT GÜNÜN ÜRÜNÜ\n\n✨ {title}\n\n💡 {clean_desc[:120]}...\n\n🔗 {link}\n\n#ProductHunt #NewTool #Startup"
+
             logger.info(f"PH bulundu: {title}")
             return tweet
             

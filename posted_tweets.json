@@ -16,7 +16,9 @@
     "99544167",
     "99544172",
     "99544180",
-    "99544183"
+    "99544183",
+    "99544185",
+    "99544571"
   ],
   "tweets": [
     {
@@ -127,6 +129,20 @@
       "text": "Just what we needed: Walmart diving into the fishing tackle bag game with \"OTX-P",
       "category": "must_post",
       "time": "2025-12-13T12:54:12.536558"
+    },
+    {
+      "serial": "99544185",
+      "tweet_id": "1999912451706359978",
+      "text": "Walmart\u2019s diving into the bling game with \"BRILLIANCE FINE JEWELRY.\" Because not",
+      "category": "must_post",
+      "time": "2025-12-13T18:40:59.938820"
+    },
+    {
+      "serial": "99544571",
+      "tweet_id": "1999912715402269081",
+      "text": "American Express is getting into the app game, but let\u2019s be real\u2014who needs anoth",
+      "category": "must_post",
+      "time": "2025-12-13T18:42:02.829599"
     }
   ],
   "last_weird_time": "2025-12-13T02:59:25.196686"

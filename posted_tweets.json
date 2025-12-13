@@ -10,7 +10,9 @@
     "99535701",
     "99536142",
     "99536239",
-    "99538054"
+    "99538054",
+    "99545264",
+    "99544165"
   ],
   "tweets": [
     {
@@ -79,6 +81,21 @@
       "text": "\u26a1 Breaking: New filing detected...\n\n\ud83c\udfe2 NEW TRADEMARK FILED\n\n\ud83d\udccc GM UMAN ROBOT ASSIS",
       "category": "must_post",
       "time": "2025-12-10T21:42:13.941778"
+    },
+    {
+      "serial": "99545264",
+      "tweet_id": "1999675495592726545",
+      "text": "\ud83e\udd28 Seriously?\n\n\ud83e\udd2a WEIRD TRADEMARK ALERT\n\n\ud83d\udccc THE GOOD DOG FOUNDATION DISCOVER THE HE",
+      "category": "weird",
+      "time": "2025-12-13T02:59:25.196678"
+    },
+    {
+      "serial": "99544165",
+      "tweet_id": "1999675760471343604",
+      "text": "Walmart's \"FREE ASSEMBLY\" trademark for jewelry? Because nothing screams luxury ",
+      "category": "must_post",
+      "time": "2025-12-13T03:00:28.350028"
     }
-  ]
+  ],
+  "last_weird_time": "2025-12-13T02:59:25.196686"
 }

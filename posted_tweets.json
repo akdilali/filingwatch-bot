@@ -20,7 +20,9 @@
     "99544185",
     "99544571",
     "99546438",
-    "99546482"
+    "99546482",
+    "99546486",
+    "99546344"
   ],
   "tweets": [
     {
@@ -159,7 +161,21 @@
       "text": "Looks like Michael Vernon Ford is ready to turn winter fashion into a high-brow ",
       "category": "must_post",
       "time": "2025-12-14T02:27:39.353645"
+    },
+    {
+      "serial": "99546486",
+      "tweet_id": "2000094022233141411",
+      "text": "\ud83e\udd28 Seriously?\n\n\ud83e\udd2a WEIRD TRADEMARK ALERT\n\n\ud83d\udccc BORN FOR THE SUN, RULED BY THE MOON.\n\ud83d\udcdd ",
+      "category": "weird",
+      "time": "2025-12-14T06:42:29.736955"
+    },
+    {
+      "serial": "99546344",
+      "tweet_id": "2000094286931530001",
+      "text": "So, \"AI DATADIVE\" is here to save us from the horror of\u2014gasp\u2014doing our own data ",
+      "category": "interesting",
+      "time": "2025-12-14T06:43:32.851507"
     }
   ],
-  "last_weird_time": "2025-12-14T02:26:36.496957"
+  "last_weird_time": "2025-12-14T06:42:29.736963"
 }

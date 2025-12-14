@@ -18,7 +18,9 @@
     "99544180",
     "99544183",
     "99544185",
-    "99544571"
+    "99544571",
+    "99546438",
+    "99546482"
   ],
   "tweets": [
     {
@@ -143,7 +145,21 @@
       "text": "American Express is getting into the app game, but let\u2019s be real\u2014who needs anoth",
       "category": "must_post",
       "time": "2025-12-13T18:42:02.829599"
+    },
+    {
+      "serial": "99546438",
+      "tweet_id": "2000029626031108500",
+      "text": "\ud83e\udd28 Seriously?\n\n\ud83e\udd2a WEIRD TRADEMARK ALERT\n\n\ud83d\udccc [ BIDETS; FAUCET SPRAYERS; KITCHEN SINK",
+      "category": "weird",
+      "time": "2025-12-14T02:26:36.496948"
+    },
+    {
+      "serial": "99546482",
+      "tweet_id": "2000029889584365777",
+      "text": "Looks like Michael Vernon Ford is ready to turn winter fashion into a high-brow ",
+      "category": "must_post",
+      "time": "2025-12-14T02:27:39.353645"
     }
   ],
-  "last_weird_time": "2025-12-13T02:59:25.196686"
+  "last_weird_time": "2025-12-14T02:26:36.496957"
 }

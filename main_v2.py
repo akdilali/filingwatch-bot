@@ -646,6 +646,7 @@ def generate_ai_commentary(mark: str, goods: str, owner: str) -> str:
         )
         
         return resp.choices[0].message.content.strip()
+    except Exception as e:
         logging.error(f"AI Generation Error: {e}")
         return None
 

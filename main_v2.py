@@ -950,7 +950,10 @@ def tweet_candidates(candidates: List[Dict], dry_run: bool = False):
             if media_path and os.path.exists(media_path):
                 os.remove(media_path)
                 
-            time.sleep(60)  # Twitter rate limit (User isteği: 1 dakika)
+            # Tweetler arası rastgele bekleme (3-7 dk) - Bot Detection Önlemi
+            wait_time = random.randint(180, 420)
+            print(f"⏳ Bekleniyor: {wait_time // 60} dakika ({wait_time} sn)...")
+            time.sleep(wait_time)
     
     print(f"\n✅ Tamamlandı!")
 

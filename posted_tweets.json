@@ -22,7 +22,9 @@
     "99546438",
     "99546482",
     "99546486",
-    "99546344"
+    "99546344",
+    "99546462",
+    "99546483"
   ],
   "tweets": [
     {
@@ -175,6 +177,20 @@
       "text": "So, \"AI DATADIVE\" is here to save us from the horror of\u2014gasp\u2014doing our own data ",
       "category": "interesting",
       "time": "2025-12-14T06:43:32.851507"
+    },
+    {
+      "serial": "99546462",
+      "tweet_id": "2000187069277061561",
+      "text": "Curo AI just trademarked their chatbot for patient management\u2014because who doesn'",
+      "category": "interesting",
+      "time": "2025-12-14T12:52:13.888242"
+    },
+    {
+      "serial": "99546483",
+      "tweet_id": "2000187331794346341",
+      "text": "Just what we needed\u2014another consultancy promising to \"AMPLIFY\" our impact! Can't",
+      "category": "interesting",
+      "time": "2025-12-14T12:53:16.514309"
     }
   ],
   "last_weird_time": "2025-12-14T06:42:29.736963"

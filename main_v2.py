@@ -626,8 +626,10 @@ def generate_ai_commentary(mark: str, goods: str, owner: str) -> str:
         
         prompt = f"""
         Act as a snarky, cynical tech journalist (like TechCrunch or The Verge style).
-        Write a short tweet hook (max 180 chars) about this new trademark filing.
-        Don't be robotic. Be opinionated. Speculate (responsibly). Use 1 emoji.
+        Write a SHORT tweet hook (max 130 chars) about this new trademark filing.
+        Don't include the trademark name or owner in the hook unless necessary for the joke.
+        Don't write the link. Don't use hashtags.
+        Be opinionated. Speculate (responsibly). Use 1 emoji.
         
         Trademark: "{mark}"
         Owner: "{owner}"
@@ -639,7 +641,7 @@ def generate_ai_commentary(mark: str, goods: str, owner: str) -> str:
         resp = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=100,
+            max_tokens=60, # Restrict token output
             temperature=0.8
         )
         
@@ -664,9 +666,15 @@ def format_tweet(tm: Dict) -> str:
         if tm.get('category') != 'weird':
             ai_text = generate_ai_commentary(mark, desc, owner)
             if ai_text:
-                # Başarılı! AI metnini kullan.
-                # Format: AI Metni \n\n🔗 Link #Hashtags
-                tweet = f"{ai_text}\n\n🔗 {url}"
+                # Başarılı! Hibrid Formatı Oluştur
+                # AI Hook + Structured Data Block
+                
+                # Description Truncate (Kısa tut)
+                short_desc = (desc[:60] + '...') if len(desc) > 60 else desc
+                
+                data_block = f"📌 {mark}\n📝 {short_desc}\n🏢 {owner}"
+                
+                tweet = f"{ai_text}\n\n{data_block}\n\n🔗 {url}"
                 
                 # Hashtag ekle (AI genelde eklemez)
                 hashtags = []

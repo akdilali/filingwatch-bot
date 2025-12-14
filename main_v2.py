@@ -1,5 +1,6 @@
 """
 FilingWatch v2.1 - USPTO Trademark Filing Bot
+# SYNTAX FIX VERIFIED: 2025-12-14 23:45 
 ============================================
 - TSDR Scraping ile gerçek zamanlı veri (1-2 gün gecikme)
 - Günlük cache - aynı gün tekrar indirmez

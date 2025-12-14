@@ -641,7 +641,7 @@ def generate_ai_commentary(mark: str, goods: str, owner: str) -> str:
         resp = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=60, # Restrict token output
+            max_tokens=60,
             temperature=0.8
         )
         

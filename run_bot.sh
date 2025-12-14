@@ -18,7 +18,7 @@ fi
 
 # Botu çalıştır (Tweet atma modunda)
 # Eğer sadece preview istiyorsanız 'run' yerine 'preview' yazın
-python3 main_v2.py run >> bot_scheduler.log 2>&1
+python3 -u main_v2.py run | tee -a bot_scheduler.log
 
 echo "Bot run finished at $(date)" >> bot_scheduler.log
 echo "----------------------------------------" >> bot_scheduler.log

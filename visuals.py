@@ -3,201 +3,154 @@ import textwrap
 import os
 import random
 
-# TEMA RENKLERİ (LIGHT MODE - FRESH)
-THEME_BG = (255, 255, 255)      # Pure White
-THEME_TEXT = (15, 20, 25)       # Almost Black
-THEME_ACCENT = (29, 161, 242)   # Twitter Blue
-THEME_SUBTEXT = (83, 100, 113)  # Dark Grey
-THEME_PATTERN = (240, 242, 245) # Very Light Grey (for dots)
+# TEMA RENKLERİ (PREMIUM DARK MODE)
+THEME_BG = (15, 23, 42)         # Slate 900 (Deep Navy)
+THEME_TEXT = (248, 250, 252)    # Slate 50 (White)
+THEME_ACCENT = (59, 130, 246)   # Blue 500 (Electric Blue)
+THEME_SUBTEXT = (148, 163, 184) # Slate 400 (Light Grey)
+THEME_DIVIDER = (30, 41, 59)    # Slate 800
 
 def get_font(size, bold=False):
-    """Sistem fontlarını bulmaya çalışır"""
+    """Sistem fontlarını bul veya varsayılanı kullan"""
     font_paths = [
+        # macOS Fonts
+        "/System/Library/Fonts/SFNSMono.ttf", # Terminal Font looks cool
+        "/System/Library/Fonts/Menlo.ttc",
         "/System/Library/Fonts/Helvetica.ttc",
-        "/System/Library/Fonts/Supplemental/Arial.ttf",
-        "/Library/Fonts/Arial.ttf"
+        "/Library/Fonts/Arial.ttf",
+        # Linux/Docker
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
     ]
     
     for path in font_paths:
         if os.path.exists(path):
             try:
-                index = 1 if bold else 0 # Genelde index 1 bold olur ttc'de
+                index = 0
+                if path.endswith(".ttc"):
+                    index = 1 if bold else 0
                 return ImageFont.truetype(path, size, index=index)
             except:
-                try:
-                    return ImageFont.truetype(path, size)
-                except:
-                    continue
+                continue
                     
     return ImageFont.load_default()
 
-def draw_pattern(d, w, h):
-    """Arka plana ince bir nokta deseni çizer"""
-    step = 40 # Nokta aralığı
+def draw_tech_grid(d, w, h):
+    """Arka plana siber/teknolojik ince çizgiler"""
+    step = 50
+    # Dikey çizgiler (Çok silik)
     for x in range(0, w, step):
-        for y in range(0, h, step):
-            d.ellipse([x, y, x+3, y+3], fill=THEME_PATTERN)
+        d.line([(x, 0), (x, h)], fill=(30, 41, 59), width=1)
+    
+    # Yatay çizgiler
+    for y in range(0, h, step):
+        d.line([(0, y), (w, y)], fill=(30, 41, 59), width=1)
 
 def generate_trademark_card(
     mark_name: str, 
     owner: str, 
     date_str: str, 
     serial: str,
-    description: str = "",  # Yeni parametre
+    description: str = "",
     output_path: str = "temp_card.png"
 ) -> str:
     """
-    Şık bir trademark kartviziti oluşturur (Light Theme).
-    Using simple layout:
-    [ Blue Header Bar ]
-    [                 ]
-    [   TRADEMARK     ]
-    [     NAME        ]
-    [                 ]
-    [-----------------]
-    [ Owner    Date   ]
+    Premium Dark Mode Trademark Card
     """
     
-    # 1. Canvas Oluştur (1200x675 - Twitter Card Size)
+    # 1. Canvas (1200x675)
     W, H = 1200, 675
     img = Image.new('RGB', (W, H), color=THEME_BG)
     d = ImageDraw.Draw(img)
     
-    # 2. Desen Ekle
-    draw_pattern(d, W, H)
+    # 2. Tech Grid Pattern
+    draw_tech_grid(d, W, H)
     
-    # 3. Üst Bar (Modern Touch)
-    d.rectangle([0, 0, W, 12], fill=THEME_ACCENT)
+    # 3. Accent Bar (Top Neon Line)
+    d.rectangle([0, 0, W, 8], fill=THEME_ACCENT)
     
-    # 4. Marka İsmi (Ortala ve Büyüt)
-    # Font boyutu ismin uzunluğuna göre dinamik olsun
-    font_size = 120
-    if len(mark_name) > 10: font_size = 100
-    if len(mark_name) > 20: font_size = 80
-    if len(mark_name) > 30: font_size = 60
+    # 4. Sol Kenar Çubuğu (Terminal Style)
+    # d.rectangle([0, 0, 20, H], fill=THEME_ACCENT) 
+    
+    # --- LAYOUT HESAPLAMALARI ---
+    padding_x = 80
+    current_y = 100
+    
+    # 5. Üst Başlık: "NEW TRADEMARK APPLICATION"
+    font_small = get_font(24, bold=True)
+    d.text((padding_x, 60), "> NEW_FILING_DETECTED", font=font_small, fill=THEME_ACCENT)
+    
+    # 6. Marka İsmi (BÜYÜK)
+    # Font boyutu dinamik
+    font_size = 110
+    if len(mark_name) > 12: font_size = 90
+    if len(mark_name) > 20: font_size = 70
     
     font_mark = get_font(font_size, bold=True)
     
-    # Metni sar (Wrap)
-    wrapper = textwrap.TextWrapper(width=15 if font_size > 80 else 25)
+    # Wrap
+    wrapper = textwrap.TextWrapper(width=16 if font_size > 90 else 25)
     lines = wrapper.wrap(mark_name.upper())
     
-    # Toplam metin yüksekliğini hesapla
-    total_text_h = 0
-    line_spacing = 15
-    
-    try:
-        ascent, descent = font_mark.getmetrics()
-        line_height = ascent + descent + line_spacing
-    except:
-        line_height = font_size * 1.2
-        
-    total_text_h = len(lines) * line_height
-    
-    # Dikey ortalama (İsim + Açıklama için alan hesabı)
-    # İsim yukarı kaydırılsın (Marka ismi çok uzunsa font küçültülmüştü zaten)
-    
-    # 4.1 İsim Çizimi
-    name_y_offset = (H / 2) - total_text_h - 40 # Biraz yukarı taşı
-    
-    current_y = name_y_offset
     for line in lines:
-        try:
-            bbox = d.textbbox((0, 0), line, font=font_mark)
-            w = bbox[2] - bbox[0]
-        except:
-             w = d.textlength(line, font=font_mark)
-             
-        d.text(((W - w) / 2, current_y), line, font=font_mark, fill=THEME_TEXT)
-        current_y += line_height
-
-    # 4.2 Açıklama (Description) Çizimi - YENİ (Dynamic Sizing)
-    if description and len(description) > 5:
-        # Metni temizle
+        d.text((padding_x, current_y), line, font=font_mark, fill=THEME_TEXT)
+        current_y += (font_size * 1.2)
+        
+    current_y += 30 # Spacer
+    
+    # 7. Açıklama (Description) - Code Block Görünümü
+    if description:
         clean_desc = description.replace('\n', ' ').strip()
         
-        # Dinamik Font Ayarı
-        char_count = len(clean_desc)
-        if char_count < 150:
-            desc_font_size = 40
-            wrap_width = 50
-            max_lines = 4
-        elif char_count < 300:
-            desc_font_size = 32
-            wrap_width = 65
-            max_lines = 6
-        else:
-            desc_font_size = 26
-            wrap_width = 80
-            max_lines = 10
-            
-        # Hard Limit & Smart Truncate (Cümle ortasında kesmemeye çalış)
-        max_limit = 800
-        if char_count > max_limit: 
-            # Limite kadar olan kısmı al
-            candidate = clean_desc[:max_limit]
-            # Son noktayı bul
-            last_dot = candidate.rfind('.')
-            
-            # Eğer son nokta makul bir yerdeyse (örneğin metnin %10'undan ilerideyse) oradan kes
-            if last_dot > (max_limit * 0.1): 
-                clean_desc = candidate[:last_dot+1]
-            else:
-                # Nokta bulamazsa veya çok baştaysa mecburen kesip ... koy
-                clean_desc = candidate[:max_limit-3] + "..."
-            
-        font_desc = get_font(desc_font_size, bold=False)
+        # Truncate
+        if len(clean_desc) > 300: clean_desc = clean_desc[:297] + "..."
         
-        wrapper_desc = textwrap.TextWrapper(width=wrap_width)
+        desc_font_size = 32
+        font_desc = get_font(desc_font_size, bold=False)
+        wrapper_desc = textwrap.TextWrapper(width=60)
         desc_lines = wrapper_desc.wrap(clean_desc)
         
-        # Max satır sayısı kontrolü
-        desc_lines = desc_lines[:max_lines]
+        # Max 5 satır
+        desc_lines = desc_lines[:5]
         
-        desc_y = current_y + 30 
-        desc_line_height = desc_font_size * 1.3
+        # Soluna dikey çizgi çek (Alıntı gibi)
+        start_desc_y = current_y
         
         for line in desc_lines:
-            try:
-                bbox = d.textbbox((0, 0), line, font=font_desc)
-                w = bbox[2] - bbox[0]
-            except:
-                 w = d.textlength(line, font=font_desc)
+            d.text((padding_x + 30, current_y), line, font=font_desc, fill=THEME_SUBTEXT)
+            current_y += (desc_font_size * 1.4)
             
-            d.text(((W - w) / 2, desc_y), line, font=font_desc, fill=THEME_SUBTEXT)
-            desc_y += desc_line_height
+        # Dikey gri çizgi
+        d.line([(padding_x, start_desc_y + 5), (padding_x, current_y - 10)], fill=THEME_DIVIDER, width=4)
 
-    # 5. Alt Bilgiler (Footer)
-    # Divider Line
-    line_y = H - 140
-    d.line([(100, line_y), (W - 100, line_y)], fill=(230, 236, 240), width=3)
+    # 8. Footer (Metadata)
+    # En alta sabitle
+    footer_y = H - 100
     
-    # Fontlar
-    font_label = get_font(18, bold=True)
+    # Owner
+    font_label = get_font(20, bold=True)
     font_val = get_font(28, bold=False)
     
-    # Sol: Owner
-    d.text((100, line_y + 25), "APPLICANT", font=font_label, fill=THEME_ACCENT)
-    d.text((100, line_y + 55), owner[:45], font=font_val, fill=THEME_SUBTEXT)
+    # İkon yerine basit metin
+    d.text((padding_x, footer_y), "OWNER", font=font_label, fill=THEME_ACCENT)
+    d.text((padding_x, footer_y + 30), owner[:40], font=font_val, fill=THEME_TEXT)
     
-    # Sağ: Date
-    d.text((W - 350, line_y + 25), "FILED DATE", font=font_label, fill=THEME_ACCENT)
-    d.text((W - 350, line_y + 55), date_str, font=font_val, fill=THEME_SUBTEXT)
+    # Date
+    d.text((padding_x + 500, footer_y), "FILED DATE", font=font_label, fill=THEME_ACCENT)
+    d.text((padding_x + 500, footer_y + 30), date_str, font=font_val, fill=THEME_TEXT)
     
-    # Logo / Branding (Sağ Üst Köşe - Minimal)
-    d.text((W - 160, 40), "FilingWatch", font=get_font(18, bold=True), fill=THEME_SUBTEXT)
-    
-    # Save
+    # Serial (En sağa, "ID" gibi)
+    d.text((W - 250, footer_y), "SERIAL ID", font=font_label, fill=THEME_ACCENT)
+    d.text((W - 250, footer_y + 30), f"#{serial}", font=font_val, fill=THEME_SUBTEXT)
+
     img.save(output_path)
     return output_path
 
 if __name__ == "__main__":
     # Test
-    print("Generating test card...")
-    path = generate_trademark_card(
-        "KAHUNA AI", 
-        "Kahuna Labs Inc.", 
-        "Dec 08, 2025", 
-        "99999999"
+    generate_trademark_card(
+        "CYBERTRUCK AI", 
+        "Tesla, Inc.", 
+        "Dec 14, 2025", 
+        "98765432",
+        "Downloadable software for autonomous driving simulation using neural networks and reinforcement learning."
     )
-    print(f"Card generated: {path}")

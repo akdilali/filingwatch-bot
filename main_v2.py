@@ -646,8 +646,40 @@ def generate_ai_commentary(mark: str, goods: str, owner: str) -> str:
         )
         
         return resp.choices[0].message.content.strip()
-    except Exception as e:
         logging.error(f"AI Generation Error: {e}")
+        return None
+
+def generate_ai_weird_commentary(mark: str, goods: str, owner: str) -> str:
+    """OpenAI ile garip markaları komedyen gibi yorumla"""
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key: return None
+        
+    try:
+        client = OpenAI(api_key=api_key)
+        
+        prompt = f"""
+        Act as a stand-up comedian or a confused internet user.
+        We found a very weird/funny trademark filing. Roast it gently or express your confusion.
+        Keep it SHORT (max 130 chars).
+        Don't include the trademark name if possible (it's shown below).
+        Use 1 funny emoji (like 💀, 😭, 🤨, 🤡).
+        
+        Trademark: "{mark}"
+        Description: "{goods[:200]}..."
+        
+        Output only the tweet text.
+        """
+        
+        resp = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=60,
+            temperature=0.9 # Biraz daha yaratıcı olsun
+        )
+        
+        return resp.choices[0].message.content.strip()
+    except Exception as e:
+        logging.error(f"AI Weird Gen Error: {e}")
         return None
 
 def format_tweet(tm: Dict) -> str:
@@ -661,11 +693,14 @@ def format_tweet(tm: Dict) -> str:
 
     # 1. AI YORUMU DENE (Graceful Fallback)
     try:
-        # Sadece "önemli" veya "garip" olanlar için AI kullanalım mi? Hayır, şimdilik hepsini deneyelim.
-        # Ama weird için zaten özel intro var. Weird ise AI kullanmayalım, bizim intro iyi.
-        if tm.get('category') != 'weird':
+        # Kategoriye göre prompt seç
+        if tm.get('category') == 'weird':
+            ai_text = generate_ai_weird_commentary(mark, desc, owner)
+        else:
             ai_text = generate_ai_commentary(mark, desc, owner)
-            if ai_text:
+            
+        if ai_text:
+            # Başarılı! Hibrid Formatı Oluştur
                 # Başarılı! Hibrid Formatı Oluştur
                 # AI Hook + Structured Data Block
                 

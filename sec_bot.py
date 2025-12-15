@@ -241,7 +241,17 @@ class SECMonitor:
             if amount >= 100_000_000:
                 emoji = "🐋"
 
-            tweet = f"{emoji} NEW SEC FILING ALERT\n\n🏢 {company_name}\n💵 {self.format_amount(amount)} Raised\n\n📄 Form D (Private Placement)\n🔗 {doc_link}"
+            # Dynamic Headers (Human/Conversational Style)
+            import random
+            headers = [
+                "Fresh capital detected. This one looks interesting:",
+                "Another massive check just got signed:",
+                "Just spotted this significant raise:",
+                "Big money moves detected in the filings:"
+            ]
+            header = random.choice(headers)
+
+            tweet = f"{emoji} {header}\n\n🏢 {company_name}\n💵 {self.format_amount(amount)} Raised\n\n📄 Form D (Private Placement)\n🔗 {doc_link}"
             
             # Ticker check?
             # Özel şirketlerde ticker olmaz ama yine de check edelim

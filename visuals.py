@@ -129,7 +129,7 @@ def generate_trademark_card(
     
     # Owner
     font_label = get_font(20, bold=True)
-    font_val = get_font(28, bold=False)
+    font_val = get_font(24, bold=False)
     
     # İkon yerine basit metin
     d.text((padding_x, footer_y), "OWNER", font=font_label, fill=THEME_ACCENT)

@@ -41852,3 +41852,43 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17657823
 ✅ Tamamlandı!
 Bot run finished at Mon Dec 15 07:01:47 UTC 2025
 ----------------------------------------
+Starting bot run at Mon Dec 15 12:59:49 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 472 kayıt var (Son serial: 99547349)
+
+📡 Incremental tarama: 99547349 → 99547485
+🆕 136 yeni başvuru var, taranıyor...
+✅ 103 yeni trademark eklendi.
+
+📦 Toplam: 575 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] HORIZON SUPERDRIVE (Score: 25)
+   Reasons: 💡 Robot, ✨ Super
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2000552572461928456)
+✅ https://twitter.com/i/status/2000552574357803345
+⏳ Bekleniyor: 5 dakika (331 sn)...
+
+[2/2] HORIZON STARRY (Score: 25)
+   Reasons: 💡 Robot, ✨ Star
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2000553976127746049)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079998 | Reset: 1765804776 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 3 dakika (181 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Mon Dec 15 13:13:12 UTC 2025
+----------------------------------------

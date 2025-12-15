@@ -76,8 +76,9 @@ def generate_trademark_card(
     current_y = 100
     
     # 5. Üst Başlık: "NEW TRADEMARK APPLICATION"
-    font_small = get_font(24, bold=True)
-    d.text((padding_x, 60), "> NEW_FILING_DETECTED", font=font_small, fill=THEME_ACCENT)
+    # User Request: Remove header
+    # font_small = get_font(24, bold=True)
+    # d.text((padding_x, 60), "> NEW_FILING_DETECTED", font=font_small, fill=THEME_ACCENT)
     
     # 6. Marka İsmi (BÜYÜK)
     # Font boyutu dinamik
@@ -134,13 +135,14 @@ def generate_trademark_card(
     d.text((padding_x, footer_y), "OWNER", font=font_label, fill=THEME_ACCENT)
     d.text((padding_x, footer_y + 30), owner[:40], font=font_val, fill=THEME_TEXT)
     
-    # Date
-    d.text((padding_x + 500, footer_y), "FILED DATE", font=font_label, fill=THEME_ACCENT)
-    d.text((padding_x + 500, footer_y + 30), date_str, font=font_val, fill=THEME_TEXT)
+    # Date (Moved to Right, Renamed to PATENT DATE per request)
+    # Eski Serial ID pozisyonuna taşındı (W - 250)
+    d.text((W - 250, footer_y), "PATENT DATE", font=font_label, fill=THEME_ACCENT)
+    d.text((W - 250, footer_y + 30), date_str, font=font_val, fill=THEME_TEXT)
     
-    # Serial (En sağa, "ID" gibi)
-    d.text((W - 250, footer_y), "SERIAL ID", font=font_label, fill=THEME_ACCENT)
-    d.text((W - 250, footer_y + 30), f"#{serial}", font=font_val, fill=THEME_SUBTEXT)
+    # Serial ID (Removed)
+    # d.text((W - 250, footer_y), "SERIAL ID", font=font_label, fill=THEME_ACCENT)
+    # d.text((W - 250, footer_y + 30), f"#{serial}", font=font_val, fill=THEME_SUBTEXT)
 
     img.save(output_path)
     return output_path

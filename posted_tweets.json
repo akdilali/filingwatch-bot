@@ -30,7 +30,8 @@
     "99546917",
     "99547377",
     "99549242",
-    "99549089"
+    "99549089",
+    "99549424"
   ],
   "tweets": [
     {
@@ -239,7 +240,14 @@
       "text": "Another day, another \"AI\" trademark filing. Just what we needed\u2014more software to",
       "category": "interesting",
       "time": "2025-12-16T02:44:29.780003"
+    },
+    {
+      "serial": "99549424",
+      "tweet_id": "2000821166529986719",
+      "text": "So this lawyer only handles dog bites? Talk about niche! Can I pay in treats? \ud83e\udd28\n",
+      "category": "weird",
+      "time": "2025-12-16T06:51:54.447097"
     }
   ],
-  "last_weird_time": "2025-12-14T06:42:29.736963"
+  "last_weird_time": "2025-12-16T06:51:54.447104"
 }

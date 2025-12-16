@@ -41971,3 +41971,43 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Tue Dec 16 02:49:47 UTC 2025
 ----------------------------------------
+Starting bot run at Tue Dec 16 06:42:33 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 847 kayıt var (Son serial: 99549263)
+
+📡 Incremental tarama: 99549263 → 99549551
+🆕 288 yeni başvuru var, taranıyor...
+✅ 222 yeni trademark eklendi.
+
+📦 Toplam: 1069 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] DOG BITE CASES.  THAT’S ALL WE DO! (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2000821164940369920)
+✅ https://twitter.com/i/status/2000821166529986719
+⏳ Bekleniyor: 3 dakika (233 sn)...
+
+[2/2] MUSIC IS UNIVERSAL (Score: 50)
+   Reasons: 🏢 Universal
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2000822153214877697)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079998 | Reset: 1765868814 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 6 dakika (390 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Tue Dec 16 07:02:20 UTC 2025
+----------------------------------------

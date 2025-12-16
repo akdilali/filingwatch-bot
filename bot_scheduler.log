@@ -41932,3 +41932,42 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17658261
 ✅ Tamamlandı!
 Bot run finished at Mon Dec 15 19:10:42 UTC 2025
 ----------------------------------------
+Starting bot run at Tue Dec 16 02:07:26 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99548156)
+
+📡 Incremental tarama: 99548156 → 99549263
+🆕 1107 yeni başvuru var, taranıyor...
+✅ 847 yeni trademark eklendi.
+
+📦 Toplam: 847 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] UNIVERSAL CELESTIAL GOODNIGHT (Score: 50)
+   Reasons: 🏢 Universal
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2000757910129836033)
+✅ https://twitter.com/i/status/2000757912033972586
+⏳ Bekleniyor: 3 dakika (233 sn)...
+
+[2/2] PATTERNLAB AI (Score: 35)
+   Reasons: 🤖 AI, ✨ Lab
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2000758901914877959)
+✅ https://twitter.com/i/status/2000758903420686594
+⏳ Bekleniyor: 5 dakika (318 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Tue Dec 16 02:49:47 UTC 2025
+----------------------------------------

@@ -28,7 +28,9 @@
     "99546782",
     "99546932",
     "99546917",
-    "99547377"
+    "99547377",
+    "99549242",
+    "99549089"
   ],
   "tweets": [
     {
@@ -223,6 +225,20 @@
       "text": "Just what we need\u2014another app to teach us how to microwave leftovers. Can\u2019t wait",
       "category": "interesting",
       "time": "2025-12-15T19:06:14.642900"
+    },
+    {
+      "serial": "99549242",
+      "tweet_id": "2000757912033972586",
+      "text": "Get ready for a theme park that promises to take you to the stars\u2014just when you ",
+      "category": "must_post",
+      "time": "2025-12-16T02:40:33.403329"
+    },
+    {
+      "serial": "99549089",
+      "tweet_id": "2000758903420686594",
+      "text": "Another day, another \"AI\" trademark filing. Just what we needed\u2014more software to",
+      "category": "interesting",
+      "time": "2025-12-16T02:44:29.780003"
     }
   ],
   "last_weird_time": "2025-12-14T06:42:29.736963"

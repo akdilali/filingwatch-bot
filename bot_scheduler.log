@@ -42051,3 +42051,42 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17658911
 ✅ Tamamlandı!
 Bot run finished at Tue Dec 16 13:13:35 UTC 2025
 ----------------------------------------
+Starting bot run at Tue Dec 16 18:40:24 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 1214 kayıt var (Son serial: 99549738)
+
+📡 Incremental tarama: 99549738 → 99550400
+🆕 662 yeni başvuru var, taranıyor...
+✅ 502 yeni trademark eklendi.
+
+📦 Toplam: 1716 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] HOSESHARK PATENT NUMBER: 8567823 ADDRESS: 2111 N 2ND STREET CABOT, AR 72023 EMAIL: INFO@HOSESHARK.COM HOSESHARK SAY GOODBYE TO FRUSTRATION AND WASTED TIME. HOSE SHARK MAKES WATERING, WASHING, AND OUTDOOR CHORES FASTER AND EASIER THAN EVER! THE HOSE SHARK MAKES ATTACHING YOUR HOSE TO OUTDOOR FAUCETS EFFORTLESS, SECURE, AND LEAK-FREE IN SECONDS! THE FASTEST EASIEST WAY TO CONNECT YOUR GARDEN HOSE! SAFETY INFO: NEVER DISCONNECT COUPLINGS WHILE THE SYSTEM IS UNDER PRESSURE. REGULARLY INSPECT COUPLINGS FOR DAMAGE. NEVER RUN OVER HOSE COUPLING. NEVER DRAG COUPLING ACROSS GROUND OR HARD SURFACES. AS SEEN ON SHARKTANK (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2001004522773069829)
+✅ https://twitter.com/i/status/2001004524576612401
+⏳ Bekleniyor: 4 dakika (263 sn)...
+
+[2/2] MUSIC IS UNIVERSAL (Score: 50)
+   Reasons: 🏢 Universal
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2001005635417075736)
+✅ https://twitter.com/i/status/2001005637140959586
+⏳ Bekleniyor: 3 dakika (235 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Tue Dec 16 19:08:50 UTC 2025
+----------------------------------------

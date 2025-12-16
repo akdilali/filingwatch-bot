@@ -32,7 +32,9 @@
     "99549242",
     "99549089",
     "99549424",
-    "99549326"
+    "99549326",
+    "99549965",
+    "99549320"
   ],
   "tweets": [
     {
@@ -255,7 +257,21 @@
       "text": "Looks like someone\u2019s trying to trademark a reminder that music transcends all\u2014gu",
       "category": "must_post",
       "time": "2025-12-16T13:07:43.466450"
+    },
+    {
+      "serial": "99549965",
+      "tweet_id": "2001004524576612401",
+      "text": "Metal hose clamps? Are we fishing or fixing? \ud83c\udfa3\ud83e\udd28\n\n\ud83d\udccc HOSESHARK PATENT NUMBER: 8567",
+      "category": "weird",
+      "time": "2025-12-16T19:00:30.446301"
+    },
+    {
+      "serial": "99549320",
+      "tweet_id": "2001005637140959586",
+      "text": "Because nothing says \"music is universal\" like overpriced tie clips and jewelry ",
+      "category": "must_post",
+      "time": "2025-12-16T19:04:55.715702"
     }
   ],
-  "last_weird_time": "2025-12-16T06:51:54.447104"
+  "last_weird_time": "2025-12-16T19:00:30.446307"
 }

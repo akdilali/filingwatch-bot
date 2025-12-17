@@ -42170,3 +42170,42 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17659552
 ✅ Tamamlandı!
 Bot run finished at Wed Dec 17 07:03:34 UTC 2025
 ----------------------------------------
+Starting bot run at Wed Dec 17 12:58:08 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 1131 kayıt var (Son serial: 99551897)
+
+📡 Incremental tarama: 99551897 → 99552053
+🆕 156 yeni başvuru var, taranıyor...
+✅ 118 yeni trademark eklendi.
+
+📦 Toplam: 1249 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] I'M A BIG D.E.A.L THE MARK A BIG D.E.A.L IS AN ACRONYM THAT STANDS FOR ‘DESTINED FOR GREATNESS, ENOUGH, ALIVE FOR A PURPOSE, LEGENDARY.’ (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2001277066495340548)
+✅ https://twitter.com/i/status/2001277068307238940
+⏳ Bekleniyor: 3 dakika (197 sn)...
+
+[2/2] REWARD AI (Score: 40)
+   Reasons: 🤖 AI, 💡 Robot
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2001277904357851136)
+✅ https://twitter.com/i/status/2001277905943367805
+⏳ Bekleniyor: 3 dakika (212 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Wed Dec 17 13:10:21 UTC 2025
+----------------------------------------

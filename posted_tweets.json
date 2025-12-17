@@ -36,7 +36,9 @@
     "99549965",
     "99549320",
     "99550992",
-    "99551047"
+    "99551047",
+    "99550868",
+    "99551663"
   ],
   "tweets": [
     {
@@ -287,7 +289,21 @@
       "text": "Amazon's diving into cosmetics? Get ready for a line of beauty products that pro",
       "category": "must_post",
       "time": "2025-12-17T06:58:13.426550"
+    },
+    {
+      "serial": "99550868",
+      "tweet_id": "2001277068307238940",
+      "text": "\"Is this a trademark or a motivational speech gone rogue? \ud83e\udd28\"\n\n\ud83d\udccc I'M A BIG D.E.A.",
+      "category": "weird",
+      "time": "2025-12-17T13:03:29.943519"
+    },
+    {
+      "serial": "99551663",
+      "tweet_id": "2001277905943367805",
+      "text": "Because who wouldn\u2019t want their reward for using AI to come from a humanoid robo",
+      "category": "interesting",
+      "time": "2025-12-17T13:06:49.630848"
     }
   ],
-  "last_weird_time": "2025-12-16T19:00:30.446307"
+  "last_weird_time": "2025-12-17T13:03:29.943528"
 }

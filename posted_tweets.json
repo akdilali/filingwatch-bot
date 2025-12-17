@@ -38,7 +38,9 @@
     "99550992",
     "99551047",
     "99550868",
-    "99551663"
+    "99551663",
+    "99552713",
+    "99550582"
   ],
   "tweets": [
     {
@@ -303,7 +305,21 @@
       "text": "Because who wouldn\u2019t want their reward for using AI to come from a humanoid robo",
       "category": "interesting",
       "time": "2025-12-17T13:06:49.630848"
+    },
+    {
+      "serial": "99552713",
+      "tweet_id": "2001370203737690617",
+      "text": "So, is this a hair care brand or a motivational journal for loc enthusiasts? \ud83d\udcd4\ud83d\udc80\n",
+      "category": "weird",
+      "time": "2025-12-17T19:13:35.130984"
+    },
+    {
+      "serial": "99550582",
+      "tweet_id": "2001371420199182676",
+      "text": "Just what we need\u2014a new AI tool that promises to revolutionize online learning. ",
+      "category": "interesting",
+      "time": "2025-12-17T19:18:25.160204"
     }
   ],
-  "last_weird_time": "2025-12-17T13:03:29.943528"
+  "last_weird_time": "2025-12-17T19:13:35.130991"
 }

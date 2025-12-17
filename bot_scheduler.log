@@ -42090,3 +42090,43 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Tue Dec 16 19:08:50 UTC 2025
 ----------------------------------------
+Starting bot run at Wed Dec 17 02:02:15 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99550400)
+
+📡 Incremental tarama: 99550400 → 99551554
+🆕 1154 yeni başvuru var, taranıyor...
+✅ 882 yeni trademark eklendi.
+
+📦 Toplam: 882 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] I'M A BIG D.E.A.L THE MARK A BIG D.E.A.L IS AN ACRONYM THAT STANDS FOR ‘DESTINED FOR GREATNESS, ENOUGH, ALIVE FOR A PURPOSE, LEGENDARY.’ (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2001119280167821319)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079999 | Reset: 1765939890 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 5 dakika (311 sn)...
+
+[2/2] PARADISE SUN (Score: 50)
+   Reasons: 🏢 Coca-Cola
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2001120595623202819)
+✅ https://twitter.com/i/status/2001120597191897234
+⏳ Bekleniyor: 6 dakika (375 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Wed Dec 17 02:47:59 UTC 2025
+----------------------------------------

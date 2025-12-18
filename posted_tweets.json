@@ -43,7 +43,8 @@
     "99550582",
     "99552890",
     "99552772",
-    "99553379"
+    "99553379",
+    "99553122"
   ],
   "tweets": [
     {
@@ -343,6 +344,13 @@
       "text": "Cat furniture? Is this for cats who feel like they're missing out on the dog lif",
       "category": "weird",
       "time": "2025-12-18T06:51:14.893819"
+    },
+    {
+      "serial": "99553122",
+      "tweet_id": "2001640711947731077",
+      "text": "Looks like someone\u2019s betting on \u201cPONIES\u201d to gallop into the fashion scene\u2014becaus",
+      "category": "must_post",
+      "time": "2025-12-18T13:08:29.288390"
     }
   ],
   "last_weird_time": "2025-12-18T06:51:14.893828"

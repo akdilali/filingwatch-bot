@@ -42367,3 +42367,43 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17660638
 ✅ Tamamlandı!
 Bot run finished at Thu Dec 18 13:13:09 UTC 2025
 ----------------------------------------
+Starting bot run at Thu Dec 25 18:04:19 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99554453)
+
+📡 Incremental tarama: 99554453 → 99566006
+🆕 11553 yeni başvuru var, taranıyor...
+⚠️ Çok fazla fark (11553), güvenlik için son 2000 başvuru taranacak (Max 1 Gün)
+✅ 1530 yeni trademark eklendi.
+
+📦 Toplam: 1530 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] $ 5 THE WINE GUY CABERNET SAUVIGNON RESERVE (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004266845436530689)
+✅ https://twitter.com/i/status/2004266847047147727
+⏳ Bekleniyor: 3 dakika (213 sn)...
+
+[2/2] SMARTPOWER HDR (Score: 50)
+   Reasons: 🏢 Samsung
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004267749841711104)
+✅ https://twitter.com/i/status/2004267751469187304
+⏳ Bekleniyor: 6 dakika (402 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Thu Dec 25 19:14:06 UTC 2025
+----------------------------------------

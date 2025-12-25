@@ -44,7 +44,9 @@
     "99552890",
     "99552772",
     "99553379",
-    "99553122"
+    "99553122",
+    "99565145",
+    "99564586"
   ],
   "tweets": [
     {
@@ -351,7 +353,21 @@
       "text": "Looks like someone\u2019s betting on \u201cPONIES\u201d to gallop into the fashion scene\u2014becaus",
       "category": "must_post",
       "time": "2025-12-18T13:08:29.288390"
+    },
+    {
+      "serial": "99565145",
+      "tweet_id": "2004266847047147727",
+      "text": "$5 wine? Is that the price or the vintage? \ud83c\udf77 Do I need a decoder ring to enjoy t",
+      "category": "weird",
+      "time": "2025-12-25T19:03:48.684579"
+    },
+    {
+      "serial": "99564586",
+      "tweet_id": "2004267751469187304",
+      "text": "Samsung's cooking up more display tech jargon\u2014because who doesn't need a buzzwor",
+      "category": "must_post",
+      "time": "2025-12-25T19:07:24.412034"
     }
   ],
-  "last_weird_time": "2025-12-18T06:51:14.893828"
+  "last_weird_time": "2025-12-25T19:03:48.684584"
 }

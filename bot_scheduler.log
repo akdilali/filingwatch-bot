@@ -42489,3 +42489,44 @@ Too Many Requests | Limit: 1079998 | Reset: 1766732456 | Body: {"title":"Too Man
 ✅ Tamamlandı!
 Bot run finished at Fri Dec 26 06:56:06 UTC 2025
 ----------------------------------------
+Starting bot run at Fri Dec 26 12:54:48 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 295 kayıt var (Son serial: 99566398)
+
+📡 Incremental tarama: 99566398 → 99566525
+🆕 127 yeni başvuru var, taranıyor...
+✅ 91 yeni trademark eklendi.
+
+📦 Toplam: 386 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] THE AI LAB INTELLIGENCE, UNOBSCURED. (Score: 50)
+   Reasons: 🤖 AI, 💡 Quantum, ✨ Lab
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004537453865029632)
+❌ Tweet hatası: 429 Too Many Requests
+Too Many Requests | Limit: 1079999 | Reset: 1766754846 | Body: {"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}
+⏳ Bekleniyor: 5 dakika (340 sn)...
+
+[2/2] SHOPGUIDE AI (Score: 40)
+   Reasons: 🤖 AI, 💡 Robot
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004538888639877121)
+❌ Tweet hatası: 429 Too Many Requests
+Too Many Requests | Limit: 1079998 | Reset: 1766754846 | Body: {"title":"Too Many Requests","detail":"Too Many Requests","type":"about:blank","status":429}
+⏳ Bekleniyor: 4 dakika (274 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Fri Dec 26 13:09:22 UTC 2025
+----------------------------------------

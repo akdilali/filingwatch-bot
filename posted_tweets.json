@@ -46,7 +46,9 @@
     "99553379",
     "99553122",
     "99565145",
-    "99564586"
+    "99564586",
+    "99566905",
+    "99567018"
   ],
   "tweets": [
     {
@@ -367,6 +369,20 @@
       "text": "Samsung's cooking up more display tech jargon\u2014because who doesn't need a buzzwor",
       "category": "must_post",
       "time": "2025-12-25T19:07:24.412034"
+    },
+    {
+      "serial": "99566905",
+      "tweet_id": "2004738494648955138",
+      "text": "Another day, another crypto tool for the \u201cI swear I\u2019m not just hoarding\u201d crowd. ",
+      "category": "interesting",
+      "time": "2025-12-27T02:17:58.241645"
+    },
+    {
+      "serial": "99567018",
+      "tweet_id": "2004739519065849905",
+      "text": "Looks like someone\u2019s betting on \u201cone good\u201d toy to rule them all. Spoiler: it\u2019s p",
+      "category": "interesting",
+      "time": "2025-12-27T02:22:02.483398"
     }
   ],
   "last_weird_time": "2025-12-25T19:03:48.684584"

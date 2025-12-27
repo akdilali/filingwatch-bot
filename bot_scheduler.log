@@ -42569,3 +42569,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Fri Dec 26 19:00:40 UTC 2025
 ----------------------------------------
+Starting bot run at Sat Dec 27 02:04:21 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99566884)
+
+📡 Incremental tarama: 99566884 → 99567321
+🆕 437 yeni başvuru var, taranıyor...
+✅ 328 yeni trademark eklendi.
+
+📦 Toplam: 328 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] HASHWATCHER (Score: 15)
+   Reasons: 💡 Crypto
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004738493092954113)
+✅ https://twitter.com/i/status/2004738494648955138
+⏳ Bekleniyor: 4 dakika (242 sn)...
+
+[2/2] ONE GOOD (Score: 15)
+   Reasons: 💡 Robot
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004739517304176640)
+✅ https://twitter.com/i/status/2004739519065849905
+⏳ Bekleniyor: 5 dakika (337 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sat Dec 27 02:27:39 UTC 2025
+----------------------------------------

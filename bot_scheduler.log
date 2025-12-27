@@ -42608,3 +42608,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Sat Dec 27 02:27:39 UTC 2025
 ----------------------------------------
+Starting bot run at Sat Dec 27 06:39:27 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 328 kayıt var (Son serial: 99567321)
+
+📡 Incremental tarama: 99567321 → 99567459
+🆕 138 yeni başvuru var, taranıyor...
+✅ 106 yeni trademark eklendi.
+
+📦 Toplam: 434 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] GORGEOUS GEEKS LLC (Score: 50)
+   Reasons: 🏢 Mercedes
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004805558025814016)
+✅ https://twitter.com/i/status/2004805559388963297
+⏳ Bekleniyor: 3 dakika (225 sn)...
+
+[2/2] XENROBO (Score: 15)
+   Reasons: 💡 Robot
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004806511990878208)
+✅ https://twitter.com/i/status/2004806513861517620
+⏳ Bekleniyor: 6 dakika (373 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sat Dec 27 06:54:28 UTC 2025
+----------------------------------------

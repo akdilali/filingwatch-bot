@@ -48,7 +48,9 @@
     "99565145",
     "99564586",
     "99566905",
-    "99567018"
+    "99567018",
+    "99567386",
+    "99567063"
   ],
   "tweets": [
     {
@@ -383,6 +385,20 @@
       "text": "Looks like someone\u2019s betting on \u201cone good\u201d toy to rule them all. Spoiler: it\u2019s p",
       "category": "interesting",
       "time": "2025-12-27T02:22:02.483398"
+    },
+    {
+      "serial": "99567386",
+      "tweet_id": "2004805559388963297",
+      "text": "Because when you think of \"gorgeous geeks,\" you definitely picture customizable ",
+      "category": "must_post",
+      "time": "2025-12-27T06:44:27.713511"
+    },
+    {
+      "serial": "99567063",
+      "tweet_id": "2004806513861517620",
+      "text": "Looks like someone\u2019s trying to corner the market on lab robots and sci-fi dreams",
+      "category": "interesting",
+      "time": "2025-12-27T06:48:15.277248"
     }
   ],
   "last_weird_time": "2025-12-25T19:03:48.684584"

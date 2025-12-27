@@ -42647,3 +42647,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Sat Dec 27 06:54:28 UTC 2025
 ----------------------------------------
+Starting bot run at Sat Dec 27 12:52:21 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 434 kayıt var (Son serial: 99567459)
+
+📡 Incremental tarama: 99567459 → 99567541
+🆕 82 yeni başvuru var, taranıyor...
+✅ 62 yeni trademark eklendi.
+
+📦 Toplam: 496 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] CARI NETWORK (Score: 15)
+   Reasons: 💡 Blockchain
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004898938562760704)
+✅ https://twitter.com/i/status/2004898940139790808
+⏳ Bekleniyor: 6 dakika (383 sn)...
+
+[2/2] NETSTABLE (Score: 15)
+   Reasons: 💡 Cyber
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2004900554619691008)
+✅ https://twitter.com/i/status/2004900556393857393
+⏳ Bekleniyor: 3 dakika (200 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sat Dec 27 13:05:17 UTC 2025
+----------------------------------------

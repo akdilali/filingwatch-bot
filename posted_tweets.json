@@ -52,7 +52,9 @@
     "99567386",
     "99567063",
     "99567137",
-    "99567183"
+    "99567183",
+    "99567772",
+    "99567797"
   ],
   "tweets": [
     {
@@ -415,6 +417,20 @@
       "text": "Ah, \u201cNETSTABLE\u201d \u2013 because your tech woes deserve a catchy name to go with that h",
       "category": "interesting",
       "time": "2025-12-27T13:01:56.809250"
+    },
+    {
+      "serial": "99567772",
+      "tweet_id": "2005104576240783705",
+      "text": "Just what we needed: yet another trademark for toys that\u2019ll probably end up coll",
+      "category": "interesting",
+      "time": "2025-12-28T02:32:38.893187"
+    },
+    {
+      "serial": "99567797",
+      "tweet_id": "2005106204809277635",
+      "text": "Just what we needed\u2014smart robot toys and inflatable yoga bolsters in a single tr",
+      "category": "interesting",
+      "time": "2025-12-28T02:39:07.167079"
     }
   ],
   "last_weird_time": "2025-12-25T19:03:48.684584"

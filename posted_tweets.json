@@ -54,7 +54,9 @@
     "99567137",
     "99567183",
     "99567772",
-    "99567797"
+    "99567797",
+    "99567998",
+    "99568080"
   ],
   "tweets": [
     {
@@ -431,6 +433,20 @@
       "text": "Just what we needed\u2014smart robot toys and inflatable yoga bolsters in a single tr",
       "category": "interesting",
       "time": "2025-12-28T02:39:07.167079"
+    },
+    {
+      "serial": "99567998",
+      "tweet_id": "2005261579156160541",
+      "text": "Ah, just what we needed\u2014another vague crypto app promising to revolutionize our ",
+      "category": "interesting",
+      "time": "2025-12-28T12:56:31.329576"
+    },
+    {
+      "serial": "99568080",
+      "tweet_id": "2005262940358730219",
+      "text": "Because nothing says \"I'm serious about my aerial dominance\" like a trademark fo",
+      "category": "interesting",
+      "time": "2025-12-28T13:01:55.857945"
     }
   ],
   "last_weird_time": "2025-12-25T19:03:48.684584"

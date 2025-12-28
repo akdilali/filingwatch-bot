@@ -42803,3 +42803,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Sun Dec 28 06:50:46 UTC 2025
 ----------------------------------------
+Starting bot run at Sun Dec 28 12:53:00 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 209 kayıt var (Son serial: 99567983)
+
+📡 Incremental tarama: 99567983 → 99568081
+🆕 98 yeni başvuru var, taranıyor...
+✅ 65 yeni trademark eklendi.
+
+📦 Toplam: 274 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] EQUBIY (Score: 15)
+   Reasons: 💡 Crypto
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2005261577260351489)
+✅ https://twitter.com/i/status/2005261579156160541
+⏳ Bekleniyor: 5 dakika (322 sn)...
+
+[2/2] BADASS HELICOPTER (Score: 15)
+   Reasons: 💡 Drone
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2005262938156695552)
+✅ https://twitter.com/i/status/2005262940358730219
+⏳ Bekleniyor: 4 dakika (256 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sun Dec 28 13:06:12 UTC 2025
+----------------------------------------

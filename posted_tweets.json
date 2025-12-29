@@ -56,7 +56,9 @@
     "99567772",
     "99567797",
     "99567998",
-    "99568080"
+    "99568080",
+    "99568792",
+    "99569315"
   ],
   "tweets": [
     {
@@ -447,7 +449,21 @@
       "text": "Because nothing says \"I'm serious about my aerial dominance\" like a trademark fo",
       "category": "interesting",
       "time": "2025-12-28T13:01:55.857945"
+    },
+    {
+      "serial": "99568792",
+      "tweet_id": "2005714845333872862",
+      "text": "\"OMG! NOW WHAT?\" - A perfect title for the e-book I\u2019m reading while simultaneous",
+      "category": "weird",
+      "time": "2025-12-29T18:57:38.412458"
+    },
+    {
+      "serial": "99569315",
+      "tweet_id": "2005716496996262249",
+      "text": "Because nothing screams \"cooling down\" like AI-powered wings for your air condit",
+      "category": "must_post",
+      "time": "2025-12-29T19:04:12.191189"
     }
   ],
-  "last_weird_time": "2025-12-25T19:03:48.684584"
+  "last_weird_time": "2025-12-29T18:57:38.412466"
 }

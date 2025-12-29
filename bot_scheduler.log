@@ -42998,3 +42998,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Mon Dec 29 13:09:55 UTC 2025
 ----------------------------------------
+Starting bot run at Mon Dec 29 18:38:55 UTC 2025
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 395 kayıt var (Son serial: 99568737)
+
+📡 Incremental tarama: 99568737 → 99569352
+🆕 615 yeni başvuru var, taranıyor...
+✅ 467 yeni trademark eklendi.
+
+📦 Toplam: 862 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] OMG! NOW WHAT? (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2005714843664539650)
+✅ https://twitter.com/i/status/2005714845333872862
+⏳ Bekleniyor: 6 dakika (391 sn)...
+
+[2/2] AI MOTION WINGS (Score: 75)
+   Reasons: 🏢 Samsung, 🤖 AI
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2005716495264100352)
+✅ https://twitter.com/i/status/2005716496996262249
+⏳ Bekleniyor: 4 dakika (270 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Mon Dec 29 19:08:42 UTC 2025
+----------------------------------------

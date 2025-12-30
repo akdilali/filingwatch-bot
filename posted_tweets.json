@@ -58,7 +58,9 @@
     "99567998",
     "99568080",
     "99568792",
-    "99569315"
+    "99569315",
+    "99569394",
+    "99569417"
   ],
   "tweets": [
     {
@@ -463,7 +465,21 @@
       "text": "Because nothing screams \"cooling down\" like AI-powered wings for your air condit",
       "category": "must_post",
       "time": "2025-12-29T19:04:12.191189"
+    },
+    {
+      "serial": "99569394",
+      "tweet_id": "2005987816132501551",
+      "text": "Jewelry made for living and loving 24/7? What\u2019s next, nap rings? \ud83d\udc80\n\n\ud83d\udccc MADE TO LI",
+      "category": "weird",
+      "time": "2025-12-30T13:02:19.782709"
+    },
+    {
+      "serial": "99569417",
+      "tweet_id": "2005988858723196940",
+      "text": "Amazon\u2019s latest trademark filing for \"AWS\"\u2014because apparently, their cloud empir",
+      "category": "must_post",
+      "time": "2025-12-30T13:06:28.373141"
     }
   ],
-  "last_weird_time": "2025-12-29T18:57:38.412466"
+  "last_weird_time": "2025-12-30T13:02:19.782718"
 }

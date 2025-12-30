@@ -60,7 +60,9 @@
     "99568792",
     "99569315",
     "99569394",
-    "99569417"
+    "99569417",
+    "99570121",
+    "99569421"
   ],
   "tweets": [
     {
@@ -479,7 +481,21 @@
       "text": "Amazon\u2019s latest trademark filing for \"AWS\"\u2014because apparently, their cloud empir",
       "category": "must_post",
       "time": "2025-12-30T13:06:28.373141"
+    },
+    {
+      "serial": "99570121",
+      "tweet_id": "2006077835908088306",
+      "text": "\"Is this a ministry or a supernatural family reunion? Can't wait for the 'Holy R",
+      "category": "weird",
+      "time": "2025-12-30T19:00:02.134661"
+    },
+    {
+      "serial": "99569421",
+      "tweet_id": "2006078788900151375",
+      "text": "Just what we needed\u2014another tech giant flexing its trademark muscles to secure t",
+      "category": "must_post",
+      "time": "2025-12-30T19:03:49.363504"
     }
   ],
-  "last_weird_time": "2025-12-30T13:02:19.782718"
+  "last_weird_time": "2025-12-30T19:00:02.134670"
 }

@@ -43623,3 +43623,43 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Fri Jan  2 13:07:54 UTC 2026
 ----------------------------------------
+Starting bot run at Fri Jan  2 18:38:18 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 339 kayıt var (Son serial: 99575237)
+
+📡 Incremental tarama: 99575237 → 99575454
+🆕 217 yeni başvuru var, taranıyor...
+✅ 167 yeni trademark eklendi.
+
+📦 Toplam: 506 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] V.AI (Score: 25)
+   Reasons: 🤖 AI
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2007161320886403072)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079999 | Reset: 1767380425 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 6 dakika (396 sn)...
+
+[2/2] CLINICFORGE AI (Score: 25)
+   Reasons: 🤖 AI
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2007162992597626880)
+✅ https://twitter.com/i/status/2007162994602443083
+⏳ Bekleniyor: 6 dakika (380 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Fri Jan  2 18:58:24 UTC 2026
+----------------------------------------

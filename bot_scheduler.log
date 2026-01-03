@@ -43778,3 +43778,43 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Sat Jan  3 13:05:33 UTC 2026
 ----------------------------------------
+Starting bot run at Sat Jan  3 18:36:36 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 426 kayıt var (Son serial: 99576027)
+
+📡 Incremental tarama: 99576027 → 99576156
+🆕 129 yeni başvuru var, taranıyor...
+✅ 97 yeni trademark eklendi.
+
+📦 Toplam: 523 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] BESPOKE AI JET BOT STEAM EDGE (Score: 90)
+   Reasons: 🏢 Samsung, 🤖 AI, 💡 Robot
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2007522630388133888)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079999 | Reset: 1767466568 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 6 dakika (387 sn)...
+
+[2/2] ZHBM (Score: 55)
+   Reasons: 🏢 Samsung, 📝 Short Name
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2007524263519989760)
+✅ https://twitter.com/i/status/2007524265483026810
+⏳ Bekleniyor: 5 dakika (326 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sat Jan  3 18:53:03 UTC 2026
+----------------------------------------

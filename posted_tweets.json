@@ -65,7 +65,8 @@
     "99569421",
     "99575050",
     "99575037",
-    "99575643"
+    "99575643",
+    "99575946"
   ],
   "tweets": [
     {
@@ -519,7 +520,14 @@
       "text": "So, is this beer made for astronauts or just really bad decisions? \ud83c\udf7a\ud83d\ude80\ud83e\udd28\n\n\ud83d\udccc SPACE ",
       "category": "weird",
       "time": "2026-01-03T02:19:00.289075"
+    },
+    {
+      "serial": "99575946",
+      "tweet_id": "2007341240379986366",
+      "text": "Are we buying a house or signing up for a rom-com? \ud83e\udd28\n\n\ud83d\udccc BUILT FOR YOU WITH LOVE ",
+      "category": "weird",
+      "time": "2026-01-03T06:40:21.197382"
     }
   ],
-  "last_weird_time": "2026-01-03T02:19:00.289084"
+  "last_weird_time": "2026-01-03T06:40:21.197393"
 }

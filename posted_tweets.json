@@ -64,7 +64,8 @@
     "99570121",
     "99569421",
     "99575050",
-    "99575037"
+    "99575037",
+    "99575643"
   ],
   "tweets": [
     {
@@ -511,7 +512,14 @@
       "text": "Just what we needed, more AI in healthcare. Because who doesn\u2019t want their medic",
       "category": "interesting",
       "time": "2026-01-02T18:52:04.083314"
+    },
+    {
+      "serial": "99575643",
+      "tweet_id": "2007275469654106408",
+      "text": "So, is this beer made for astronauts or just really bad decisions? \ud83c\udf7a\ud83d\ude80\ud83e\udd28\n\n\ud83d\udccc SPACE ",
+      "category": "weird",
+      "time": "2026-01-03T02:19:00.289075"
     }
   ],
-  "last_weird_time": "2026-01-02T02:19:35.932020"
+  "last_weird_time": "2026-01-03T02:19:00.289084"
 }

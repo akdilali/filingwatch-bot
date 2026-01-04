@@ -69,7 +69,9 @@
     "99575946",
     "99575533",
     "99576350",
-    "99576393"
+    "99576393",
+    "99576678",
+    "99576701"
   ],
   "tweets": [
     {
@@ -551,6 +553,20 @@
       "text": "Looks like the skies are about to get crowded with wannabe pilots. Hope they can",
       "category": "interesting",
       "time": "2026-01-04T12:56:39.856954"
+    },
+    {
+      "serial": "99576678",
+      "tweet_id": "2007885215591461129",
+      "text": "Because what we really need is AI telling us to drink more water and less Netfli",
+      "category": "interesting",
+      "time": "2026-01-04T18:41:55.008652"
+    },
+    {
+      "serial": "99576701",
+      "tweet_id": "2007886983536779321",
+      "text": "Just what we needed: another \"workshop\" to teach us how to be replaced by AI. Ca",
+      "category": "interesting",
+      "time": "2026-01-04T18:48:56.511092"
     }
   ],
   "last_weird_time": "2026-01-03T06:40:21.197393"

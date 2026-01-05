@@ -44052,3 +44052,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Mon Jan  5 07:08:34 UTC 2026
 ----------------------------------------
+Starting bot run at Mon Jan  5 13:00:15 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 402 kayıt var (Son serial: 99577268)
+
+📡 Incremental tarama: 99577268 → 99577364
+🆕 96 yeni başvuru var, taranıyor...
+✅ 69 yeni trademark eklendi.
+
+📦 Toplam: 471 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] THE TERMINOLOGY CONSIST OF "MONKEY AND DONKEY" INCLUDING VARIATION WHICH INCLUDES SYMBOL TO REPRESENT "MONKEY & DONKEY".  THIS ALSO INCLUDES THE REVERSAL OF WORDS FOR "DONKEY AND MONKEY" AND "DONKEY & MONKEY". (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008162487707807744)
+✅ https://twitter.com/i/status/2008162489368723765
+⏳ Bekleniyor: 3 dakika (227 sn)...
+
+[2/2] KOBICO (Score: 50)
+   Reasons: 🏢 Oracle
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008163450539614208)
+✅ https://twitter.com/i/status/2008163452024435171
+⏳ Bekleniyor: 3 dakika (197 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Mon Jan  5 13:10:48 UTC 2026
+----------------------------------------

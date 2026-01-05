@@ -71,7 +71,9 @@
     "99576350",
     "99576393",
     "99576678",
-    "99576701"
+    "99576701",
+    "99576945",
+    "99577177"
   ],
   "tweets": [
     {
@@ -567,7 +569,21 @@
       "text": "Just what we needed: another \"workshop\" to teach us how to be replaced by AI. Ca",
       "category": "interesting",
       "time": "2026-01-04T18:48:56.511092"
+    },
+    {
+      "serial": "99576945",
+      "tweet_id": "2008162489368723765",
+      "text": "When you can't decide if it's a book or a monkey business plan. Kids love both, ",
+      "category": "weird",
+      "time": "2026-01-05T13:03:42.264203"
+    },
+    {
+      "serial": "99577177",
+      "tweet_id": "2008163452024435171",
+      "text": "Looks like another tech giant is ready to squeeze every last cent from our healt",
+      "category": "must_post",
+      "time": "2026-01-05T13:07:31.796652"
     }
   ],
-  "last_weird_time": "2026-01-03T06:40:21.197393"
+  "last_weird_time": "2026-01-05T13:03:42.264213"
 }

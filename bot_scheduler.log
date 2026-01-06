@@ -44131,3 +44131,42 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17676407
 ✅ Tamamlandı!
 Bot run finished at Mon Jan  5 19:06:56 UTC 2026
 ----------------------------------------
+Starting bot run at Tue Jan  6 02:09:51 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99577866)
+
+📡 Incremental tarama: 99577866 → 99578823
+🆕 957 yeni başvuru var, taranıyor...
+✅ 743 yeni trademark eklendi.
+
+📦 Toplam: 743 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] QUIT YOUR JOB BUY A TICKET GET A TAN FALL IN LOVE NEVER RETURN (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008367625643192325)
+✅ https://twitter.com/i/status/2008367627799056502
+⏳ Bekleniyor: 3 dakika (184 sn)...
+
+[2/2] RACKSPACE AI SECURITY ENGINE (RAISE) (Score: 50)
+   Reasons: 🤖 AI, 💡 Cyber, ✨ Space
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008368408983994368)
+✅ https://twitter.com/i/status/2008368410674295192
+⏳ Bekleniyor: 6 dakika (402 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Tue Jan  6 02:48:39 UTC 2026
+----------------------------------------

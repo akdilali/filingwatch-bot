@@ -73,7 +73,9 @@
     "99576678",
     "99576701",
     "99576945",
-    "99577177"
+    "99577177",
+    "99578184",
+    "99578515"
   ],
   "tweets": [
     {
@@ -583,7 +585,21 @@
       "text": "Looks like another tech giant is ready to squeeze every last cent from our healt",
       "category": "must_post",
       "time": "2026-01-05T13:07:31.796652"
+    },
+    {
+      "serial": "99578184",
+      "tweet_id": "2008367627799056502",
+      "text": "QUIT YOUR JOB? Sounds like a plan! I'll take my tan with a side of unemployment ",
+      "category": "weird",
+      "time": "2026-01-06T02:38:51.013444"
+    },
+    {
+      "serial": "99578515",
+      "tweet_id": "2008368410674295192",
+      "text": "Looks like someone's trying to RAISE the bar on AI security. Or maybe just their",
+      "category": "must_post",
+      "time": "2026-01-06T02:41:57.677854"
     }
   ],
-  "last_weird_time": "2026-01-05T13:03:42.264213"
+  "last_weird_time": "2026-01-06T02:38:51.013453"
 }

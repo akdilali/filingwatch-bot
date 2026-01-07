@@ -44326,3 +44326,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Wed Jan  7 02:51:49 UTC 2026
 ----------------------------------------
+Starting bot run at Wed Jan  7 06:42:54 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 798 kayıt var (Son serial: 99580902)
+
+📡 Incremental tarama: 99580902 → 99581207
+🆕 305 yeni başvuru var, taranıyor...
+✅ 232 yeni trademark eklendi.
+
+📦 Toplam: 1030 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] EXCHANGES (Score: 50)
+   Reasons: 🏢 Goldman Sachs
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008793827222441984)
+✅ https://twitter.com/i/status/2008793828870762583
+⏳ Bekleniyor: 6 dakika (403 sn)...
+
+[2/2] THE MARKETS (Score: 50)
+   Reasons: 🏢 Goldman Sachs
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008795528264318976)
+✅ https://twitter.com/i/status/2008795530147643569
+⏳ Bekleniyor: 3 dakika (236 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Wed Jan  7 07:03:07 UTC 2026
+----------------------------------------

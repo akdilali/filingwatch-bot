@@ -76,7 +76,9 @@
     "99577177",
     "99578184",
     "99578515",
-    "99580359"
+    "99580359",
+    "99580498",
+    "99580504"
   ],
   "tweets": [
     {
@@ -607,6 +609,20 @@
       "text": "PepsiCo just trademarked \"TASTE THE THRILL\" for corn snacks. Because who needs t",
       "category": "must_post",
       "time": "2026-01-07T02:40:43.075767"
+    },
+    {
+      "serial": "99580498",
+      "tweet_id": "2008793828870762583",
+      "text": "Goldman Sachs wants to trademark \"EXCHANGES\" for podcasts. Because who wouldn\u2019t ",
+      "category": "must_post",
+      "time": "2026-01-07T06:52:25.281994"
+    },
+    {
+      "serial": "99580504",
+      "tweet_id": "2008795530147643569",
+      "text": "Because nothing says \"trust us with your money\" like a podcast from Goldman Sach",
+      "category": "must_post",
+      "time": "2026-01-07T06:59:10.897791"
     }
   ],
   "last_weird_time": "2026-01-06T02:38:51.013453"

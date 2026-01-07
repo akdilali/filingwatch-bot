@@ -44287,3 +44287,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Tue Jan  6 19:07:21 UTC 2026
 ----------------------------------------
+Starting bot run at Wed Jan  7 02:09:36 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99579870)
+
+📡 Incremental tarama: 99579870 → 99580902
+🆕 1032 yeni başvuru var, taranıyor...
+✅ 798 yeni trademark eklendi.
+
+📦 Toplam: 798 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] TASTE THE THRILL (Score: 50)
+   Reasons: 🏢 Pepsico
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008730483744796676)
+✅ https://twitter.com/i/status/2008730485350863077
+⏳ Bekleniyor: 6 dakika (366 sn)...
+
+[2/2] EXCHANGES (Score: 50)
+   Reasons: 🏢 Goldman Sachs
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008732030410870785)
+❌ Tweet hatası: 403 Forbidden | Limit: None | Reset: None | Body: <!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+");background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}</style><meta http-equiv="refresh" content="360"></head><body><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'api.twitter.com',cType: 'managed',cRay: '9ba0208c0e30ced1',cH: '9dSyKAdfJ93r95_bNoMOKC5IB4x3ehMU1LemOpGeLF8-1767754011-1.2.1.1-2JmpLM9erzMOgUO9CErMjbnjW2ERL6F9bXKcqSknNVP8A4K.JT4aqEWAZaAh3niL',cUPMDTk:"\/2\/tweets?__cf_chl_tk=C.XYNGvbiMpe0k74PMtfo6lmZ7DG_02bB.Y0iyYHy4U-1767754011-1.0.1.1-CW1nYWGlId7olQTFaC9fMPEK.EfySQrCXCYYFBDv9H4",cFPWv: 'b',cITimeS: '1767754011',cTplC:0,cTplV:5,cTplB: '0',fa:"\/2\/tweets?__cf_chl_f_tk=C.XYNGvbiMpe0k74PMtfo6lmZ7DG_02bB.Y0iyYHy4U-1767754011-1.0.1.1-CW1nYWGlId7olQTFaC9fMPEK.EfySQrCXCYYFBDv9H4",md: 'lv7qDjSQZdmKgFy8zvu5Z99nneLZxeOoZGOqGr2KUYc-1767754011-1.2.1.1-ktdU9yVGlWa_3MV65nne8.ti187pkUO1PiDXbvv3J8MEJ6JWwoU4g_JYjxhn.lOytb4CIPGOJiBgB0eHKH43cWGSk6jC3BiTnNWv3dhOdmycxj._iEtg6.QUnHGFcT1j41ClTlIoUKyzxJkbrGifRFvQ6dWhvb9h5AYqrOV5Pdmd78RROYmDPhIFFce7YRhIZd114z82bAVeJPXuznFz4QbGmJEcwzlJeSsZibkBbr70gykGmlOA8qNz_mcFegHjfP4OL3kwM.iJxrGQ2L1Vidcjg5F4hL6XY2InJyf32_hnfoQJGn2rW5nQXERHqFBc1imdpNqZCHdDKWb3Ea6J7v7oUOUkYHsH7yoyfyyb_Q2k2zoUI6Wjy5O4bdXuo6WlFCzWA0BD_QfojxfFIol_L_Vsn5i9YsrXlhOdMSWdibRL4NH4xH1cc_vb0FCHbqfhG3Nd7Vq8n6EI083.8csSh1yOUTMvcoaXd8UKiJMX_M52YWGu_r1dC9c1CKvJTD8M9O8rc7lN1S8VdJ3XEuCAPPjryNb2iOKnBNzE7dW7FDyZdIUGmjAztkTxawMa2r6A4Olkt912uk506WNr21TvT_wgusIMSD_TpGcKwfR7HZTguD9C6o6oGNJoSxgl4Ozkngt3pAFOusVOtwNZTK2uA4c.EF_NvKOYhUol2PhEJWmQnEygovhG4J_RrCVP1jQVCVNfBXv6YF8AKHwByrTo2NgnhYCuzYbGOay_.SQhRqEgrsz8SCgm9VvFEE_x2liqDJYYe4XoRCfOuvEauB34lbL.w6VzdE1dSpJ8ikQYIqFw_f2fxOjp9QGHriRX3PsCWFrYm4Ndu4onG5in3f4wKA',mdrd: '',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=9ba0208c0e30ced1';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"\/2\/tweets?__cf_chl_rt_tk=C.XYNGvbiMpe0k74PMtfo6lmZ7DG_02bB.Y0iyYHy4U-1767754011-1.0.1.1-CW1nYWGlId7olQTFaC9fMPEK.EfySQrCXCYYFBDv9H4"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>
+⏳ Bekleniyor: 4 dakika (298 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Wed Jan  7 02:51:49 UTC 2026
+----------------------------------------

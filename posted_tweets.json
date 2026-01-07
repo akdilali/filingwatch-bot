@@ -75,7 +75,8 @@
     "99576945",
     "99577177",
     "99578184",
-    "99578515"
+    "99578515",
+    "99580359"
   ],
   "tweets": [
     {
@@ -599,6 +600,13 @@
       "text": "Looks like someone's trying to RAISE the bar on AI security. Or maybe just their",
       "category": "must_post",
       "time": "2026-01-06T02:41:57.677854"
+    },
+    {
+      "serial": "99580359",
+      "tweet_id": "2008730485350863077",
+      "text": "PepsiCo just trademarked \"TASTE THE THRILL\" for corn snacks. Because who needs t",
+      "category": "must_post",
+      "time": "2026-01-07T02:40:43.075767"
     }
   ],
   "last_weird_time": "2026-01-06T02:38:51.013453"

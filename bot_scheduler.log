@@ -44404,3 +44404,43 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Wed Jan  7 13:13:27 UTC 2026
 ----------------------------------------
+Starting bot run at Wed Jan  7 18:42:02 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 1165 kayıt var (Son serial: 99581383)
+
+📡 Incremental tarama: 99581383 → 99581982
+🆕 599 yeni başvuru var, taranıyor...
+✅ 468 yeni trademark eklendi.
+
+📦 Toplam: 1633 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] SH!T COFFEE & WINE (KOPI LUWAK) (BORDEAUX) (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008977136217108480)
+✅ https://twitter.com/i/status/2008977138029035746
+⏳ Bekleniyor: 4 dakika (240 sn)...
+
+[2/2] PROTOCOL IQ (Score: 50)
+   Reasons: 🏢 Target
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2008978153163902978)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079998 | Reset: 1767813349 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 3 dakika (188 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Wed Jan  7 19:07:59 UTC 2026
+----------------------------------------

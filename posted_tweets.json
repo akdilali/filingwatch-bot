@@ -80,7 +80,8 @@
     "99580498",
     "99580504",
     "99580507",
-    "99580511"
+    "99580511",
+    "99581685"
   ],
   "tweets": [
     {
@@ -639,7 +640,14 @@
       "text": "Goldman Sachs is getting into the podcast game\u2014because who doesn\u2019t want to hear ",
       "category": "must_post",
       "time": "2026-01-07T13:09:46.722881"
+    },
+    {
+      "serial": "99581685",
+      "tweet_id": "2008977138029035746",
+      "text": "Is this coffee for when you\u2019re too classy for a hangover? \ud83d\ude2d\n\n\ud83d\udccc SH!T COFFEE & WIN",
+      "category": "weird",
+      "time": "2026-01-07T19:00:49.577949"
     }
   ],
-  "last_weird_time": "2026-01-06T02:38:51.013453"
+  "last_weird_time": "2026-01-07T19:00:49.577957"
 }

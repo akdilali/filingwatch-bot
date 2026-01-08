@@ -81,7 +81,9 @@
     "99580504",
     "99580507",
     "99580511",
-    "99581685"
+    "99581685",
+    "99582169",
+    "99582855"
   ],
   "tweets": [
     {
@@ -647,7 +649,21 @@
       "text": "Is this coffee for when you\u2019re too classy for a hangover? \ud83d\ude2d\n\n\ud83d\udccc SH!T COFFEE & WIN",
       "category": "weird",
       "time": "2026-01-07T19:00:49.577949"
+    },
+    {
+      "serial": "99582169",
+      "tweet_id": "2009093124916650128",
+      "text": "Why does this feel like a motivational poster for dog owners? \"Believe in yourse",
+      "category": "weird",
+      "time": "2026-01-08T02:41:43.007933"
+    },
+    {
+      "serial": "99582855",
+      "tweet_id": "2009094798074871975",
+      "text": "Ah yes, because nothing screams \"Universal Music\" like a line of Halloween costu",
+      "category": "must_post",
+      "time": "2026-01-08T02:48:21.930722"
     }
   ],
-  "last_weird_time": "2026-01-07T19:00:49.577957"
+  "last_weird_time": "2026-01-08T02:41:43.007938"
 }

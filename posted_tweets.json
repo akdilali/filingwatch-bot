@@ -83,7 +83,9 @@
     "99580511",
     "99581685",
     "99582169",
-    "99582855"
+    "99582855",
+    "99582293",
+    "99582867"
   ],
   "tweets": [
     {
@@ -663,7 +665,21 @@
       "text": "Ah yes, because nothing screams \"Universal Music\" like a line of Halloween costu",
       "category": "must_post",
       "time": "2026-01-08T02:48:21.930722"
+    },
+    {
+      "serial": "99582293",
+      "tweet_id": "2009156183622394033",
+      "text": "So we're bathing pets with love now? Next, we'll need a degree in emotional supp",
+      "category": "weird",
+      "time": "2026-01-08T06:52:17.403609"
+    },
+    {
+      "serial": "99582867",
+      "tweet_id": "2009157617663279386",
+      "text": "Looks like the music industry is ready to sell you everything but your dignity. ",
+      "category": "must_post",
+      "time": "2026-01-08T06:57:59.282425"
     }
   ],
-  "last_weird_time": "2026-01-08T02:41:43.007938"
+  "last_weird_time": "2026-01-08T06:52:17.403615"
 }

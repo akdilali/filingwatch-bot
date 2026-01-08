@@ -44483,3 +44483,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Thu Jan  8 02:53:30 UTC 2026
 ----------------------------------------
+Starting bot run at Thu Jan  8 06:43:23 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 827 kayıt var (Son serial: 99583056)
+
+📡 Incremental tarama: 99583056 → 99583326
+🆕 270 yeni başvuru var, taranıyor...
+✅ 204 yeni trademark eklendi.
+
+📦 Toplam: 1031 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] PAWS & LATHER BATHE THEM WITH LOVE (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009156181588127744)
+✅ https://twitter.com/i/status/2009156183622394033
+⏳ Bekleniyor: 5 dakika (339 sn)...
+
+[2/2] INTERCORD (Score: 50)
+   Reasons: 🏢 Universal
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009157614727294977)
+✅ https://twitter.com/i/status/2009157617663279386
+⏳ Bekleniyor: 4 dakika (279 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Thu Jan  8 07:02:38 UTC 2026
+----------------------------------------

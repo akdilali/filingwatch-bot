@@ -44561,3 +44561,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Thu Jan  8 13:17:48 UTC 2026
 ----------------------------------------
+Starting bot run at Thu Jan  8 18:38:00 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 1140 kayıt var (Son serial: 99583474)
+
+📡 Incremental tarama: 99583474 → 99584033
+🆕 559 yeni başvuru var, taranıyor...
+✅ 426 yeni trademark eklendi.
+
+📦 Toplam: 1566 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] HYPER TOUGH (Score: 60)
+   Reasons: 🏢 Walmart, ✨ Hyper
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009338290244128768)
+✅ https://twitter.com/i/status/2009338292420944101
+⏳ Bekleniyor: 5 dakika (308 sn)...
+
+[2/2] HYPER TOUGH (Score: 60)
+   Reasons: 🏢 Walmart, ✨ Hyper
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009339593213005824)
+✅ https://twitter.com/i/status/2009339595750609106
+⏳ Bekleniyor: 6 dakika (415 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Thu Jan  8 19:08:01 UTC 2026
+----------------------------------------

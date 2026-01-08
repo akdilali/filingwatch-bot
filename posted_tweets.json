@@ -87,7 +87,9 @@
     "99582293",
     "99582867",
     "99582899",
-    "99583057"
+    "99583057",
+    "99583666",
+    "99583673"
   ],
   "tweets": [
     {
@@ -695,6 +697,20 @@
       "text": "Looks like someone's gearing up to give \u201cshopping\u201d a whole new meaning\u2014because w",
       "category": "must_post",
       "time": "2026-01-08T13:10:48.378726"
+    },
+    {
+      "serial": "99583666",
+      "tweet_id": "2009338292420944101",
+      "text": "Walmart's new \"HYPER TOUGH\" mats are here to remind us that life is slippery\u2014jus",
+      "category": "must_post",
+      "time": "2026-01-08T18:55:55.521992"
+    },
+    {
+      "serial": "99583673",
+      "tweet_id": "2009339595750609106",
+      "text": "Walmart\u2019s latest trademark could be the first step in their quest to dominate th",
+      "category": "must_post",
+      "time": "2026-01-08T19:01:06.322839"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

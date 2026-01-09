@@ -93,7 +93,9 @@
     "99584596",
     "99584483",
     "99585100",
-    "99584860"
+    "99584860",
+    "99584865",
+    "99584658"
   ],
   "tweets": [
     {
@@ -743,6 +745,20 @@
       "text": "Just what we needed\u2014yet another box promising to unleash AI genius. Can we just ",
       "category": "interesting",
       "time": "2026-01-09T06:58:56.539705"
+    },
+    {
+      "serial": "99584865",
+      "tweet_id": "2009612047651131493",
+      "text": "Because we clearly needed another way to let algorithms ruin our dinner\u2014welcome ",
+      "category": "interesting",
+      "time": "2026-01-09T13:03:43.836525"
+    },
+    {
+      "serial": "99584658",
+      "tweet_id": "2009613630111723828",
+      "text": "Because nothing says \u201cwe care about wildfires\u201d like an online marketplace for ov",
+      "category": "interesting",
+      "time": "2026-01-09T13:10:01.121516"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

@@ -89,7 +89,9 @@
     "99582899",
     "99583057",
     "99583666",
-    "99583673"
+    "99583673",
+    "99584596",
+    "99584483"
   ],
   "tweets": [
     {
@@ -711,6 +713,20 @@
       "text": "Walmart\u2019s latest trademark could be the first step in their quest to dominate th",
       "category": "must_post",
       "time": "2026-01-08T19:01:06.322839"
+    },
+    {
+      "serial": "99584596",
+      "tweet_id": "2009455991059042492",
+      "text": "Samsung\u2019s new trademark sounds like the lovechild of a jet engine and a Roomba. ",
+      "category": "must_post",
+      "time": "2026-01-09T02:43:37.029086"
+    },
+    {
+      "serial": "99584483",
+      "tweet_id": "2009457068512825379",
+      "text": "Sony files for a trademark on gaming gear. Guess they're just now figuring out t",
+      "category": "must_post",
+      "time": "2026-01-09T02:47:53.904797"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

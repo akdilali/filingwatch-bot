@@ -95,7 +95,8 @@
     "99585100",
     "99584860",
     "99584865",
-    "99584658"
+    "99584658",
+    "99586263"
   ],
   "tweets": [
     {
@@ -759,6 +760,13 @@
       "text": "Because nothing says \u201cwe care about wildfires\u201d like an online marketplace for ov",
       "category": "interesting",
       "time": "2026-01-09T13:10:01.121516"
+    },
+    {
+      "serial": "99586263",
+      "tweet_id": "2009703633454051613",
+      "text": "Just what we need\u2014cozy pants with a side of chaos. Because who doesn\u2019t want to e",
+      "category": "must_post",
+      "time": "2026-01-09T19:07:39.584995"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

@@ -91,7 +91,9 @@
     "99583666",
     "99583673",
     "99584596",
-    "99584483"
+    "99584483",
+    "99585100",
+    "99584860"
   ],
   "tweets": [
     {
@@ -727,6 +729,20 @@
       "text": "Sony files for a trademark on gaming gear. Guess they're just now figuring out t",
       "category": "must_post",
       "time": "2026-01-09T02:47:53.904797"
+    },
+    {
+      "serial": "99585100",
+      "tweet_id": "2009518752572854508",
+      "text": "Just what the world needed\u2014more overpriced hoodies and jackets to remind us some",
+      "category": "must_post",
+      "time": "2026-01-09T06:53:00.569895"
+    },
+    {
+      "serial": "99584860",
+      "tweet_id": "2009520245535330516",
+      "text": "Just what we needed\u2014yet another box promising to unleash AI genius. Can we just ",
+      "category": "interesting",
+      "time": "2026-01-09T06:58:56.539705"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

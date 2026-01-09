@@ -44639,3 +44639,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Fri Jan  9 02:53:10 UTC 2026
 ----------------------------------------
+Starting bot run at Fri Jan  9 06:43:48 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 816 kayıt var (Son serial: 99585121)
+
+📡 Incremental tarama: 99585121 → 99585408
+🆕 287 yeni başvuru var, taranıyor...
+✅ 220 yeni trademark eklendi.
+
+📦 Toplam: 1036 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] WE ARE RICH MERCEDES (Score: 50)
+   Reasons: 🏢 Mercedes
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009518750714707968)
+✅ https://twitter.com/i/status/2009518752572854508
+⏳ Bekleniyor: 5 dakika (353 sn)...
+
+[2/2] AI-GENI-IN-A-BOX (Score: 40)
+   Reasons: 🤖 AI, 💡 Autonomous
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009520243358474240)
+✅ https://twitter.com/i/status/2009520245535330516
+⏳ Bekleniyor: 4 dakika (292 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Fri Jan  9 07:03:48 UTC 2026
+----------------------------------------

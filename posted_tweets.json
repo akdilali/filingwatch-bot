@@ -98,7 +98,9 @@
     "99584658",
     "99586263",
     "99587215",
-    "99587224"
+    "99587224",
+    "99586454",
+    "99586456"
   ],
   "tweets": [
     {
@@ -783,6 +785,20 @@
       "text": "Looks like Apple is ready to turn your doodles into overpriced masterpieces. Bec",
       "category": "must_post",
       "time": "2026-01-10T02:43:37.121174"
+    },
+    {
+      "serial": "99586454",
+      "tweet_id": "2010059685605339602",
+      "text": "Universal's latest trademark has all the charm of a theme park gift shop: overpr",
+      "category": "must_post",
+      "time": "2026-01-10T18:42:29.065101"
+    },
+    {
+      "serial": "99586456",
+      "tweet_id": "2010061375691805085",
+      "text": "Just what we need: a resort store for kids. Because why should they have fun wit",
+      "category": "must_post",
+      "time": "2026-01-10T18:49:12.087788"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

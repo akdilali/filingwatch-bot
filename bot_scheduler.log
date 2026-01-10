@@ -44878,3 +44878,42 @@ You are not permitted to perform this action. | Limit: 1079998 | Reset: 17680506
 ✅ Tamamlandı!
 Bot run finished at Sat Jan 10 13:06:24 UTC 2026
 ----------------------------------------
+Starting bot run at Sat Jan 10 18:37:09 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 912 kayıt var (Son serial: 99587516)
+
+📡 Incremental tarama: 99587516 → 99587675
+🆕 159 yeni başvuru var, taranıyor...
+✅ 119 yeni trademark eklendi.
+
+📦 Toplam: 1031 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] UNIVERSAL KIDS RESORT TO GO! (Score: 50)
+   Reasons: 🏢 Universal
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010059683915014144)
+✅ https://twitter.com/i/status/2010059685605339602
+⏳ Bekleniyor: 6 dakika (400 sn)...
+
+[2/2] UNIVERSAL KIDS RESORT STORE (Score: 50)
+   Reasons: 🏢 Universal
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010061372973813760)
+✅ https://twitter.com/i/status/2010061375691805085
+⏳ Bekleniyor: 5 dakika (340 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sat Jan 10 18:54:52 UTC 2026
+----------------------------------------

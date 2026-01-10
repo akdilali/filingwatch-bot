@@ -44757,3 +44757,42 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17679863
 ✅ Tamamlandı!
 Bot run finished at Fri Jan  9 19:12:32 UTC 2026
 ----------------------------------------
+Starting bot run at Sat Jan 10 02:06:56 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99586297)
+
+📡 Incremental tarama: 99586297 → 99587272
+🆕 975 yeni başvuru var, taranıyor...
+✅ 742 yeni trademark eklendi.
+
+📦 Toplam: 742 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] APPLE CREATOR STUDIO (Score: 60)
+   Reasons: 🏢 Apple, ✨ Studio
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009816661847863296)
+✅ https://twitter.com/i/status/2009816664041501031
+⏳ Bekleniyor: 6 dakika (406 sn)...
+
+[2/2] APPLE CREATOR STUDIO (Score: 60)
+   Reasons: 🏢 Apple, ✨ Studio
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009818377653731328)
+✅ https://twitter.com/i/status/2009818379268604326
+⏳ Bekleniyor: 5 dakika (325 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sat Jan 10 02:49:02 UTC 2026
+----------------------------------------

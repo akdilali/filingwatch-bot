@@ -96,7 +96,9 @@
     "99584860",
     "99584865",
     "99584658",
-    "99586263"
+    "99586263",
+    "99587215",
+    "99587224"
   ],
   "tweets": [
     {
@@ -767,6 +769,20 @@
       "text": "Just what we need\u2014cozy pants with a side of chaos. Because who doesn\u2019t want to e",
       "category": "must_post",
       "time": "2026-01-09T19:07:39.584995"
+    },
+    {
+      "serial": "99587215",
+      "tweet_id": "2009816664041501031",
+      "text": "Just what we needed: another way for Apple to take our money while we pretend to",
+      "category": "must_post",
+      "time": "2026-01-10T02:36:48.184650"
+    },
+    {
+      "serial": "99587224",
+      "tweet_id": "2009818379268604326",
+      "text": "Looks like Apple is ready to turn your doodles into overpriced masterpieces. Bec",
+      "category": "must_post",
+      "time": "2026-01-10T02:43:37.121174"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

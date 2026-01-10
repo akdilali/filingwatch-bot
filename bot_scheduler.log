@@ -44796,3 +44796,44 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Sat Jan 10 02:49:02 UTC 2026
 ----------------------------------------
+Starting bot run at Sat Jan 10 06:38:51 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 742 kayıt var (Son serial: 99587272)
+
+📡 Incremental tarama: 99587272 → 99587445
+🆕 173 yeni başvuru var, taranıyor...
+✅ 117 yeni trademark eklendi.
+
+📦 Toplam: 859 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] UNIVERSAL KIDS RESORT TO GO! (Score: 50)
+   Reasons: 🏢 Universal
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009878981114298368)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079999 | Reset: 1768028365 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 3 dakika (197 sn)...
+
+[2/2] UNIVERSAL KIDS RESORT STORE (Score: 50)
+   Reasons: 🏢 Universal
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2009879819572379648)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079998 | Reset: 1768028365 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 6 dakika (400 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sat Jan 10 06:54:26 UTC 2026
+----------------------------------------

@@ -100,7 +100,9 @@
     "99587215",
     "99587224",
     "99586454",
-    "99586456"
+    "99586456",
+    "99587717",
+    "99587783"
   ],
   "tweets": [
     {
@@ -799,6 +801,20 @@
       "text": "Just what we need: a resort store for kids. Because why should they have fun wit",
       "category": "must_post",
       "time": "2026-01-10T18:49:12.087788"
+    },
+    {
+      "serial": "99587717",
+      "tweet_id": "2010178532467515467",
+      "text": "Because nothing says \"cutting-edge tech\" like mixing AI with holy scriptures. Br",
+      "category": "interesting",
+      "time": "2026-01-11T02:34:44.344725"
+    },
+    {
+      "serial": "99587783",
+      "tweet_id": "2010179789319962931",
+      "text": "Ah yes, because nothing screams innovation like trademarking a clich\u00e9 phrase. Wh",
+      "category": "interesting",
+      "time": "2026-01-11T02:39:44.051551"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

@@ -44995,3 +44995,43 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Sun Jan 11 06:56:57 UTC 2026
 ----------------------------------------
+Starting bot run at Sun Jan 11 12:53:55 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 297 kayıt var (Son serial: 99588078)
+
+📡 Incremental tarama: 99588078 → 99588145
+🆕 67 yeni başvuru var, taranıyor...
+✅ 45 yeni trademark eklendi.
+
+📦 Toplam: 342 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] ZASHI (Score: 20)
+   Reasons: 💡 Crypto, 📝 Short Name
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010334992971206656)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079999 | Reset: 1768137087 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 6 dakika (392 sn)...
+
+[2/2] ZASHI (Score: 20)
+   Reasons: 💡 Crypto, 📝 Short Name
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010336646844076032)
+✅ https://twitter.com/i/status/2010336648584720749
+⏳ Bekleniyor: 3 dakika (181 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sun Jan 11 13:06:03 UTC 2026
+----------------------------------------

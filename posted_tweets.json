@@ -102,7 +102,9 @@
     "99586454",
     "99586456",
     "99587717",
-    "99587783"
+    "99587783",
+    "99587853",
+    "99587970"
   ],
   "tweets": [
     {
@@ -815,6 +817,20 @@
       "text": "Ah yes, because nothing screams innovation like trademarking a clich\u00e9 phrase. Wh",
       "category": "interesting",
       "time": "2026-01-11T02:39:44.051551"
+    },
+    {
+      "serial": "99587853",
+      "tweet_id": "2010241631870488873",
+      "text": "Aston A. Samuels Jr. just trademarked a combo of buzzwords that screams \"despera",
+      "category": "interesting",
+      "time": "2026-01-11T06:45:28.415690"
+    },
+    {
+      "serial": "99587970",
+      "tweet_id": "2010243078217486725",
+      "text": "Another day, another trademark for a digital wallet that promises to revolutioni",
+      "category": "interesting",
+      "time": "2026-01-11T06:51:13.237228"
     }
   ],
   "last_weird_time": "2026-01-08T06:52:17.403615"

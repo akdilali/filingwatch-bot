@@ -44956,3 +44956,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Sun Jan 11 02:46:09 UTC 2026
 ----------------------------------------
+Starting bot run at Sun Jan 11 06:40:37 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 196 kayıt var (Son serial: 99587939)
+
+📡 Incremental tarama: 99587939 → 99588078
+🆕 139 yeni başvuru var, taranıyor...
+✅ 101 yeni trademark eklendi.
+
+📦 Toplam: 297 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] SBPM + UHI + AI (Score: 25)
+   Reasons: 🤖 AI
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010241630142373889)
+✅ https://twitter.com/i/status/2010241631870488873
+⏳ Bekleniyor: 5 dakika (342 sn)...
+
+[2/2] ZASHI (Score: 20)
+   Reasons: 💡 Crypto, 📝 Short Name
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010243076355215360)
+✅ https://twitter.com/i/status/2010243078217486725
+⏳ Bekleniyor: 5 dakika (344 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Sun Jan 11 06:56:57 UTC 2026
+----------------------------------------

@@ -106,7 +106,9 @@
     "99587853",
     "99587970",
     "99587973",
-    "99587971"
+    "99587971",
+    "99588396",
+    "99588389"
   ],
   "tweets": [
     {
@@ -847,7 +849,21 @@
       "text": "Just what we needed\u2014a new crypto wallet to safely store all your regrets and emp",
       "category": "interesting",
       "time": "2026-01-11T18:42:16.818497"
+    },
+    {
+      "serial": "99588396",
+      "tweet_id": "2010540384624246869",
+      "text": "A honey haven for misbehaving bees? Sounds like the bee version of a summer camp",
+      "category": "weird",
+      "time": "2026-01-12T02:32:36.606394"
+    },
+    {
+      "serial": "99588389",
+      "tweet_id": "2010541963033092204",
+      "text": "Just what the world needs\u2014another AI newsletter promising \"strict quality.\" Beca",
+      "category": "interesting",
+      "time": "2026-01-12T02:38:53.011297"
     }
   ],
-  "last_weird_time": "2026-01-08T06:52:17.403615"
+  "last_weird_time": "2026-01-12T02:32:36.606401"
 }

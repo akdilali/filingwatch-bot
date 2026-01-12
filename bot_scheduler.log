@@ -45075,3 +45075,42 @@ You are not permitted to perform this action. | Limit: 1079998 | Reset: 17681578
 ✅ Tamamlandı!
 Bot run finished at Sun Jan 11 18:52:36 UTC 2026
 ----------------------------------------
+Starting bot run at Mon Jan 12 02:22:32 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99588296)
+
+📡 Incremental tarama: 99588296 → 99588619
+🆕 323 yeni başvuru var, taranıyor...
+✅ 240 yeni trademark eklendi.
+
+📦 Toplam: 240 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] BUDDY LOVE'S MIS-BEE-HAVEN THE APIARY WITH A WILD SIDE (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010540383135305728)
+✅ https://twitter.com/i/status/2010540384624246869
+⏳ Bekleniyor: 6 dakika (374 sn)...
+
+[2/2] STRICT QUALITY AI (Score: 25)
+   Reasons: 🤖 AI
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010541961489391616)
+✅ https://twitter.com/i/status/2010541963033092204
+⏳ Bekleniyor: 3 dakika (226 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Mon Jan 12 02:42:39 UTC 2026
+----------------------------------------

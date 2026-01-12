@@ -45193,3 +45193,42 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17682240
 ✅ Tamamlandı!
 Bot run finished at Mon Jan 12 13:13:49 UTC 2026
 ----------------------------------------
+Starting bot run at Mon Jan 12 18:41:33 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 508 kayıt var (Son serial: 99588976)
+
+📡 Incremental tarama: 99588976 → 99589645
+🆕 669 yeni başvuru var, taranıyor...
+✅ 498 yeni trademark eklendi.
+
+📦 Toplam: 1006 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] DRAGON STRIKER (Score: 50)
+   Reasons: 🏢 Disney
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010789319682797568)
+✅ https://twitter.com/i/status/2010789321431773533
+⏳ Bekleniyor: 3 dakika (221 sn)...
+
+[2/2] DRAGON STRIKER (Score: 50)
+   Reasons: 🏢 Disney
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010790256866435072)
+✅ https://twitter.com/i/status/2010790258451866099
+⏳ Bekleniyor: 3 dakika (203 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Mon Jan 12 19:08:54 UTC 2026
+----------------------------------------

@@ -111,7 +111,9 @@
     "99588389",
     "99588403",
     "99588422",
-    "99588614"
+    "99588614",
+    "99589236",
+    "99589251"
   ],
   "tweets": [
     {
@@ -887,6 +889,20 @@
       "text": "Because nothing screams innovation like a trademark for phone cases with AI\u2014what",
       "category": "interesting",
       "time": "2026-01-12T13:09:55.472818"
+    },
+    {
+      "serial": "99589236",
+      "tweet_id": "2010789321431773533",
+      "text": "Disney's trying to prove that 'Dragon Striker' is more than just a fancy name fo",
+      "category": "must_post",
+      "time": "2026-01-12T19:01:47.792844"
+    },
+    {
+      "serial": "99589251",
+      "tweet_id": "2010790258451866099",
+      "text": "Just what the world needs: more overpriced stationery from a mouse that\u2019s alread",
+      "category": "must_post",
+      "time": "2026-01-12T19:05:31.194664"
     }
   ],
   "last_weird_time": "2026-01-12T06:54:20.012089"

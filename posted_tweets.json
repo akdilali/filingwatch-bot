@@ -115,7 +115,9 @@
     "99589236",
     "99589251",
     "99589699",
-    "99589933"
+    "99589933",
+    "99590618",
+    "99589942"
   ],
   "tweets": [
     {
@@ -919,7 +921,21 @@
       "text": "Salesforce just trademarked a word that sounds like a failed superhero team. Pre",
       "category": "must_post",
       "time": "2026-01-13T02:46:04.930630"
+    },
+    {
+      "serial": "99590618",
+      "tweet_id": "2010968637859889502",
+      "text": "Every dog should have them? What are these, doggie snacks or a canine status sym",
+      "category": "weird",
+      "time": "2026-01-13T06:54:20.158650"
+    },
+    {
+      "serial": "99589942",
+      "tweet_id": "2010969777401983032",
+      "text": "Looks like Salesforce is trying to make \"work\" even more chaotic with their late",
+      "category": "must_post",
+      "time": "2026-01-13T06:58:51.822137"
     }
   ],
-  "last_weird_time": "2026-01-13T02:40:01.403045"
+  "last_weird_time": "2026-01-13T06:54:20.158658"
 }

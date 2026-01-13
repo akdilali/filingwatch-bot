@@ -45271,3 +45271,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Tue Jan 13 02:51:43 UTC 2026
 ----------------------------------------
+Starting bot run at Tue Jan 13 06:43:48 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 811 kayıt var (Son serial: 99590710)
+
+📡 Incremental tarama: 99590710 → 99591038
+🆕 328 yeni başvuru var, taranıyor...
+✅ 251 yeni trademark eklendi.
+
+📦 Toplam: 1062 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] WAGGIN' TAIL TREATS EVERY DOG SHOULD HAVE A WAGGIN' TAIL! (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010968636136009728)
+✅ https://twitter.com/i/status/2010968637859889502
+⏳ Bekleniyor: 4 dakika (269 sn)...
+
+[2/2] SLACKFORCE (Score: 50)
+   Reasons: 🏢 Salesforce
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2010969775195742208)
+✅ https://twitter.com/i/status/2010969777401983032
+⏳ Bekleniyor: 6 dakika (394 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Tue Jan 13 07:05:26 UTC 2026
+----------------------------------------

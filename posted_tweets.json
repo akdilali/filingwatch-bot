@@ -113,7 +113,9 @@
     "99588422",
     "99588614",
     "99589236",
-    "99589251"
+    "99589251",
+    "99589699",
+    "99589933"
   ],
   "tweets": [
     {
@@ -903,7 +905,21 @@
       "text": "Just what the world needs: more overpriced stationery from a mouse that\u2019s alread",
       "category": "must_post",
       "time": "2026-01-12T19:05:31.194664"
+    },
+    {
+      "serial": "99589699",
+      "tweet_id": "2010904637860094418",
+      "text": "Coaching dentists? So now I can get advice on my cavities and my life choices al",
+      "category": "weird",
+      "time": "2026-01-13T02:40:01.403036"
+    },
+    {
+      "serial": "99589933",
+      "tweet_id": "2010906162829398071",
+      "text": "Salesforce just trademarked a word that sounds like a failed superhero team. Pre",
+      "category": "must_post",
+      "time": "2026-01-13T02:46:04.930630"
     }
   ],
-  "last_weird_time": "2026-01-12T06:54:20.012089"
+  "last_weird_time": "2026-01-13T02:40:01.403045"
 }

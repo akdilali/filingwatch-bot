@@ -45310,3 +45310,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Tue Jan 13 07:05:26 UTC 2026
 ----------------------------------------
+Starting bot run at Tue Jan 13 13:00:46 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 1062 kayıt var (Son serial: 99591038)
+
+📡 Incremental tarama: 99591038 → 99591236
+🆕 198 yeni başvuru var, taranıyor...
+✅ 149 yeni trademark eklendi.
+
+📦 Toplam: 1211 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] POTLUCK SUNDAYS IS A STREAMING AND TELEVISION SERIES THAT EXPLORES THE HEART OF THE AMERICAN SOUTH THROUGH ONE OF ITS MOST BELOVED TRADITIONS: THE SUNDAY CHURCH POTLUCK. EACH EPISODE FOLLOWS OUR HOST AS THEY TRAVEL TO SMALL TOWNS AND REMOTE RURAL CHURCHES ACROSS THE SOUTHERN UNITED STATES, WHERE ENTIRE COMMUNITIES GATHER AFTER SUNDAY SERVICE TO SHARE FULLY HOMEMADE MEALS. THESE POTLUCKS ARE RICH WITH TRADITION, PRIDE, AND AN UNSPOKEN RIVALRY—ESPECIALLY WHEN IT COMES TO DESSERTS AND THE EVER-IMPORTANT QUESTION OF WHO MAKES THE BEST PIE.  POTLUCK SUNDAYS FOCUSES ON REAL PEOPLE AND REAL FOOD. THE COOKS ARE EVERYDAY CHURCH MEMBERS (GRANDMOTHERS, FARMERS, LIFELONG LOCALS) PREPARING RECIPES THAT HAVE BEEN PASSED DOWN FOR GENERATIONS. THE FOOD BECOMES THE ENTRY POINT INTO AUTHENTIC STORIES OF FAITH, FAMILY, HUMOR, AND REGIONAL IDENTITY. SIGNATURE REGIONAL DISHES AND DESSERTS WHILE OFFERING A FRESH, UNDERSERVED PERSPECTIVE ROOTED IN RURAL AMERICA AND COMMUNITY-CENTERED STORYTELLING.AT ITS HEART, POTLUCK SUNDAYS REMINDS VIEWERS THAT SOME OF THE BEST FOOD—AND BEST STORIES—ARE STILL FOUND OFF THE BEATEN PATH, SHARED ACROSS FOLDING TABLES, AND SERVED WITH LOVE. (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011062509982162944)
+✅ https://twitter.com/i/status/2011062511819235391
+⏳ Bekleniyor: 5 dakika (319 sn)...
+
+[2/2] SLACKFORCE (Score: 50)
+   Reasons: 🏢 Salesforce
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011063859734306817)
+✅ https://twitter.com/i/status/2011063862779326706
+⏳ Bekleniyor: 5 dakika (322 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Tue Jan 13 13:18:05 UTC 2026
+----------------------------------------

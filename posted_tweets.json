@@ -117,7 +117,9 @@
     "99589699",
     "99589933",
     "99590618",
-    "99589942"
+    "99589942",
+    "99590348",
+    "99589945"
   ],
   "tweets": [
     {
@@ -935,7 +937,21 @@
       "text": "Looks like Salesforce is trying to make \"work\" even more chaotic with their late",
       "category": "must_post",
       "time": "2026-01-13T06:58:51.822137"
+    },
+    {
+      "serial": "99590348",
+      "tweet_id": "2011062511819235391",
+      "text": "Streaming Potlucks? Are we all watching grandma's seven-layer dip debate? \ud83d\ude02\ud83d\udc80\n\n\ud83d\udccc ",
+      "category": "weird",
+      "time": "2026-01-13T13:07:21.441253"
+    },
+    {
+      "serial": "99589945",
+      "tweet_id": "2011063862779326706",
+      "text": "Salesforce wants to merge your work chat and CRM into one big happy family. Beca",
+      "category": "must_post",
+      "time": "2026-01-13T13:12:43.534719"
     }
   ],
-  "last_weird_time": "2026-01-13T06:54:20.158658"
+  "last_weird_time": "2026-01-13T13:07:21.441262"
 }

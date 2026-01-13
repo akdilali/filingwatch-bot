@@ -119,7 +119,9 @@
     "99590618",
     "99589942",
     "99590348",
-    "99589945"
+    "99589945",
+    "99590703",
+    "99590001"
   ],
   "tweets": [
     {
@@ -951,7 +953,21 @@
       "text": "Salesforce wants to merge your work chat and CRM into one big happy family. Beca",
       "category": "must_post",
       "time": "2026-01-13T13:12:43.534719"
+    },
+    {
+      "serial": "99590703",
+      "tweet_id": "2011151197831356804",
+      "text": "Charitable HVAC? Is that to warm your heart or cool your feelings? \ud83d\ude2d\n\n\ud83d\udccc FEEL THE",
+      "category": "weird",
+      "time": "2026-01-13T18:59:45.843519"
+    },
+    {
+      "serial": "99590001",
+      "tweet_id": "2011152576507470313",
+      "text": "Because nothing screams \"timely news\" like a radio show named after a relic from",
+      "category": "must_post",
+      "time": "2026-01-13T19:05:14.585732"
     }
   ],
-  "last_weird_time": "2026-01-13T13:07:21.441262"
+  "last_weird_time": "2026-01-13T18:59:45.843526"
 }

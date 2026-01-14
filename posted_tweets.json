@@ -122,7 +122,9 @@
     "99589945",
     "99590703",
     "99590001",
-    "99591926"
+    "99591926",
+    "99592847",
+    "99591908"
   ],
   "tweets": [
     {
@@ -975,7 +977,21 @@
       "text": "Is this beer for adventurers or just a portal to hiccup land? \ud83d\udd73\ufe0f\ud83e\udd28\n\n\ud83d\udccc REALM WALKE",
       "category": "weird",
       "time": "2026-01-14T02:58:34.436798"
+    },
+    {
+      "serial": "99592847",
+      "tweet_id": "2011425021064085882",
+      "text": "Hooded towels? Are we wrapping babies in love or just trying to keep them from e",
+      "category": "weird",
+      "time": "2026-01-14T13:07:50.363896"
+    },
+    {
+      "serial": "99591908",
+      "tweet_id": "2011426054284705885",
+      "text": "Just what we needed: another corporate circus where Oracle tries to convince us ",
+      "category": "must_post",
+      "time": "2026-01-14T13:11:56.736084"
     }
   ],
-  "last_weird_time": "2026-01-14T02:58:34.436807"
+  "last_weird_time": "2026-01-14T13:07:50.363906"
 }

@@ -121,7 +121,8 @@
     "99590348",
     "99589945",
     "99590703",
-    "99590001"
+    "99590001",
+    "99591926"
   ],
   "tweets": [
     {
@@ -967,7 +968,14 @@
       "text": "Because nothing screams \"timely news\" like a radio show named after a relic from",
       "category": "must_post",
       "time": "2026-01-13T19:05:14.585732"
+    },
+    {
+      "serial": "99591926",
+      "tweet_id": "2011271694027989374",
+      "text": "Is this beer for adventurers or just a portal to hiccup land? \ud83d\udd73\ufe0f\ud83e\udd28\n\n\ud83d\udccc REALM WALKE",
+      "category": "weird",
+      "time": "2026-01-14T02:58:34.436798"
     }
   ],
-  "last_weird_time": "2026-01-13T18:59:45.843526"
+  "last_weird_time": "2026-01-14T02:58:34.436807"
 }

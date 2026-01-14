@@ -45388,3 +45388,43 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Tue Jan 13 19:09:29 UTC 2026
 ----------------------------------------
+Starting bot run at Wed Jan 14 02:21:26 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99591893)
+
+📡 Incremental tarama: 99591893 → 99593134
+🆕 1241 yeni başvuru var, taranıyor...
+✅ 945 yeni trademark eklendi.
+
+📦 Toplam: 945 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] REALM WALKERS BEER CO. WR EST. 2025 (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011271692157665280)
+✅ https://twitter.com/i/status/2011271694027989374
+⏳ Bekleniyor: 3 dakika (180 sn)...
+
+[2/2] ORACLE AI WORLD (Score: 75)
+   Reasons: 🏢 Oracle, 🤖 AI
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011272460667072512)
+❌ Tweet hatası: 403 Forbidden
+You are not permitted to perform this action. | Limit: 1079998 | Reset: 1768360414 | Body: {"detail":"You are not permitted to perform this action.","type":"about:blank","title":"Forbidden","status":403}
+⏳ Bekleniyor: 3 dakika (206 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Wed Jan 14 03:05:03 UTC 2026
+----------------------------------------

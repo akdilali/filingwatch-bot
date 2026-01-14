@@ -45508,3 +45508,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Wed Jan 14 13:15:16 UTC 2026
 ----------------------------------------
+Starting bot run at Wed Jan 14 18:41:55 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 1267 kayıt var (Son serial: 99593584)
+
+📡 Incremental tarama: 99593584 → 99594287
+🆕 703 yeni başvuru var, taranıyor...
+✅ 523 yeni trademark eklendi.
+
+📦 Toplam: 1790 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] BEE (Score: 55)
+   Reasons: 🏢 Amazon, 📝 Short Name
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011514748324769792)
+✅ https://twitter.com/i/status/2011514749775986761
+⏳ Bekleniyor: 5 dakika (339 sn)...
+
+[2/2] BEE PIONEER (Score: 50)
+   Reasons: 🏢 Amazon
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011516182776397824)
+✅ https://twitter.com/i/status/2011516184479604995
+⏳ Bekleniyor: 4 dakika (298 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Wed Jan 14 19:15:03 UTC 2026
+----------------------------------------

@@ -124,7 +124,9 @@
     "99590001",
     "99591926",
     "99592847",
-    "99591908"
+    "99591908",
+    "99592081",
+    "99592087"
   ],
   "tweets": [
     {
@@ -991,6 +993,20 @@
       "text": "Just what we needed: another corporate circus where Oracle tries to convince us ",
       "category": "must_post",
       "time": "2026-01-14T13:11:56.736084"
+    },
+    {
+      "serial": "99592081",
+      "tweet_id": "2011514749775986761",
+      "text": "Amazon's latest trademark filing for \"BEE\" has us buzzing\u2014because who doesn't wa",
+      "category": "must_post",
+      "time": "2026-01-14T19:04:23.392145"
+    },
+    {
+      "serial": "99592087",
+      "tweet_id": "2011516184479604995",
+      "text": "Just what we need: another gadget from a certain online behemoth that will *defi",
+      "category": "must_post",
+      "time": "2026-01-14T19:10:05.505117"
     }
   ],
   "last_weird_time": "2026-01-14T13:07:50.363906"

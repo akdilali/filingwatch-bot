@@ -130,7 +130,9 @@
     "99595014",
     "99594769",
     "99595509",
-    "99594890"
+    "99594890",
+    "99594408",
+    "99594519"
   ],
   "tweets": [
     {
@@ -1039,6 +1041,20 @@
       "text": "Just what we needed: another way to drink apple-flavored regret. \ud83c\udf4e Cheers to the",
       "category": "must_post",
       "time": "2026-01-15T06:57:58.254287"
+    },
+    {
+      "serial": "99594408",
+      "tweet_id": "2011786943692955712",
+      "text": "Just what we needed\u2014AI to scrub our industrial equipment! Because who wouldn\u2019t w",
+      "category": "interesting",
+      "time": "2026-01-15T13:05:59.552875"
+    },
+    {
+      "serial": "99594519",
+      "tweet_id": "2011788474203193751",
+      "text": "Get ready for your inbox to be flooded with reports on how AI will ruin everythi",
+      "category": "interesting",
+      "time": "2026-01-15T13:12:04.379900"
     }
   ],
   "last_weird_time": "2026-01-15T06:53:33.479106"

@@ -126,7 +126,9 @@
     "99592847",
     "99591908",
     "99592081",
-    "99592087"
+    "99592087",
+    "99595014",
+    "99594769"
   ],
   "tweets": [
     {
@@ -1007,7 +1009,21 @@
       "text": "Just what we need: another gadget from a certain online behemoth that will *defi",
       "category": "must_post",
       "time": "2026-01-14T19:10:05.505117"
+    },
+    {
+      "serial": "99595014",
+      "tweet_id": "2011630167379349572",
+      "text": "A moving company promoting peace, love, and cleaning? Are they packing my boxes ",
+      "category": "weird",
+      "time": "2026-01-15T02:43:01.089585"
+    },
+    {
+      "serial": "99594769",
+      "tweet_id": "2011631848661868916",
+      "text": "Because nothing says \"I love you\" like a digital version of your face on a $5 tr",
+      "category": "must_post",
+      "time": "2026-01-15T02:49:41.906325"
     }
   ],
-  "last_weird_time": "2026-01-14T13:07:50.363906"
+  "last_weird_time": "2026-01-15T02:43:01.089597"
 }

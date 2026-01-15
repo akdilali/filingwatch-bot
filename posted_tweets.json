@@ -132,7 +132,8 @@
     "99595509",
     "99594890",
     "99594408",
-    "99594519"
+    "99594519",
+    "99596235"
   ],
   "tweets": [
     {
@@ -1055,6 +1056,13 @@
       "text": "Get ready for your inbox to be flooded with reports on how AI will ruin everythi",
       "category": "interesting",
       "time": "2026-01-15T13:12:04.379900"
+    },
+    {
+      "serial": "99596235",
+      "tweet_id": "2011878893641490897",
+      "text": "Because nothing says luxury like smelling like a tea storm. Next up: haute coutu",
+      "category": "must_post",
+      "time": "2026-01-15T19:11:22.017155"
     }
   ],
   "last_weird_time": "2026-01-15T06:53:33.479106"

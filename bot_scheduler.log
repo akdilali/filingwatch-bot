@@ -45586,3 +45586,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Thu Jan 15 02:56:11 UTC 2026
 ----------------------------------------
+Starting bot run at Thu Jan 15 06:43:02 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 840 kayıt var (Son serial: 99595386)
+
+📡 Incremental tarama: 99595386 → 99595726
+🆕 340 yeni başvuru var, taranıyor...
+✅ 253 yeni trademark eklendi.
+
+📦 Toplam: 1093 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] WATER SO CLEAN IT FEELS LIKE MAGIC (Score: 0)
+   Reasons: 
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011693215414714368)
+✅ https://twitter.com/i/status/2011693217624768590
+⏳ Bekleniyor: 4 dakika (263 sn)...
+
+[2/2] AUSTIN EAST (Score: 50)
+   Reasons: 🏢 Apple
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011694326192218112)
+✅ https://twitter.com/i/status/2011694328112935085
+⏳ Bekleniyor: 5 dakika (343 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Thu Jan 15 07:03:41 UTC 2026
+----------------------------------------

@@ -128,7 +128,9 @@
     "99592081",
     "99592087",
     "99595014",
-    "99594769"
+    "99594769",
+    "99595509",
+    "99594890"
   ],
   "tweets": [
     {
@@ -1023,7 +1025,21 @@
       "text": "Because nothing says \"I love you\" like a digital version of your face on a $5 tr",
       "category": "must_post",
       "time": "2026-01-15T02:49:41.906325"
+    },
+    {
+      "serial": "99595509",
+      "tweet_id": "2011693217624768590",
+      "text": "Is it water or just a magician's illusion? \ud83e\ude84 Someone call Houdini, we've got a p",
+      "category": "weird",
+      "time": "2026-01-15T06:53:33.479097"
+    },
+    {
+      "serial": "99594890",
+      "tweet_id": "2011694328112935085",
+      "text": "Just what we needed: another way to drink apple-flavored regret. \ud83c\udf4e Cheers to the",
+      "category": "must_post",
+      "time": "2026-01-15T06:57:58.254287"
     }
   ],
-  "last_weird_time": "2026-01-15T02:43:01.089597"
+  "last_weird_time": "2026-01-15T06:53:33.479106"
 }

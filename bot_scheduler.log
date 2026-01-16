@@ -45743,3 +45743,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Fri Jan 16 02:56:36 UTC 2026
 ----------------------------------------
+Starting bot run at Fri Jan 16 06:43:28 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 892 kayıt var (Son serial: 99597744)
+
+📡 Incremental tarama: 99597744 → 99598059
+🆕 315 yeni başvuru var, taranıyor...
+✅ 247 yeni trademark eklendi.
+
+📦 Toplam: 1139 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] WAY TO CELEBRATE (Score: 50)
+   Reasons: 🏢 Walmart
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2012055674507657216)
+✅ https://twitter.com/i/status/2012055676202127608
+⏳ Bekleniyor: 5 dakika (337 sn)...
+
+[2/2] PEN+GEAR (Score: 50)
+   Reasons: 🏢 Walmart
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2012057095630405632)
+✅ https://twitter.com/i/status/2012057097412751759
+⏳ Bekleniyor: 3 dakika (239 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Fri Jan 16 07:03:28 UTC 2026
+----------------------------------------

@@ -135,7 +135,9 @@
     "99594519",
     "99596235",
     "99596844",
-    "99596946"
+    "99596946",
+    "99597022",
+    "99597110"
   ],
   "tweets": [
     {
@@ -1079,6 +1081,20 @@
       "text": "Looks like Google\u2019s cooking up a \u201cNANO BANANA\u201d for AI art. Because who wouldn\u2019t ",
       "category": "must_post",
       "time": "2026-01-16T02:51:58.258848"
+    },
+    {
+      "serial": "99597022",
+      "tweet_id": "2012055676202127608",
+      "text": "Walmart is diving into the body art game\u2014because nothing says \"celebration\" like",
+      "category": "must_post",
+      "time": "2026-01-16T06:53:50.297895"
+    },
+    {
+      "serial": "99597110",
+      "tweet_id": "2012057097412751759",
+      "text": "Walmart's diving into the cleaning game with wipes? Because nothing screams \"lux",
+      "category": "must_post",
+      "time": "2026-01-16T06:59:29.190769"
     }
   ],
   "last_weird_time": "2026-01-15T06:53:33.479106"

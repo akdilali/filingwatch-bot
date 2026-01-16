@@ -45782,3 +45782,42 @@ INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
 ✅ Tamamlandı!
 Bot run finished at Fri Jan 16 07:03:28 UTC 2026
 ----------------------------------------
+Starting bot run at Fri Jan 16 12:58:35 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+📦 Cache'de 1139 kayıt var (Son serial: 99598059)
+
+📡 Incremental tarama: 99598059 → 99598259
+🆕 200 yeni başvuru var, taranıyor...
+✅ 155 yeni trademark eklendi.
+
+📦 Toplam: 1294 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] KNEAT AI-GRID (Score: 25)
+   Reasons: 🤖 AI
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2012149135348998144)
+✅ https://twitter.com/i/status/2012149136938647555
+⏳ Bekleniyor: 5 dakika (344 sn)...
+
+[2/2] AI-MSET (Score: 25)
+   Reasons: 🤖 AI
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2012150588465631232)
+✅ https://twitter.com/i/status/2012150590244106317
+⏳ Bekleniyor: 4 dakika (271 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Fri Jan 16 13:15:30 UTC 2026
+----------------------------------------

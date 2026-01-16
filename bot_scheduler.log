@@ -45704,3 +45704,42 @@ You are not permitted to perform this action. | Limit: 1079999 | Reset: 17685049
 ✅ Tamamlandı!
 Bot run finished at Thu Jan 15 19:15:21 UTC 2026
 ----------------------------------------
+Starting bot run at Fri Jan 16 02:11:39 UTC 2026
+Virtual environment not found!
+
+    ╔═══════════════════════════════════════════╗
+    ║   FilingWatch v2.1 - USPTO Trademark Bot  ║
+    ║   Günlük Cache + Akıllı Filtreleme        ║
+    ╚═══════════════════════════════════════════╝
+    
+🔄 Günlük liste sıfır (Dünden kalan serial: 99596566)
+
+📡 Incremental tarama: 99596566 → 99597744
+🆕 1178 yeni başvuru var, taranıyor...
+✅ 892 yeni trademark eklendi.
+
+📦 Toplam: 892 trademark
+
+🔍 Filtreleniyor...
+INFO - 📊 Puanlama sonucu ve seçim: 2 aday tweet
+🎯 Seçilen: 2 trademark
+
+📢 Tweet atılıyor...
+
+[1/2] POWER YOUR LEGACY (Score: 50)
+   Reasons: 🏢 Coca-Cola
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011993416184332288)
+✅ https://twitter.com/i/status/2011993419309081003
+⏳ Bekleniyor: 5 dakika (328 sn)...
+
+[2/2] NANO BANANA (Score: 50)
+   Reasons: 🏢 Google
+   🎨 Kartvizit oluşturuluyor...
+🖼️ Görsel yüklendi: temp_card.png (ID: 2011994806365327361)
+✅ https://twitter.com/i/status/2011994808055714158
+⏳ Bekleniyor: 4 dakika (278 sn)...
+
+✅ Tamamlandı!
+Bot run finished at Fri Jan 16 02:56:36 UTC 2026
+----------------------------------------

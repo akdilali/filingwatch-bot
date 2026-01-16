@@ -133,7 +133,9 @@
     "99594890",
     "99594408",
     "99594519",
-    "99596235"
+    "99596235",
+    "99596844",
+    "99596946"
   ],
   "tweets": [
     {
@@ -1063,6 +1065,20 @@
       "text": "Because nothing says luxury like smelling like a tea storm. Next up: haute coutu",
       "category": "must_post",
       "time": "2026-01-15T19:11:22.017155"
+    },
+    {
+      "serial": "99596844",
+      "tweet_id": "2011993419309081003",
+      "text": "Coca-Cola wants to help you \"power your legacy\"\u2014because nothing says success lik",
+      "category": "must_post",
+      "time": "2026-01-16T02:46:27.074466"
+    },
+    {
+      "serial": "99596946",
+      "tweet_id": "2011994808055714158",
+      "text": "Looks like Google\u2019s cooking up a \u201cNANO BANANA\u201d for AI art. Because who wouldn\u2019t ",
+      "category": "must_post",
+      "time": "2026-01-16T02:51:58.258848"
     }
   ],
   "last_weird_time": "2026-01-15T06:53:33.479106"
